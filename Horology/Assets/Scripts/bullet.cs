@@ -7,6 +7,7 @@ public class bullet : MonoBehaviour
 
     public float speed = 40f;
     public Rigidbody2D rb;
+    public GameObject impactEffect;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +24,8 @@ public class bullet : MonoBehaviour
         {
             enemy.Hit(40);
         }
+
+        Instantiate(impactEffect, transform.position, transform.rotation);
 
     }
 
