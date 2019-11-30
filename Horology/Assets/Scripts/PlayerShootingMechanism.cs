@@ -15,6 +15,6 @@ public class PlayerShootingMechanism : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(Input.GetAxis("ShootHorizontal") + " == " + Input.GetAxis("ShootVertical"));
+
     }
 }
