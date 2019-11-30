@@ -15,9 +15,12 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         direction.x = Input.GetAxis("Horizontal");
         direction.y = Input.GetAxis("Vertical");
-        transform.position += movementSpeed * direction * Time.deltaTime;
+    }
+
+    private void FixedUpdate()
+    {
+        transform.position += movementSpeed * direction * Time.fixedDeltaTime;
     }
 }
