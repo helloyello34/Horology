@@ -1,0 +1,38 @@
+fileFormatVersion: 2
+guid: c9bec5fd68dcbed4bb70bd855d8937d5
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Tomorrow
+  fontNames:
+  - Tomorrow
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 2580ba3039ba38b4bbe5bb4ccd04a2b4, type: 3}
+  - {fileID: 12800000, guid: 8ca4a3a09d91a834285f7ad448fe4de5, type: 3}
+  - {fileID: 12800000, guid: 611869a1234d3984ebf8b6b4c6bff715, type: 3}
+  - {fileID: 12800000, guid: 441ba2e34c0bbee47bb8d3b83f18b1ac, type: 3}
+  - {fileID: 12800000, guid: c60d825423a48bf48a23781582896ee2, type: 3}
+  - {fileID: 12800000, guid: 5f28d9b45666e03408c9e41fcad16a3b, type: 3}
+  - {fileID: 12800000, guid: 9f1186d41e8f20548b81e986366ebba6, type: 3}
+  - {fileID: 12800000, guid: 616db045a81ba65498ffa944dcd2b7a4, type: 3}
+  - {fileID: 12800000, guid: 243297f62996e2b42b725de735f6832d, type: 3}
+  - {fileID: 12800000, guid: b24071574d537424487b7d1d04cd5e74, type: 3}
+  - {fileID: 12800000, guid: a0fd9c489520e514682ab58c3523905b, type: 3}
+  - {fileID: 12800000, guid: 709b6fa86ba2dae44ba9b04def0bf3c9, type: 3}
+  - {fileID: 12800000, guid: 5aa598b9af1a50f4994cc53eec45a089, type: 3}
+  - {fileID: 12800000, guid: 8c8d0c9d91d28874ab43e647ad443582, type: 3}
+  - {fileID: 12800000, guid: b3998e3ed35e5a14b8fd79f970e44b7b, type: 3}
+  - {fileID: 12800000, guid: 742f43af6dcf74b439faeb6673912177, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
