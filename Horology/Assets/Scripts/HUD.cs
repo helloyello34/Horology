@@ -6,28 +6,22 @@ using UnityEngine.UI;
 public class HUD : MonoBehaviour
 {
 
-    //private Player player;
+    private Player player;
     public Image[] Hearts;
     private Image HeartImage;
     public GameObject ParentObject;
 
     private ArrayList HeartList = new ArrayList();
-    //player.startingHealth
-    //player.currentHealth
-    //player.maxHealth
-    public int startingHealth;
-    public int currentHealth;
-    public int maxHealth;
-
 
     private float spacingX;
 
     void Start()
     {
-        //player = GameObject.FindGameObjectWithTag("player").GetComponent<Player>();
+        player = GameObject.FindGameObjectWithTag("player").GetComponent<Player>();
+        //player = PlayerManager.instance.player.GetComponent<Player>();
         spacingX = 100;
 
-        AddHearts(startingHealth / 2);
+        AddHearts(player.startingHealth / 2);
     }
 
     public void AddHearts(int n)
@@ -48,23 +42,28 @@ public class HUD : MonoBehaviour
 
     public void UpdateHearts()
     {
-        int i = currentHealth;
+        //Players current health to decide heart sprites
+        int i = player.currentHealth;
         foreach(Image h in HeartList)
         {
-            if(i < 2)
+            if(i >= 2)
             {
                 //Full heart
+                h.sprite = Hearts[2].sprite;
+                //Substract "full heart"
                 i -= 2;
             }
             else if(i == 1)
             {
                 //Half heart
                 h.sprite = Hearts[1].sprite;
+                //i = 0, rest of heart should be empty
                 i = 0;
             }
             else
             {
                 //Empty heart
+                h.sprite = Hearts[0].sprite;
             }
         }
     }
