@@ -25,7 +25,6 @@ public class bullet : MonoBehaviour
             enemy.Hit(40);
         }
 
-        Instantiate(impactEffect, transform.position, transform.rotation);
 
     }
 
