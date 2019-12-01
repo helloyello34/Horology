@@ -21,7 +21,7 @@ public class EnemyBullet : MonoBehaviour
 
         if (player)
         {
-            player.Hit(40);
+            player.Hit(1);
         }
     }
 }
