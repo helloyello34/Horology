@@ -16,6 +16,20 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 4.9099994, y: 4.9099994}
   m_Direction: 0
+--- !u!114 &-782829534084546571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1016370420439840233}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0c86e7f2cb1e1a4f8f573dc45c68c9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 0
+  currentHealth: 0
 --- !u!1001 &3331376928277788129
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26,7 +40,7 @@ PrefabInstance:
     - target: {fileID: 2315327574091890696, guid: c3c2b3e4b60b3a542bc69e71ddf682a4,
         type: 3}
       propertyPath: m_Name
-      value: Player kidi
+      value: Player balli
       objectReference: {fileID: 0}
     - target: {fileID: 2315327574091890696, guid: c3c2b3e4b60b3a542bc69e71ddf682a4,
         type: 3}
