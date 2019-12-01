@@ -17,7 +17,7 @@ public class HUD : MonoBehaviour
 
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("player").GetComponent<Player>();
+        player = PlayerManager.instance.player.GetComponent<Player>();
         //player = PlayerManager.instance.player.GetComponent<Player>();
         spacingX = 100;
 
