@@ -5,11 +5,20 @@ using UnityEngine.AI;
 
 public class EnemyController : MonoBehaviour
 {
-
-    public float lookRadius = 4.0f;
+    public float aggroRadius = 6.0f;
+    public float outerRadius = 5.0f;
+    public float innerRadius = 3.0f;
+    [Space]
     public float speed = 10f;
-    float timeSinceShot = 0;
     public float shootInterval;
+    public float decisionInterval;
+    public float lookRadius = 4.0f;
+
+
+    private float timeSinceShot = 0;
+    private float timeSinceLastDecision = 0;
+    private bool aggro = false;
+    private Vector3 randomDirection = new Vector3(0, 0, 0);
 
     Transform target;
     Rigidbody2D rb;
@@ -26,27 +35,75 @@ public class EnemyController : MonoBehaviour
     }
 
 
-    private void FixedUpdate()
+    void FixedUpdate()
     {
-        timeSinceShot += Time.fixedDeltaTime;
-        float distance = Vector3.Distance(target.position, transform.position);
-        if (distance <= lookRadius)
+        // Distance to the player
+        float distanceToPlayer = Vector3.Distance(target.position, transform.position);
+
+
+        if (distanceToPlayer <= aggroRadius)
         {
-            float step = Time.fixedDeltaTime * speed;
-            transform.position = Vector3.MoveTowards(transform.position, target.position, step);
-            
+            //Permanently make enemy aggressive to player
+            aggro = true;
+        }
+
+        //If enemy is not aggro, do nothing
+        if (aggro)
+        {
+         
+            timeSinceShot += Time.fixedDeltaTime;
+            timeSinceLastDecision += Time.fixedDeltaTime;
+
+            float movement = Time.fixedDeltaTime * speed;
+
+            //Remember to implement enemy stop to shoot or slow down
             if (timeSinceShot >= shootInterval)
             {
                 timeSinceShot = 0;
-                Debug.Log("Shoot");
-                weapon.Shoot();
+                //weapon.Shoot();
+            }
+            else if(distanceToPlayer > outerRadius) //If player is outside outerRadius -> move closer
+            {
+                //Move towards the player
+                transform.position = Vector3.MoveTowards(transform.position, target.position, movement);
+            }
+            else if(distanceToPlayer < innerRadius) //If player is within innerRaddius -> move away
+            {
+                //Move away from the player
+                transform.position = Vector3.MoveTowards(transform.position, transform.position - target.position, movement);
+            }
+            else if(timeSinceLastDecision >= decisionInterval)
+            {
+                // Make movement decision
+                //Pick a random direction or stay still
+                randomDirection = Random.Range(0, 10) == 0 ? new Vector3(0, 0, 0) : (Vector3)Random.insideUnitCircle.normalized;
+                //Reset variable to start counting down to next decision
+                timeSinceLastDecision = 0;
+            }
+            else
+            {
+                // Move in decided direction
+                transform.Translate(randomDirection * movement);
             }
         }
+        else
+        {
+            //Do nothing for now
+        }
+            
     }
+
+
 
     private void OnDrawGizmosSelected()
     {
+        //Gizmos.color = Color.red;
+        //Gizmos.DrawWireSphere(transform.position, lookRadius);
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, lookRadius);
+        Gizmos.DrawWireSphere(transform.position, aggroRadius);
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(transform.position, outerRadius);
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(transform.position, innerRadius);
     }
 }

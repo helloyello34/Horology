@@ -175,9 +175,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14681268057aebb44b48c9ad4299e205, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lookRadius: 5.27
+  aggroRadius: 6
+  outerRadius: 7
+  innerRadius: 3
   speed: 1.22
   shootInterval: 0.5
+  decisionInterval: 1
+  lookRadius: 5.27
 --- !u!50 &8579503199084633530
 Rigidbody2D:
   serializedVersion: 4
