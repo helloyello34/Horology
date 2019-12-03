@@ -7,6 +7,8 @@ TagManager:
   - player
   - MenuButton
   - InactiveMenu
+  - Trigger
+  - ClosedDoor
   layers:
   - Default
   - TransparentFX

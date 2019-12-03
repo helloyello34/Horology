@@ -1,33 +1,27 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Enemy : MonoBehaviour
 {
-    public int health = 100;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public UnityEvent onDeath;
 
-    // Update is called once per frame
-    void Update()
+    public virtual void Hit(int damage)
     {
-        
     }
-
-    public void Hit(int damage)
+    private void Awake()
     {
-        health -= damage;
-        if (health <= 0)
+        if (onDeath == null)
         {
-            Die();
+            onDeath = new UnityEvent();
         }
     }
 
-    void Die()
+
+    public virtual void Die()
     {
+        onDeath.Invoke();
         Destroy(gameObject);
     }
 }

@@ -20,7 +20,10 @@ public class EnemyBullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("ENEMY HIT " + collision.name);
+        if (collision.CompareTag("Trigger"))
+        {
+            return;
+        }
         Destroy(gameObject);
 
         Player player = collision.GetComponent<Player>();

@@ -28,14 +28,11 @@ public class EnemyController : MonoBehaviour
     private Vector3 randomDirection = new Vector3(0, 0, 0);
 
     Transform target;
-    Rigidbody2D rb;
 
     EnemyWeapon weapon;
-    // Start is called before the first frame update
     void Start()
     {
         target = PlayerManager.instance.player.transform;
-        rb = GetComponent<Rigidbody2D>();
         weapon = GetComponentInChildren<EnemyWeapon>();
 
         //Random initial time between mode changes so every enemy doesn't switch at the same time
@@ -51,14 +48,6 @@ public class EnemyController : MonoBehaviour
     void FixedUpdate()
     {
         EnemyMovement();
-
-        timeSinceShot += Time.fixedDeltaTime;
-        if (timeSinceShot >= shootInterval)
-        {
-            timeSinceShot = 0;
-            weapon.Shoot();
-        }
-
     }
 
     public void TimeSlow(bool isSlowed)
@@ -92,8 +81,14 @@ public class EnemyController : MonoBehaviour
             //Add delta time to counters
             float dt = Time.fixedDeltaTime;
             timeSinceLastDecision += dt;
-            timeSinceModeChange += dt;
+            timeSinceShot += dt;
             float movement = dt * speed;
+
+            if (timeSinceShot >= shootInterval)
+            {
+                timeSinceShot = 0;
+                weapon.Shoot();
+            }
 
             if (timeSinceModeChange >= modeInterval)
             {
