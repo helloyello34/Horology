@@ -14,7 +14,6 @@ public class EnemyBullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("ENEMY HIT " + collision.name);
         Destroy(gameObject);
 
         Player player = collision.GetComponent<Player>();
