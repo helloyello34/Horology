@@ -30,6 +30,7 @@ public class TargetEnemy : Enemy
 
     public override void Die()
     {
+        onDeath.Invoke();
         Destroy(gameObject);
     }
 }

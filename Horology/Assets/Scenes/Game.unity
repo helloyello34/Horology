@@ -1497,6 +1497,16 @@ PrefabInstance:
       propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 6259977629900887235, guid: 111a2414283b2a44e814d86788511a9e,
+        type: 3}
+      propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1863416114083991470}
+    - target: {fileID: 6259977629900887235, guid: 111a2414283b2a44e814d86788511a9e,
+        type: 3}
+      propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: killEnemy
+      objectReference: {fileID: 0}
     - target: {fileID: 6154327007853665310, guid: 111a2414283b2a44e814d86788511a9e,
         type: 3}
       propertyPath: m_Name
@@ -2489,6 +2499,31 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6454943318377710708, guid: 69ee0e71b13a5514a8bab8d4c0d18465,
+        type: 3}
+      propertyPath: m_TagString
+      value: ClosedDoor
+      objectReference: {fileID: 0}
+    - target: {fileID: 8383896605494174060, guid: 69ee0e71b13a5514a8bab8d4c0d18465,
+        type: 3}
+      propertyPath: onEnter.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1863416114083991471}
+    - target: {fileID: 8383896605494174060, guid: 69ee0e71b13a5514a8bab8d4c0d18465,
+        type: 3}
+      propertyPath: onEnter.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: EnterLeve
+      objectReference: {fileID: 0}
+    - target: {fileID: 5965479602600636867, guid: 69ee0e71b13a5514a8bab8d4c0d18465,
+        type: 3}
+      propertyPath: onEnter.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1863416114083991471}
+    - target: {fileID: 5965479602600636867, guid: 69ee0e71b13a5514a8bab8d4c0d18465,
+        type: 3}
+      propertyPath: onEnter.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: EnterLeve
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 69ee0e71b13a5514a8bab8d4c0d18465, type: 3}
 --- !u!1 &1834007199 stripped
@@ -3105,11 +3140,6 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1910718256}
-    - target: {fileID: 8998810741554706228, guid: 21ed81fc4c3dd61418aecc4d2db50f08,
-        type: 3}
-      propertyPath: enemyCount.Array.data[0]
-      value: 2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 21ed81fc4c3dd61418aecc4d2db50f08, type: 3}
 --- !u!1 &1863416114083991468 stripped
@@ -3143,6 +3173,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e2e0b1c77dfc5824dae2e936d1219699, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1863416114083991471 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9174333293477449830, guid: 21ed81fc4c3dd61418aecc4d2db50f08,
+    type: 3}
+  m_PrefabInstance: {fileID: 1863416114083991467}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1863416114083991468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 582d57f9db350794993741f650679abd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &7176393672876349384
