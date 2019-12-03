@@ -16,7 +16,8 @@ public class DoorController : MonoBehaviour
     {
         if (EnemyManager.instance.FloorIsEmpty())
         {
-            Destroy(doorObject.transform.GetChild(1).gameObject);
+            doorObject.transform.GetChild(1).gameObject.SetActive(false);
+            //Destroy(doorObject.transform.GetChild(1).gameObject);
         }
     }
 }
