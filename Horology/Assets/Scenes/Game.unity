@@ -3055,6 +3055,16 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Quit
       objectReference: {fileID: 0}
+    - target: {fileID: 7305468485037386554, guid: 122c12e5530cd854bb6bd729df703b5a,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7305468485037386554, guid: 122c12e5530cd854bb6bd729df703b5a,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7305468485037386553, guid: 122c12e5530cd854bb6bd729df703b5a,
         type: 3}
       propertyPath: m_textInfo.characterCount
@@ -3083,16 +3093,6 @@ PrefabInstance:
     - target: {fileID: 7305468485037386553, guid: 122c12e5530cd854bb6bd729df703b5a,
         type: 3}
       propertyPath: m_isRightToLeft
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7305468485037386554, guid: 122c12e5530cd854bb6bd729df703b5a,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7305468485037386554, guid: 122c12e5530cd854bb6bd729df703b5a,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -3208,31 +3208,15 @@ MonoBehaviour:
   menuCanvas: {fileID: 1919542726}
   firstMenu: {fileID: 1888217281}
   otherButton: {fileID: 1834007199}
-<<<<<<< HEAD
---- !u!114 &1863416114083991472
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-=======
 --- !u!114 &1863416114083991470 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8998810741554706228, guid: 21ed81fc4c3dd61418aecc4d2db50f08,
     type: 3}
   m_PrefabInstance: {fileID: 1863416114083991467}
->>>>>>> 811b6aa6637a6f1258c661005ad3f84d4f70b5f7
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1863416114083991468}
   m_Enabled: 1
   m_EditorHideFlags: 0
-<<<<<<< HEAD
-  m_Script: {fileID: 11500000, guid: 57cb20467c85ade40b8c8d6149e12b12, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timeFactor: 1
-  timeModifier: 0.3
-  isSlowed: 0
-=======
   m_Script: {fileID: 11500000, guid: e2e0b1c77dfc5824dae2e936d1219699, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
@@ -3248,7 +3232,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 582d57f9db350794993741f650679abd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
->>>>>>> 811b6aa6637a6f1258c661005ad3f84d4f70b5f7
+--- !u!114 &1863416114083991474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1863416114083991468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57cb20467c85ade40b8c8d6149e12b12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeFactor: 1
+  timeModifier: 0.3
+  isSlowed: 0
 --- !u!1001 &7176393672876349384
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3256,16 +3254,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 7176393672558870331, guid: 7632a81ffc84b2448aa5d9577ea6157e,
-        type: 3}
-      propertyPath: m_Name
-      value: Main Camera
-      objectReference: {fileID: 0}
     - target: {fileID: 7176393672558870335, guid: 7632a81ffc84b2448aa5d9577ea6157e,
         type: 3}
       propertyPath: ParentObject
       value: 
       objectReference: {fileID: 567250353}
+    - target: {fileID: 7176393672558870331, guid: 7632a81ffc84b2448aa5d9577ea6157e,
+        type: 3}
+      propertyPath: m_Name
+      value: Main Camera
+      objectReference: {fileID: 0}
     - target: {fileID: 7176393672558870334, guid: 7632a81ffc84b2448aa5d9577ea6157e,
         type: 3}
       propertyPath: m_LocalPosition.x

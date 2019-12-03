@@ -27,8 +27,9 @@ public class EnemyPistol : EnemyWeapon
 
     public override void Shoot()
     {
-        if (TimeManager.instance.timeFactor == 0)
+        if (TimeManager.instance.timeFactor != 0)
         {
+            Debug.Log("INSTANTIATING");
             Instantiate(bulletPrefab, firePoint.transform.position, transform.rotation);
         }
     }

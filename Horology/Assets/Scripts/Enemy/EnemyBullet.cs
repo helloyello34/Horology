@@ -12,6 +12,7 @@ public class EnemyBullet : MonoBehaviour
     public UnityAction<bool> timeCallback;
     private void Start()
     {
+        Debug.Log("BULLET TIME");
         startingVelocity = transform.right * speed;
         rb.velocity = TimeManager.instance.isSlowed ? startingVelocity * TimeManager.instance.timeFactor : startingVelocity;
         timeCallback += SlowDown;

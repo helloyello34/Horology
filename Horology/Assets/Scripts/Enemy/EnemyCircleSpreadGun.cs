@@ -36,7 +36,7 @@ public class EnemyCircleSpreadGun : EnemyWeapon
             //Change rotation of enemy to point to bullet, bullet will travel along this path
             transform.rotation = Quaternion.Euler(0f, 0f, i * angleMultiplier);
 
-            if (TimeManager.instance.timeFactor == 0)
+            if (TimeManager.instance.timeFactor != 0)
             {
                 //Instatiate the bullet
                 Instantiate(bulletPrefab, bulletPosition, transform.rotation);
