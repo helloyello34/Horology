@@ -18,7 +18,6 @@ public class HUD : MonoBehaviour
     void Start()
     {
         player = PlayerManager.instance.player.GetComponent<Player>();
-        //player = PlayerManager.instance.player.GetComponent<Player>();
         spacingX = 100;
 
         AddHearts(player.startingHealth / 2);
