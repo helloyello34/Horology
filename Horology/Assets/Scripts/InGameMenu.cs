@@ -29,14 +29,14 @@ public class InGameMenu : MonoBehaviour
     {
         if (Input.GetButtonDown("Pause"))
         {
-            MenuToggle();
+            ShowMenu(!isVisible);
         }
 
         if (isVisible && Input.GetButtonDown("Cancel"))
         {
             if (firstMenu.activeInHierarchy)
             {
-                MenuToggle();
+                ShowMenu(!isVisible);
             }
             else
             {
@@ -46,7 +46,7 @@ public class InGameMenu : MonoBehaviour
 
     }
 
-    private void MenuToggle()
+    private void ShowMenu(bool show)
     {
         // Fixes issue where buttons are not loaded in Start() and other is still null
         if (otherButton == null)
@@ -75,13 +75,13 @@ public class InGameMenu : MonoBehaviour
     public void Resume()
     {
         Debug.Log("Resumed");
-        MenuToggle();
+        ShowMenu(false);
     }
 
     public void Restart()
     {
         Debug.Log("Restart");
-        MenuToggle();
+        ShowMenu(false);
         // Reload the level
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
@@ -89,7 +89,7 @@ public class InGameMenu : MonoBehaviour
     public void Quit()
     {
         Debug.Log("Quit to menu");
-        MenuToggle();
+        ShowMenu(false);
         // Load main menu
         SceneManager.LoadScene(0);
     }
