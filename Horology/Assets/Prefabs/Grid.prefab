@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1528563181084265779}
   - component: {fileID: 4418692076832095016}
+  - component: {fileID: 8383896605494174060}
   m_Layer: 0
   m_Name: Level2
   m_TagString: Trigger
@@ -51,6 +52,33 @@ EdgeCollider2D:
   - {x: -2.9311676, y: 0.011518478}
   - {x: 2.972724, y: 0.02712059}
   - {x: 2.9999878, y: -2.7803607}
+--- !u!114 &8383896605494174060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2457237477469155811}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a40cc28dd8b99e41821e69ed11e38b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onEnter:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 9174333293477449830, guid: 21ed81fc4c3dd61418aecc4d2db50f08,
+          type: 3}
+        m_MethodName: EnterLeve
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &3987103061976650474
 GameObject:
   m_ObjectHideFlags: 0
@@ -6178,7 +6206,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5768589661330371547}
   - component: {fileID: 6402503057643857003}
-  - component: {fileID: 5310912926899342701}
+  - component: {fileID: 5965479602600636867}
   m_Layer: 0
   m_Name: Level1
   m_TagString: Trigger
@@ -6220,7 +6248,7 @@ EdgeCollider2D:
   - {x: -3.0031724, y: 0.032497168}
   - {x: 3.0382953, y: 0.07581091}
   - {x: 3.04612, y: 1.9853678}
---- !u!114 &5310912926899342701
+--- !u!114 &5965479602600636867
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -6229,6 +6257,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 7416748537017282954}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62d28ada89070f543b15c499b5551662, type: 3}
+  m_Script: {fileID: 11500000, guid: 6a40cc28dd8b99e41821e69ed11e38b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onEnter:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 9174333293477449830, guid: 21ed81fc4c3dd61418aecc4d2db50f08,
+          type: 3}
+        m_MethodName: EnterLeve
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

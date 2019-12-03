@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1863416113605388489}
   - component: {fileID: 1863416113605388490}
   - component: {fileID: 8998810741554706228}
+  - component: {fileID: 9174333293477449830}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -57,5 +58,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2e0b1c77dfc5824dae2e936d1219699, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyCount: 01000000
-  level: 0
+  enemyCount: 0100000001000000
+--- !u!114 &9174333293477449830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1863416113605388491}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 582d57f9db350794993741f650679abd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentLevel: 1

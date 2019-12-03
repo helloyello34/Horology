@@ -1958,34 +1958,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8579503199084633524, guid: 1150245725357c8469880d68215b76ac,
         type: 3}
-      propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8579503199084633524, guid: 1150245725357c8469880d68215b76ac,
-        type: 3}
-      propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8579503199084633524, guid: 1150245725357c8469880d68215b76ac,
-        type: 3}
-      propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8579503199084633524, guid: 1150245725357c8469880d68215b76ac,
-        type: 3}
       propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1863416114083991470}
-    - target: {fileID: 8579503199084633524, guid: 1150245725357c8469880d68215b76ac,
-        type: 3}
-      propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: killEnemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 8579503199084633524, guid: 1150245725357c8469880d68215b76ac,
-        type: 3}
-      propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1150245725357c8469880d68215b76ac, type: 3}
 --- !u!1001 &1581111633
