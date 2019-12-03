@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class MouseIntercept : MonoBehaviour
 {
@@ -19,7 +20,7 @@ public class MouseIntercept : MonoBehaviour
         {
             if (currentObject == null)
             {
-                Debug.Log("non");
+                // Debug.Log("non");
             }
             EventSystem.current.SetSelectedGameObject(currentObject);
         }

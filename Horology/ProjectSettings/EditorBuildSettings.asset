@@ -12,6 +12,6 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 9c79083b9382e9141ad9f08673e7a72d
   - enabled: 1
-    path: Assets/Scenes/Game oskar.unity
-    guid: 98693e4595106ef42951fbbd8bec8caf
+    path: Assets/Scenes/Game.unity
+    guid: daff2bcac5e33b344ab000fa3b4f0189
   m_configObjects: {}

@@ -8,16 +8,13 @@ using UnityEngine.UI;
 public class InGameMenu : MonoBehaviour
 {
     private bool isVisible;
-    private GameObject otherButton, firstSelected;
-    public GameObject menuCanvas, firstMenu;
+    private GameObject firstSelected;
+    public GameObject menuCanvas, firstMenu, otherButton;
     // private GameObject currentSelected;
     // Start is called before the first frame update
     void Start()
     {
         isVisible = false;
-        // Some button in the menu that's not resume (or any other GameObject for that matter)
-        // Doesn't work if Start() is run before buttons are Instantiated
-        otherButton = GameObject.Find("Game button");
         EventSystem.current.SetSelectedGameObject(otherButton);
         // Button that will be highlighted on menu open
         firstSelected = EventSystem.current.firstSelectedGameObject;
@@ -30,6 +27,7 @@ public class InGameMenu : MonoBehaviour
         if (Input.GetButtonDown("Pause"))
         {
             ShowMenu(!isVisible);
+            Debug.Log(menuCanvas.name);
         }
 
         if (isVisible && Input.GetButtonDown("Cancel"))
@@ -52,6 +50,7 @@ public class InGameMenu : MonoBehaviour
         if (otherButton == null)
         {
             otherButton = GameObject.Find("Quit button");
+            Debug.Log("other btn: " + otherButton.name);
             // Makes sure the resume button will still be correctly higlighted if issue occurs
             if (!isVisible)
             {
