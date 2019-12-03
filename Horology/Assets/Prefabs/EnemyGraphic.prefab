@@ -175,9 +175,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14681268057aebb44b48c9ad4299e205, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lookRadius: 5.27
+  aggroRadius: 6
+  outerRadius: 7
+  innerRadius: 3
   speed: 1.22
-  shootInterval: 0.5
+  shootInterval: 0.8
+  decisionInterval: 1
+  modeInterval: 5
+  lookRadius: 5
 --- !u!50 &8579503199084633530
 Rigidbody2D:
   serializedVersion: 4
@@ -198,7 +203,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!70 &8579503199084633525
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
