@@ -27,6 +27,9 @@ public class EnemyWeapon : MonoBehaviour
 
     public void Shoot()
     {
-        Instantiate(bulletPrefab, firePoint.transform.position, transform.rotation);
+        if (TimeManager.instance.timeFactor != 0)
+        {
+            Instantiate(bulletPrefab, firePoint.transform.position, transform.rotation);
+        }
     }
 }

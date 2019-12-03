@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Events;
 
 public class EnemyController : MonoBehaviour
 {
@@ -10,11 +11,14 @@ public class EnemyController : MonoBehaviour
     public float innerRadius = 3.0f;
     [Space]
     public float speed = 10f;
+    private float baseSpeed;
     public float shootInterval;
     public float decisionInterval;
     public float modeInterval;
     public float lookRadius = 4.0f;
-
+    [Space]
+    public bool doesSlow = true;
+    private UnityAction<bool> timeCallback;
 
     private float timeSinceShot = 0;
     private float timeSinceLastDecision = 0;
@@ -37,7 +41,9 @@ public class EnemyController : MonoBehaviour
         //Random initial time between mode changes so every enemy doesn't switch at the same time
         timeSinceModeChange = Random.Range(0, 5);
 
-
+        timeCallback += TimeSlow;
+        TimeManager.instance.timeEvent.AddListener(timeCallback);
+        baseSpeed = speed;
         //agent = GetComponent<NavMeshAgent>();
     }
 
@@ -53,6 +59,19 @@ public class EnemyController : MonoBehaviour
             weapon.Shoot();
         }
 
+    }
+
+    public void TimeSlow(bool isSlowed)
+    {
+        Debug.Log("enemy slow called");
+        if (isSlowed)
+        {
+            speed *= TimeManager.instance.timeFactor;
+        }
+        else
+        {
+            speed = baseSpeed;
+        }
     }
 
     private void EnemyMovement()
