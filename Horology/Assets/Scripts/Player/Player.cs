@@ -14,7 +14,7 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
-        Debug.Log("Emit");
+        // Instansiate unity event if it is null
         if(modifyHearts == null)
         {
             modifyHearts = new UnityEvent();
@@ -23,11 +23,13 @@ public class Player : MonoBehaviour
 
     public void Hit(int damage)
     {
+        // Take damage
         currentHealth -= damage;
 
-        //Emit event to update heart health bar
+        // Emit event to update heart health bar
         modifyHearts.Invoke();
 
+        // Call death function if health equals or goes under 0
         if(currentHealth <= 0)
         {
             Die();
@@ -35,8 +37,11 @@ public class Player : MonoBehaviour
 
     }
 
+
+    // Called when player dies
     private void Die()
     {
+        // Destroys the player object
         Destroy(gameObject);
     }
 }
