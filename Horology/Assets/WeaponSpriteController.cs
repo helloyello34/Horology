@@ -12,25 +12,28 @@ public class WeaponSpriteController : MonoBehaviour
 
     private void Start()
     {
+        // Get the Sprite Renderer from the gameobject
         mySpriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        // Get the z rotation on the object
         float zAxis = transform.rotation.z;
 
+        // Get the sprite renderer from the arm game object
         SpriteRenderer armSpriteRenderer = ArmObject.GetComponent<SpriteRenderer>();
         if(zAxis < -0.7 || zAxis > 0.7)
         {
-            //armTransform.position = new Vector3(transform.position.x + 0.08f, transform.position.y +0.07f, 0f);
+            // Flip the Axis so the player is looking to the left
             armSpriteRenderer.flipX = false;
             armSpriteRenderer.flipY = true;
             mySpriteRenderer.flipY = true;
         }
         else
         {
-            //armTransform.position = new Vector3(transform.position.x + 0.135f,transform.position.y + (-0.082f), 0f);
+            // Flip the Axis so the player is looking to the right
             armSpriteRenderer.flipX = true;
             armSpriteRenderer.flipY = false;
             mySpriteRenderer.flipY = false;
@@ -38,11 +41,13 @@ public class WeaponSpriteController : MonoBehaviour
 
         if (zAxis < 0)
         {
+            // If the player is looking towards the screen
             armSpriteRenderer.sortingOrder = 2;
             mySpriteRenderer.sortingOrder = 2;
         }
         else
         {
+            // If the player is looking forward from the screen
             armSpriteRenderer.sortingOrder = 0;
             mySpriteRenderer.sortingOrder = 0;
         }

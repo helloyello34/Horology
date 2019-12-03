@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class TargetEnemy : Enemy
 {
+
     public int health = 100;
+
     // Start is called before the first frame update
     void Start()
     {
