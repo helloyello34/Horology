@@ -5,7 +5,6 @@ using UnityEngine;
 public class EnemyManager : MonoBehaviour
 {
     public int[] enemyCount;
-    public int level;
 
 
     #region Singleton
@@ -21,9 +20,8 @@ public class EnemyManager : MonoBehaviour
 
     public bool FloorIsEmpty()
     {
-        if (enemyCount[level] == 0)
+        if (enemyCount[GameManager.instance.currentLevel] == 0)
         {
-            level++;
             return true;
         }
         return false;
@@ -31,6 +29,6 @@ public class EnemyManager : MonoBehaviour
 
     public void killEnemy()
     {
-        enemyCount[level] -= 1;
+        enemyCount[GameManager.instance.currentLevel] -= 1;
     }
 }

@@ -8,10 +8,12 @@ public class PlayerBullet : Bullet
     
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Destroy(gameObject);
-
+        if(collision.CompareTag("Trigger"))
+        {
+            return;
+        }
         Enemy enemy = collision.GetComponent<Enemy>();
-
+        Destroy(gameObject);
         if (enemy)
         {
             enemy.Hit(40);
