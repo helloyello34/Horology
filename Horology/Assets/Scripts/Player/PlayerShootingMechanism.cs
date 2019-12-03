@@ -6,7 +6,7 @@ public class PlayerShootingMechanism : MonoBehaviour
 {
     Vector3 looking = new Vector3();
     float timeSinceShot = 0;
-    
+
     public float shootInterval = 0.5f;
     public Transform firePoint;
     public GameObject bulletPrefab;
@@ -20,7 +20,6 @@ public class PlayerShootingMechanism : MonoBehaviour
         // Get the R axis on the joystick
         looking.x = Input.GetAxis("ShootHorizontal");
         looking.y = Input.GetAxis("ShootVertical");
-
 
 
         // If R1 is pushed

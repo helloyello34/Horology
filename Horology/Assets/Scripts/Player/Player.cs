@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     public int currentHealth = 6;
 
     public UnityEvent modifyHearts;
+    public UnityEvent death;
 
 
     private void Awake()
@@ -18,6 +19,10 @@ public class Player : MonoBehaviour
         if(modifyHearts == null)
         {
             modifyHearts = new UnityEvent();
+        }
+        if (death == null)
+        {
+            death = new UnityEvent();
         }
     }
 
@@ -42,6 +47,6 @@ public class Player : MonoBehaviour
     private void Die()
     {
         // Destroys the player object
-        Destroy(gameObject);
+        death.Invoke();
     }
 }
