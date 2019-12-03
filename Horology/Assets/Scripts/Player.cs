@@ -10,14 +10,19 @@ public class Player : MonoBehaviour
     public int currentHealth = 6;
 
     public UnityEvent modifyHearts;
+    public UnityEvent death;
 
 
     private void Awake()
     {
         Debug.Log("Emit");
-        if(modifyHearts == null)
+        if (modifyHearts == null)
         {
             modifyHearts = new UnityEvent();
+        }
+        if (death == null)
+        {
+            death = new UnityEvent();
         }
     }
 
@@ -28,7 +33,7 @@ public class Player : MonoBehaviour
         //Emit event to update heart health bar
         modifyHearts.Invoke();
 
-        if(currentHealth <= 0)
+        if (currentHealth <= 0)
         {
             Die();
         }
@@ -37,6 +42,6 @@ public class Player : MonoBehaviour
 
     private void Die()
     {
-        Destroy(gameObject);
+        death.Invoke();
     }
 }
