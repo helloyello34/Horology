@@ -179,9 +179,10 @@ MonoBehaviour:
   outerRadius: 7
   innerRadius: 3
   speed: 1.22
-  shootInterval: 0.5
+  shootInterval: 0.8
   decisionInterval: 1
-  lookRadius: 5.27
+  modeInterval: 5
+  lookRadius: 5
 --- !u!50 &8579503199084633530
 Rigidbody2D:
   serializedVersion: 4
@@ -202,7 +203,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!70 &8579503199084633525
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

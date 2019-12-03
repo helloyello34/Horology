@@ -12,12 +12,15 @@ public class EnemyController : MonoBehaviour
     public float speed = 10f;
     public float shootInterval;
     public float decisionInterval;
+    public float modeInterval;
     public float lookRadius = 4.0f;
 
 
     private float timeSinceShot = 0;
     private float timeSinceLastDecision = 0;
+    private float timeSinceModeChange = 0;
     private bool aggro = false;
+    private bool roaming = true;
     private Vector3 randomDirection = new Vector3(0, 0, 0);
 
     Transform target;
@@ -30,12 +33,29 @@ public class EnemyController : MonoBehaviour
         target = PlayerManager.instance.player.transform;
         rb = GetComponent<Rigidbody2D>();
         weapon = GetComponentInChildren<EnemyWeapon>();
-        //agent = GetComponent<NavMeshAgent>();
 
+        //Random initial time between mode changes so every enemy doesn't switch at the same time
+        timeSinceModeChange = Random.Range(0, 5);
+
+
+        //agent = GetComponent<NavMeshAgent>();
     }
 
 
     void FixedUpdate()
+    {
+        EnemyMovement();
+
+        timeSinceShot += Time.fixedDeltaTime;
+        if (timeSinceShot >= shootInterval)
+        {
+            timeSinceShot = 0;
+            weapon.Shoot();
+        }
+
+    }
+
+    private void EnemyMovement()
     {
         // Distance to the player
         float distanceToPlayer = Vector3.Distance(target.position, transform.position);
@@ -50,50 +70,65 @@ public class EnemyController : MonoBehaviour
         //If enemy is not aggro, do nothing
         if (aggro)
         {
-         
-            timeSinceShot += Time.fixedDeltaTime;
-            timeSinceLastDecision += Time.fixedDeltaTime;
+            //Add delta time to counters
+            float dt = Time.fixedDeltaTime;
+            timeSinceLastDecision += dt;
+            timeSinceModeChange += dt;
+            float movement = dt * speed;
 
-            float movement = Time.fixedDeltaTime * speed;
+            if (timeSinceModeChange >= modeInterval)
+            {
+                //Swaps mode everytime, change this possibly for random chance ???
+                roaming = !roaming;
+                timeSinceModeChange = 0;
+            }
 
-            //Remember to implement enemy stop to shoot or slow down
-            if (timeSinceShot >= shootInterval)
+            if (roaming)
             {
-                timeSinceShot = 0;
-                //weapon.Shoot();
-            }
-            else if(distanceToPlayer > outerRadius) //If player is outside outerRadius -> move closer
-            {
-                //Move towards the player
-                transform.position = Vector3.MoveTowards(transform.position, target.position, movement);
-            }
-            else if(distanceToPlayer < innerRadius) //If player is within innerRaddius -> move away
-            {
-                //Move away from the player
-                transform.position = Vector3.MoveTowards(transform.position, transform.position - target.position, movement);
-            }
-            else if(timeSinceLastDecision >= decisionInterval)
-            {
-                // Make movement decision
-                //Pick a random direction or stay still
-                randomDirection = Random.Range(0, 10) == 0 ? new Vector3(0, 0, 0) : (Vector3)Random.insideUnitCircle.normalized;
-                //Reset variable to start counting down to next decision
-                timeSinceLastDecision = 0;
+                if (distanceToPlayer > outerRadius) //If player is outside outerRadius -> move closer
+                {
+                    //Move towards the player
+                    transform.position = Vector3.MoveTowards(transform.position, target.position, movement);
+                }
+                else if (distanceToPlayer < innerRadius) //If player is within innerRaddius -> move away
+                {
+                    //Move away from the player
+                    transform.position = Vector3.MoveTowards(transform.position, transform.position - target.position, movement);
+                }
+                else if (timeSinceLastDecision >= decisionInterval)
+                {
+                    // Make movement decision
+                    //Pick a random direction or stay still
+                    randomDirection = Random.Range(0, 10) == 0 ? new Vector3(0, 0, 0) : (Vector3)Random.insideUnitCircle.normalized;
+                    //Reset variable to start counting down to next decision
+                    timeSinceLastDecision = 0;
+                }
+                else
+                {
+                    // Move in decided direction
+                    transform.Translate(randomDirection * movement);
+                }
             }
             else
             {
-                // Move in decided direction
-                transform.Translate(randomDirection * movement);
+                //Chase mode
+                if (distanceToPlayer < innerRadius)
+                {
+                    //Move away from the player
+                    transform.position = Vector3.MoveTowards(transform.position, transform.position - target.position, movement);
+                }
+                else
+                {
+                    //Move towards the player
+                    transform.position = Vector3.MoveTowards(transform.position, target.position, movement);
+                }
             }
         }
         else
         {
-            //Do nothing for now
+            //Do nothing for now, //Idle animation maybe ?
         }
-            
     }
-
-
 
     private void OnDrawGizmosSelected()
     {
