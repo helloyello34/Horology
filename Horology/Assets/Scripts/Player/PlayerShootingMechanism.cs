@@ -21,7 +21,6 @@ public class PlayerShootingMechanism : MonoBehaviour
         looking.x = Input.GetAxis("ShootHorizontal");
         looking.y = Input.GetAxis("ShootVertical");
 
-
         // If R1 is pushed
         if (Input.GetButton("Fire"))
         {

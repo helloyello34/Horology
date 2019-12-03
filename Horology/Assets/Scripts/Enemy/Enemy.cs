@@ -5,10 +5,11 @@ using UnityEngine.Events;
 
 public class Enemy : MonoBehaviour
 {
-    public int health = 100;
-
     public UnityEvent onDeath;
 
+    public virtual void Hit(int damage)
+    {
+    }
     private void Awake()
     {
         if (onDeath == null)
@@ -17,22 +18,8 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
-    public void Hit(int damage)
-    {
-        health -= damage;
-        if (health <= 0)
-        {
-            Die();
-        }
-    }
-
-    void Die()
+    public virtual void Die()
     {
         onDeath.Invoke();
         Destroy(gameObject);
