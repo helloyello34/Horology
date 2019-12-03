@@ -7,11 +7,12 @@ public class WeaponSpriteController : MonoBehaviour
 {
     
 
-    SpriteRenderer spriteRenderer;
+    SpriteRenderer mySpriteRenderer;
+    public GameObject ArmObject;
 
     private void Start()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        mySpriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -19,13 +20,31 @@ public class WeaponSpriteController : MonoBehaviour
     {
         float zAxis = transform.rotation.z;
 
+        SpriteRenderer armSpriteRenderer = ArmObject.GetComponent<SpriteRenderer>();
         if(zAxis < -0.7 || zAxis > 0.7)
         {
-            spriteRenderer.flipY = true;
+            //armTransform.position = new Vector3(transform.position.x + 0.08f, transform.position.y +0.07f, 0f);
+            armSpriteRenderer.flipX = false;
+            armSpriteRenderer.flipY = true;
+            mySpriteRenderer.flipY = true;
         }
         else
         {
-            spriteRenderer.flipY = false;
+            //armTransform.position = new Vector3(transform.position.x + 0.135f,transform.position.y + (-0.082f), 0f);
+            armSpriteRenderer.flipX = true;
+            armSpriteRenderer.flipY = false;
+            mySpriteRenderer.flipY = false;
+        }
+
+        if (zAxis < 0)
+        {
+            armSpriteRenderer.sortingOrder = 2;
+            mySpriteRenderer.sortingOrder = 2;
+        }
+        else
+        {
+            armSpriteRenderer.sortingOrder = 0;
+            mySpriteRenderer.sortingOrder = 0;
         }
     }
 }
