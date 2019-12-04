@@ -9,6 +9,9 @@ TagManager:
   - InactiveMenu
   - Trigger
   - ClosedDoor
+  - PlayerRotation
+  - PlayerBack
+  - PlayerLeftSide
   layers:
   - Default
   - TransparentFX
