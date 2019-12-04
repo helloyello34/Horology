@@ -9,6 +9,7 @@ TagManager:
   - InactiveMenu
   - Trigger
   - ClosedDoor
+  - Drop
   layers:
   - Default
   - TransparentFX
@@ -20,7 +21,7 @@ TagManager:
   - 
   - Player
   - Enemy
-  - 
+  - Drops
   - 
   - 
   - 
