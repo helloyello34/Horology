@@ -12,6 +12,8 @@ public class PlayerBullet : Bullet
         {
             return;
         }
+
+        // Get the enemy that the bullet hit
         Enemy enemy = collision.GetComponent<Enemy>();
         Destroy(gameObject);
         if (enemy)

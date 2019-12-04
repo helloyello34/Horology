@@ -9,6 +9,9 @@ TagManager:
   - InactiveMenu
   - Trigger
   - ClosedDoor
+  - PlayerRotation
+  - PlayerBack
+  - PlayerLeftSide
   - Drop
   layers:
   - Default
@@ -21,7 +24,7 @@ TagManager:
   - 
   - Player
   - Enemy
-  - Drops
+  - Drop
   - 
   - 
   - 

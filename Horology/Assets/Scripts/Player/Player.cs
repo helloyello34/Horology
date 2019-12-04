@@ -12,11 +12,10 @@ public class Player : MonoBehaviour
     public UnityEvent modifyHearts;
     public UnityEvent death;
 
-
     private void Awake()
     {
         // Instansiate unity event if it is null
-        if(modifyHearts == null)
+        if (modifyHearts == null)
         {
             modifyHearts = new UnityEvent();
         }
@@ -35,7 +34,7 @@ public class Player : MonoBehaviour
         modifyHearts.Invoke();
 
         // Call death function if health equals or goes under 0
-        if(currentHealth <= 0)
+        if (currentHealth <= 0)
         {
             Die();
         }

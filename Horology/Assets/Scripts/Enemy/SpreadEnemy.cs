@@ -10,7 +10,7 @@ public class SpreadEnemy : Enemy
     public GameObject timeJuicePrefab;
     public GameObject[] upgradePrefabs;
 
-    private float dropChance = 10f; // 1/10
+    //private float dropChance = 10f; // 1/10
 
     // Start is called before the first frame update
     void Start()

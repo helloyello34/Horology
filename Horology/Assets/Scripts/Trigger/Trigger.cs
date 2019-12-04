@@ -9,6 +9,7 @@ public class Trigger : MonoBehaviour
 
     private void Awake()
     {
+        // Create new unity event if the event object was not yet initialized
         if (onEnter == null)
         {
             onEnter = new UnityEvent();
@@ -17,6 +18,7 @@ public class Trigger : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        // Check if player walked over the trigger
         Player player = collision.GetComponent<Player>();
 
         if (player)
