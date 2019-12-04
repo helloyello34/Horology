@@ -52,7 +52,7 @@ public class EnemyController : MonoBehaviour
 
     public void TimeSlow(bool isSlowed)
     {
-        Debug.Log("enemy slow called");
+        // Debug.Log("enemy slow called");
         if (isSlowed)
         {
             speed *= TimeManager.instance.timeFactor;

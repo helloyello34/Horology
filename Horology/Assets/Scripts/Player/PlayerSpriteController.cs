@@ -29,7 +29,7 @@ public class PlayerSpriteController : MonoBehaviour
         // Get where the player is aiming
         float zRotation = PlayerManager.instance.gunTransform.rotation.z;
 
-        Debug.Log("ZAxis: " + zRotation);
+        // Debug.Log("ZAxis: " + zRotation);
 
         // If the player is aiming to the right
         if (zRotation >= -0.375 && zRotation <= 0.375)

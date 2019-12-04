@@ -23,19 +23,20 @@ public class TimeManager : MonoBehaviour
     public float timeModifier;
     private float originalTimeFactor;
     public bool isSlowed = false;
+    public bool isTimebarEmpty;
 
     private void Update()
     {
-        if (Input.GetAxisRaw("Time") == 1 && !isSlowed)
+        if (Input.GetAxisRaw("Time") == 1 && !isSlowed && !isTimebarEmpty)
         {
-            Debug.Log("time slowed: " + (timeFactor - timeModifier));
+            // Debug.Log("time slowed: " + (timeFactor - timeModifier));
             timeFactor *= timeModifier;
             isSlowed = true;
             timeEvent.Invoke(true);
         }
-        else if (Input.GetAxisRaw("Time") == 0 && isSlowed)
+        else if ((Input.GetAxisRaw("Time") == 0 && isSlowed) || isTimebarEmpty)
         {
-            Debug.Log("time back to normal: " + (timeFactor + timeModifier));
+            // Debug.Log("time back to normal: " + (timeFactor + timeModifier));
             timeFactor = originalTimeFactor;
             isSlowed = false;
             timeEvent.Invoke(false);
