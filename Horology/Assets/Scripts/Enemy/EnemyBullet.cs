@@ -10,6 +10,7 @@ public class EnemyBullet : MonoBehaviour
     public Rigidbody2D rb;
     private Vector2 startingVelocity;
     public UnityAction<bool> timeCallback;
+    public GameObject bulletHitEffect;
     private void Start()
     {
         Debug.Log("BULLET TIME");
@@ -21,12 +22,14 @@ public class EnemyBullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        // Ignore collisions on gameobjects with tag Trigger
         if (collision.CompareTag("Trigger"))
         {
             return;
         }
         Destroy(gameObject);
-
+        // Instansiating on hit effect animation
+        Instantiate(bulletHitEffect, transform.position, Quaternion.identity);
         Player player = collision.GetComponent<Player>();
 
         if (player)

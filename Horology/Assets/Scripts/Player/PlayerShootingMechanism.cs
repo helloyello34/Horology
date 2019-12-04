@@ -10,8 +10,13 @@ public class PlayerShootingMechanism : MonoBehaviour
     public float shootInterval = 0.5f;
     public Transform firePoint;
     public GameObject bulletPrefab;
-    
-    
+
+
+    private void Start()
+    {
+        PlayerManager.instance.gunTransform = transform;
+    }
+
 
     // Update is called once per frame
     void Update()
