@@ -22,8 +22,7 @@ public class EnemyBullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        // Ignore collisions on gameobjects with tag Trigger
-        if (collision.CompareTag("Trigger"))
+        if (collision.CompareTag("Trigger") || collision.CompareTag("Drop"))
         {
             return;
         }

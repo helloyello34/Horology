@@ -2491,7 +2491,8 @@ MonoBehaviour:
   modifyHearts:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 7176393672558870335, guid: 7632a81ffc84b2448aa5d9577ea6157e,
+          type: 3}
         m_MethodName: UpdateHearts
         m_Mode: 1
         m_Arguments:

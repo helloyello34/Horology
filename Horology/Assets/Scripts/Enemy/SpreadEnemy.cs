@@ -2,21 +2,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TargetEnemy : Enemy
+public class SpreadEnemy : Enemy
 {
 
     public int health = 100;
+    public GameObject heartPrefab;
+    public GameObject timeJuicePrefab;
+    public GameObject[] upgradePrefabs;
+
+    //private float dropChance = 10f; // 1/10
 
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public override void Hit(int damage)

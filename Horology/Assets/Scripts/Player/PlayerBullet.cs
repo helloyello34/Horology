@@ -8,8 +8,7 @@ public class PlayerBullet : Bullet
     
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        // Ignore the collision if it is a trigger
-        if(collision.CompareTag("Trigger"))
+        if (collision.CompareTag("Trigger") || collision.CompareTag("Drop"))
         {
             return;
         }

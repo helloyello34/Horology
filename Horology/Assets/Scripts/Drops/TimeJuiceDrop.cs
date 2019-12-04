@@ -2,11 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TargetEnemy : Enemy
+public class TimeJuiceDrop : MonoBehaviour
 {
-
-    public int health = 100;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -19,20 +16,15 @@ public class TargetEnemy : Enemy
         
     }
 
-    public override void Hit(int damage)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        health -= damage;
-        if (health <= 0)
+        Player player = collision.GetComponent<Player>();
+
+        if (player)
         {
-            Die();
+            //Modify Time Juice
+            //Call time juice function
+            Destroy(gameObject);
         }
     }
-
-    /*
-    public override void Die()
-    {
-        onDeath.Invoke();
-        Destroy(gameObject);
-    }
-    */
 }

@@ -3,16 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemySpreadController : MonoBehaviour
+public class EnemySpreadController : EnemyController
 {
     public float aggroRadius = 6.0f;
     public float outerRadius = 5.0f;
     public float innerRadius = 3.0f;
     [Space]
-    public float speed = 4f;
     public float shootInterval;
     public float decisionInterval;
-    public float lookRadius = 4.0f;
 
 
     private float timeSinceShot = 0;
@@ -20,14 +18,10 @@ public class EnemySpreadController : MonoBehaviour
     private bool aggro = false;
     private Vector3 randomDirection = new Vector3(0, 0, 0);
 
-    Transform target;
-
-    EnemyWeapon weapon;
-    void Start()
+    public override void Start()
     {
-        target = PlayerManager.instance.player.transform;
-        weapon = GetComponentInChildren<EnemyWeapon>();
-
+        //Calling base classes start method to initalize variables
+        base.Start();
     }
 
 
@@ -97,8 +91,6 @@ public class EnemySpreadController : MonoBehaviour
 
     private void OnDrawGizmosSelected()
     {
-        //Gizmos.color = Color.red;
-        //Gizmos.DrawWireSphere(transform.position, lookRadius);
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, aggroRadius);
         Gizmos.color = Color.green;

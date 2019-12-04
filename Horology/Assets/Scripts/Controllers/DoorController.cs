@@ -16,7 +16,6 @@ public class DoorController : MonoBehaviour
     {
         if (EnemyManager.instance.FloorIsEmpty())
         {
-            // Debug.Log("Disabling the doors");
             for (int i = 0; i < doorObject.transform.childCount; i++)
             {
                 if (doorObject.transform.GetChild(i).CompareTag("ClosedDoor"))
@@ -27,7 +26,6 @@ public class DoorController : MonoBehaviour
         }
         else
         {
-            // Debug.Log("Closing The Doors");
             for (int i = 0; i < doorObject.transform.childCount; i++)
             {
                 if (doorObject.transform.GetChild(i).CompareTag("ClosedDoor"))
