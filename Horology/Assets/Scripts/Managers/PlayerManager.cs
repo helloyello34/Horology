@@ -17,5 +17,6 @@ public class PlayerManager : MonoBehaviour
 
 
     public GameObject player;
+    [HideInInspector]
     public Transform gunTransform;
 }

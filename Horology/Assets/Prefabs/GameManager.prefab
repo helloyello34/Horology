@@ -49,6 +49,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 9096480708942051567, guid: 1539529f45814fa4ea8e4ed3b2302ac6, type: 3}
+  gunTransform: {fileID: 0}
 --- !u!114 &8998810741554706228
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -104,7 +105,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98f9676d290fe55439eb4f52f0d6911e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  menuCanvas: {fileID: 0}
+  menuCanvas: {fileID: 3286494041746381377, guid: e14625ef89a472442a6a2e94b7ab63cb,
+    type: 3}
   firstMenu: {fileID: 0}
   otherButton: {fileID: 0}
 --- !u!114 &3199550368679944744
@@ -122,3 +124,4 @@ MonoBehaviour:
   timeFactor: 1
   timeModifier: 0.3
   isSlowed: 0
+  isTimebarEmpty: 0
