@@ -67,6 +67,24 @@ public class Player : MonoBehaviour
         eventDuration = duration;
         eventElapsed = 0;
     }
+    public void Heal()
+    {
+        //Function to heal player by 1 heart
+        //Called when heart drop is picked up
+
+        //+2 for 2 halfs of a heart
+        currentHealth += 2;
+
+        //If health exceeds max health then set current to max
+        if (currentHealth > maxHealth)
+        {
+            currentHealth = maxHealth;
+        }
+
+        //Invoke event to change health sprites
+        modifyHearts.Invoke();
+    }
+
 
     // Called when player dies
     private void Die()

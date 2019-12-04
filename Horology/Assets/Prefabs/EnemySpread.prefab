@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6154327007853665311}
   - component: {fileID: 2436285533740320276}
   m_Layer: 9
-  m_Name: Enemy
+  m_Name: EnemyPivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -208,10 +208,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d61d41b83c5904e45bf6f652c2ac8904, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 1.2
+  doesSlow: 1
+  target: {fileID: 0}
+  weapon: {fileID: 0}
+  baseSpeed: 0
   aggroRadius: 6
   outerRadius: 5
   innerRadius: 3
-  speed: 1.2
   shootInterval: 1.5
   decisionInterval: 2
-  lookRadius: 4
