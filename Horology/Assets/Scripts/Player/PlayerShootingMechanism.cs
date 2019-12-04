@@ -10,11 +10,13 @@ public class PlayerShootingMechanism : MonoBehaviour
     public float shootInterval = 0.5f;
     public Transform firePoint;
     public GameObject bulletPrefab;
-
+    
+    
 
     // Update is called once per frame
     void Update()
     {
+        // Time since last frame was called
         timeSinceShot += Time.deltaTime;
 
         // Get the R axis on the joystick
