@@ -7,6 +7,11 @@ public class TimeBar : MonoBehaviour
 {
     public Image bar;
 
+    private void Start()
+    {
+        SetBar(1, 1);
+    }
+
     public void SetBar(float amount, float range)
     {
         bar.fillAmount = Mathf.Lerp(0, 1, (amount / range));

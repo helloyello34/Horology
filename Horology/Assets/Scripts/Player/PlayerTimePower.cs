@@ -11,7 +11,7 @@ public class PlayerTimePower : MonoBehaviour
     public float manaDepletionSpeed = 10f;
     private bool isDepleting = false;
     private UnityAction<bool> usingMana;
-    public GameObject barController;
+    public GameObject manaBar;
 
     void Start()
     {
@@ -37,7 +37,7 @@ public class PlayerTimePower : MonoBehaviour
                 currentMana -= currentMana;
             }
             // Interpolate the bar size based on current/max mana
-            barController.GetComponent<TimeBar>().SetBar(currentMana, maxMana);
+            manaBar.GetComponent<TimeBar>().SetBar(currentMana, maxMana);
         }
         else
         {
@@ -54,7 +54,7 @@ public class PlayerTimePower : MonoBehaviour
         {
             currentMana = maxMana;
         }
-        barController.GetComponent<TimeBar>().SetBar(currentMana, maxMana);
+        manaBar.GetComponent<TimeBar>().SetBar(currentMana, maxMana);
     }
 
     private void FixedUpdate()
