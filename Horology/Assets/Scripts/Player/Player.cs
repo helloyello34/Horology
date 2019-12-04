@@ -11,6 +11,11 @@ public class Player : MonoBehaviour
 
     public UnityEvent modifyHearts;
     public UnityEvent death;
+    public UnityEvent<float, float> dashEvent;
+    private UnityAction<float, float> dashAction;
+    public bool isGod = false;
+    private float eventDuration = 0;
+    private float eventElapsed = 0;
 
     private void Awake()
     {
@@ -23,15 +28,21 @@ public class Player : MonoBehaviour
         {
             death = new UnityEvent();
         }
+        dashEvent = new DashEvent();
+        dashAction += DetectEvent;
+        dashEvent.AddListener(dashAction);
     }
 
     public void Hit(int damage)
     {
-        // Take damage
-        currentHealth -= damage;
+        if (!isGod)
+        {
+            // Take damage
+            currentHealth -= damage;
 
-        // Emit event to update heart health bar
-        modifyHearts.Invoke();
+            // Emit event to update heart health bar
+            modifyHearts.Invoke();
+        }
 
         // Call death function if health equals or goes under 0
         if (currentHealth <= 0)
@@ -41,6 +52,21 @@ public class Player : MonoBehaviour
 
     }
 
+    private void FixedUpdate()
+    {
+        if (isGod)
+        {
+            eventElapsed += Time.fixedDeltaTime;
+            isGod = eventElapsed < eventDuration;
+        }
+    }
+
+    private void DetectEvent(float duration, float b)
+    {
+        isGod = true;
+        eventDuration = duration;
+        eventElapsed = 0;
+    }
 
     // Called when player dies
     private void Die()

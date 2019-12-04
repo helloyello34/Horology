@@ -25,12 +25,12 @@ public class EnemyBullet : MonoBehaviour
         {
             return;
         }
-        Destroy(gameObject);
 
         Player player = collision.GetComponent<Player>();
 
-        if (player)
+        if (player && !player.isGod)
         {
+            Destroy(gameObject);
             player.Hit(1);
         }
     }
