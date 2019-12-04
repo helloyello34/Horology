@@ -1512,7 +1512,7 @@ PrefabInstance:
     - target: {fileID: 9096480708942051567, guid: 1539529f45814fa4ea8e4ed3b2302ac6,
         type: 3}
       propertyPath: m_Name
-      value: playerGraphic (1)
+      value: playerGraphic
       objectReference: {fileID: 0}
     - target: {fileID: 9096480708942051570, guid: 1539529f45814fa4ea8e4ed3b2302ac6,
         type: 3}
