@@ -21,17 +21,17 @@ public class EnemyBullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Trigger") || collision.CompareTag("Drop"))
+        Player player = collision.GetComponent<Player>();
+        if (collision.CompareTag("Trigger") || collision.CompareTag("Drop") || player.isGod)
         {
             return;
         }
         // Instansiating on hit effect animation
         Instantiate(bulletHitEffect, transform.position, Quaternion.identity);
-        Player player = collision.GetComponent<Player>();
+        Destroy(gameObject);
 
-        if (player && !player.isGod)
+        if (player)
         {
-            Destroy(gameObject);
             player.Hit(1);
         }
     }
