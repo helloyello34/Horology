@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlayerBullet : Bullet
 {
     public GameObject bulletHitEffect;
+
+    public int damage = 25;
     
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -19,7 +21,7 @@ public class PlayerBullet : Bullet
         Destroy(gameObject);
         if (enemy)
         {
-            enemy.Hit(40);
+            enemy.Hit(damage);
         }
     }
 }
