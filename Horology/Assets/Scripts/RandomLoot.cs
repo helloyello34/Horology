@@ -15,7 +15,7 @@ public class RandomLoot : MonoBehaviour
 
     int total;
     int random;
-    int chanceToEnterTable = 1;
+    public int chanceToEnterTable = 5;
 
     // Start is called before the first frame update
     void Start()
