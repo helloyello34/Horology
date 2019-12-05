@@ -17,13 +17,6 @@ public class SpreadEnemy : Enemy
     {
 
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     public override void Hit(int damage)
     {
         health -= damage;

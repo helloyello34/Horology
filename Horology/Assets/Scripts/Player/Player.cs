@@ -16,6 +16,8 @@ public class Player : MonoBehaviour
     public bool isGod = false;
     private float eventDuration = 0;
     private float eventElapsed = 0;
+    public AudioSource hurtSound;
+    public AudioSource deathSound;
 
     private void Awake()
     {
@@ -48,6 +50,11 @@ public class Player : MonoBehaviour
         {
             // Take damage
             currentHealth -= damage;
+
+            if (!hurtSound.isPlaying && currentHealth > 0)
+            {
+                hurtSound.Play();
+            }
 
             // Emit event to update heart health bar
             modifyHearts.Invoke();
@@ -98,6 +105,7 @@ public class Player : MonoBehaviour
     // Called when player dies
     private void Die()
     {
+        deathSound.Play();
         // Destroys the player object
         death.Invoke();
     }

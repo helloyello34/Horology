@@ -13,6 +13,11 @@ public class PlayerMovement : MonoBehaviour
     private float dashDuration = 0;
     private float dashElapsed = 0;
     private Rigidbody2D rb;
+    public AudioSource stepSound1;
+    public AudioSource stepSound2;
+    private bool soundToPlay = true;
+    private float stepTimer = 0;
+    public float stepInterval;
 
     // Start is called before the first frame update
     void Start()
@@ -36,6 +41,16 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        stepTimer += Time.fixedDeltaTime;
+        if (direction.magnitude > 0 && stepTimer > stepInterval)
+        {
+            PlaySound();
+        }
+        else if (direction.magnitude == 0)
+        {
+            // soundToPlay = false;
+            stepTimer = 0;
+        }
         if (isDashing)
         {
             dashElapsed += Time.fixedDeltaTime;
@@ -55,5 +70,19 @@ public class PlayerMovement : MonoBehaviour
         dashElapsed = 0;
         dashDuration = duration;
         movementSpeed *= speed;
+    }
+
+    private void PlaySound()
+    {
+        if (soundToPlay)
+        {
+            stepSound1.Play();
+        }
+        else
+        {
+            stepSound2.Play();
+        }
+        soundToPlay = !soundToPlay;
+        stepTimer = 0;
     }
 }

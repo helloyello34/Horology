@@ -10,6 +10,7 @@ public class PlayerShootingMechanism : MonoBehaviour
     public float shootInterval;
     public Transform firePoint;
     public GameObject bulletPrefab;
+    public AudioSource shotSound;
 
 
     private void Start()
@@ -21,7 +22,7 @@ public class PlayerShootingMechanism : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
         // Time since last frame was called
         timeSinceShot += Time.deltaTime;
 
@@ -53,6 +54,7 @@ public class PlayerShootingMechanism : MonoBehaviour
     {
         // Create an instance of a bullet
         Instantiate(bulletPrefab, firePoint.position, transform.rotation);
+        shotSound.Play();
 
         // Reset timer
         timeSinceShot = 0f;

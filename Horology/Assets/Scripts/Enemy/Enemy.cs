@@ -6,11 +6,8 @@ using UnityEngine.Events;
 public class Enemy : MonoBehaviour
 {
     public UnityEvent onDeath;
-
-    private void Start()
-    {
-        
-    }
+    public AudioSource deathSound;
+    private SpriteRenderer sprite;
 
     public virtual void Hit(int damage)
     {
@@ -21,12 +18,26 @@ public class Enemy : MonoBehaviour
         {
             onDeath = new UnityEvent();
         }
+        sprite = GetComponent<SpriteRenderer>();
+    }
+
+    public void Update()
+    {
+        if (!sprite.enabled && !deathSound.isPlaying)
+        {
+            Debug.Log("KILL SELF");
+            Destroy(gameObject);
+        }
     }
 
     public virtual void Die()
     {
+        deathSound.Play();
+        sprite.enabled = false;
+        GetComponent<Rigidbody2D>().transform.position = new Vector2(10000, 10000);
+
         onDeath.Invoke();
-        Destroy(gameObject);
+
 
         RandomLoot lootScript = PlayerManager.instance.GetComponent<RandomLoot>();
         GameObject loot = lootScript.getRandomLoot();

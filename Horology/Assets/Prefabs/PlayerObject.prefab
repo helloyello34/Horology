@@ -2013,6 +2013,7 @@ MonoBehaviour:
   firePoint: {fileID: 5402457802743496314}
   bulletPrefab: {fileID: 8350668323949797717, guid: 05fc52a4ec1e1e6448d5e6d3bc1902a4,
     type: 3}
+  shotSound: {fileID: 0}
 --- !u!1 &6063041553069940399
 GameObject:
   m_ObjectHideFlags: 0
@@ -2547,6 +2548,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dashSpeed: 15.83
   dashDuration: 0.08
+  dashCooldown: 1
 --- !u!114 &6879834822428824357
 MonoBehaviour:
   m_ObjectHideFlags: 0
