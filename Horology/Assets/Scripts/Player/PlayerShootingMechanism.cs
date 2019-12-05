@@ -43,7 +43,7 @@ public class PlayerShootingMechanism : MonoBehaviour
             // Get the angle of the joystick and rotating the object on that angle
             float angle = Mathf.Atan2(looking.y, looking.x) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.Euler(0f, 0f, -angle);
-            Debug.Log(angle);
+            // Debug.Log(angle);
         }
     }
 

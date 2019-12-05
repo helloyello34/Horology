@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
     private float baseSpeed;
     private float dashDuration = 0;
     private float dashElapsed = 0;
+    private Rigidbody2D rb;
 
     // Start is called before the first frame update
     void Start()
@@ -20,6 +21,7 @@ public class PlayerMovement : MonoBehaviour
         baseSpeed = movementSpeed;
         dashCallback += CallbackFunc;
         PlayerManager.instance.player.GetComponent<Player>().dashEvent.AddListener(dashCallback);
+        rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -43,7 +45,7 @@ public class PlayerMovement : MonoBehaviour
                 movementSpeed = baseSpeed;
             }
         }
-        transform.position += movementSpeed * direction * Time.fixedDeltaTime;
+        rb.velocity = direction.normalized * movementSpeed;
     }
 
     public void CallbackFunc(float duration, float speed)
