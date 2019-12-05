@@ -20,15 +20,17 @@ public class EnemyManager : MonoBehaviour
 
     public bool FloorIsEmpty()
     {
-        if (enemyCount[GameManager.instance.currentLevel] == 0)
+        if (enemyCount[GameManager.instance.currentLevel] <= 0)
         {
             return true;
         }
         return false;
     }
 
-    public void killEnemy()
+
+    // Kills enemy on the lvl their on
+    public void killEnemy(int lvl)
     {
-        enemyCount[GameManager.instance.currentLevel] -= 1;
+        enemyCount[lvl] -= 1;
     }
 }

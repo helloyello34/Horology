@@ -7,6 +7,8 @@ public class Enemy : MonoBehaviour
 {
     public UnityEvent onDeath;
 
+    public int lvlNumber;
+
     private void Start()
     {
         
@@ -15,6 +17,7 @@ public class Enemy : MonoBehaviour
     public virtual void Hit(int damage)
     {
     }
+
     private void Awake()
     {
         if (onDeath == null)
@@ -25,7 +28,9 @@ public class Enemy : MonoBehaviour
 
     public virtual void Die()
     {
-        onDeath.Invoke();
+        //onDeath.Invoke();
+
+        EnemyManager.instance.killEnemy(lvlNumber);
         Destroy(gameObject);
 
         RandomLoot lootScript = PlayerManager.instance.GetComponent<RandomLoot>();
