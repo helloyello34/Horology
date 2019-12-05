@@ -13,9 +13,11 @@ public class PlayerDash : MonoBehaviour
 {
     public float dashSpeed;
     public float dashDuration;
-    private bool canDash;
-    private bool isDashing;
-    private float dashTimeElapsed;
+    public float dashCooldown;
+    private bool canDash = true;
+    private bool isDashing = false;
+    private float cooldownElapsed = 0;
+    private float dashTimeElapsed = 0;
     private PlayerMovement playerMovement;
     private UnityEvent<float, float> dashEvent;
 
@@ -29,7 +31,7 @@ public class PlayerDash : MonoBehaviour
     void Update()
     {
         Debug.Log("DASH");
-        if ( (Input.GetAxisRaw("Dash") == 1 || Input.GetButtonDown("Cancel")) && !isDashing && canDash)
+        if ((Input.GetAxisRaw("Dash") == 1 || Input.GetButtonDown("Cancel")) && !isDashing && canDash)
         {
             Debug.Log("DASH");
             isDashing = true;
@@ -38,15 +40,20 @@ public class PlayerDash : MonoBehaviour
             dashEvent.Invoke(dashDuration, dashSpeed);
         }
 
-        if (Input.GetAxisRaw("Dash") == 0)
+        if (Input.GetAxisRaw("Dash") == 0 && !canDash && cooldownElapsed > dashCooldown)
         {
             canDash = true;
+            cooldownElapsed = 0;
         }
     }
 
     private void FixedUpdate()
     {
-        if (isDashing)
+        if (!isDashing)
+        {
+            cooldownElapsed += Time.fixedDeltaTime;
+        }
+        else
         {
             dashTimeElapsed += Time.fixedDeltaTime;
 
