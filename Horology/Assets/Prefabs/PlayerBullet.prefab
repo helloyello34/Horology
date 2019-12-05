@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8350668323949797714}
   - component: {fileID: 8350668323949797716}
   - component: {fileID: 4101118722867614439}
-  m_Layer: 8
+  m_Layer: 12
   m_Name: PlayerBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 8350668323949797717}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.6, y: 0.011, z: 0}
-  m_LocalScale: {x: 1.64, y: 1.77, z: 1}
+  m_LocalScale: {x: 3.2308, y: 3.4869, z: 1.97}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -72,7 +72,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: c6611b3035e25d34b91241d5f2d45422, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ecbcee30fd50ef84f9c370129029d2b9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -132,7 +132,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 113e4ca0125f2894fbbc856b0b14896a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 4
+  speed: 10
   rb: {fileID: 8350668323949797714}
   bulletHitEffect: {fileID: 8793760909697229305, guid: 0f8d11f4d95e0524c915dc2b08c9c79f,
     type: 3}

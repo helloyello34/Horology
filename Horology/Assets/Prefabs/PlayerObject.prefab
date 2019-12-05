@@ -2009,7 +2009,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 219119adad3604647b96e73ab373d77a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootInterval: 0.25
+  shootInterval: 0.45
   firePoint: {fileID: 5402457802743496314}
   bulletPrefab: {fileID: 8350668323949797717, guid: 05fc52a4ec1e1e6448d5e6d3bc1902a4,
     type: 3}
@@ -2348,6 +2348,8 @@ GameObject:
   - component: {fileID: 6882277158535713400}
   - component: {fileID: 7365665115519458042}
   - component: {fileID: 7273749660231567765}
+  - component: {fileID: 7842881937742384416}
+  - component: {fileID: 6879834822428824357}
   m_Layer: 8
   m_Name: PlayerObject
   m_TagString: Untagged
@@ -2436,6 +2438,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 2.6
+  direction: {x: 0, y: 0, z: 0}
 --- !u!50 &6882277158535713403
 Rigidbody2D:
   serializedVersion: 4
@@ -2517,6 +2520,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+  isGod: 0
 --- !u!114 &7273749660231567765
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2529,6 +2533,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5e5a4cce038a9e4d9105530eb9c9447, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7842881937742384416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6882277158535713380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 843d0de599183cd4d901579343c824ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dashSpeed: 15.83
+  dashDuration: 0.08
+--- !u!114 &6879834822428824357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6882277158535713380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00acf9d2964884146b1a070841341465, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingMana: 100
+  maxMana: 100
+  currentMana: 0
+  manaDepletionSpeed: 10
+  manaBar: {fileID: 0}
 --- !u!1 &6932153091303451457
 GameObject:
   m_ObjectHideFlags: 0

@@ -33,6 +33,15 @@ public class Player : MonoBehaviour
         dashEvent.AddListener(dashAction);
     }
 
+    private void Start()
+    {
+        Rigidbody2D rb = GetComponent<Rigidbody2D>();
+
+        rb.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
+
+        rb.interpolation = RigidbodyInterpolation2D.Extrapolate;
+    }
+
     public void Hit(int damage)
     {
         if (!isGod)

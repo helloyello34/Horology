@@ -28,7 +28,8 @@ public class PlayerDash : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetAxisRaw("Dash") == 1 && !isDashing && canDash)
+        Debug.Log("DASH");
+        if ( (Input.GetAxisRaw("Dash") == 1 || Input.GetButtonDown("Cancel")) && !isDashing && canDash)
         {
             Debug.Log("DASH");
             isDashing = true;
