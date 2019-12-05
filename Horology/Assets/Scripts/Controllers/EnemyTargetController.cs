@@ -38,7 +38,7 @@ public class EnemyTargetController : EnemyController
         if (isSlowed && firstPass)
         {
             firstPass = false;
-            shootInterval *= (1 + TimeManager.instance.timeFactor);
+            shootInterval /=  TimeManager.instance.timeModifier;
         }
         else if (!isSlowed && !firstPass)
         {

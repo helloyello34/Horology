@@ -19,22 +19,26 @@ public class EnemyBullet : MonoBehaviour
         TimeManager.instance.timeEvent.AddListener(timeCallback);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
         Player player = collision.GetComponent<Player>();
-        if (collision.CompareTag("Trigger") || collision.CompareTag("Drop") || player.isGod)
+        if (collision.CompareTag("Trigger") || collision.CompareTag("Drop") || ( player != null && player.isGod))
         {
             return;
         }
         // Instansiating on hit effect animation
-        Instantiate(bulletHitEffect, transform.position, Quaternion.identity);
-        Destroy(gameObject);
+        
 
         if (player)
         {
             player.Hit(1);
         }
+
+        Instantiate(bulletHitEffect, transform.position, Quaternion.identity);
+        Destroy(gameObject);
     }
+    
+   
 
     public void SlowDown(bool isSlowed)
     {

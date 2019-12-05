@@ -7,7 +7,7 @@ public class PlayerShootingMechanism : MonoBehaviour
     Vector3 looking = new Vector3();
     float timeSinceShot = 0;
 
-    public float shootInterval = 0.5f;
+    public float shootInterval;
     public Transform firePoint;
     public GameObject bulletPrefab;
 
@@ -21,6 +21,7 @@ public class PlayerShootingMechanism : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         // Time since last frame was called
         timeSinceShot += Time.deltaTime;
 
