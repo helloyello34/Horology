@@ -61,7 +61,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2e0b1c77dfc5824dae2e936d1219699, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyCount: 0200000001000000
+  enemyCount: 0000000001000000040000000200000006000000
 --- !u!114 &9174333293477449830
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -74,7 +74,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 582d57f9db350794993741f650679abd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentLevel: 0
+  currentLevel: 4
 --- !u!114 &883045337771403438
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -92,6 +92,7 @@ MonoBehaviour:
   - {fileID: 6342550840368681450, guid: 2b6c037d63e3657429b5cc446c08d359, type: 3}
   - {fileID: 5784849395685656919, guid: 689aa90a4202b5d4cac0782c583b5594, type: 3}
   - {fileID: 0}
+  chanceToEnterTable: 5
 --- !u!114 &3199550368679944744
 MonoBehaviour:
   m_ObjectHideFlags: 0

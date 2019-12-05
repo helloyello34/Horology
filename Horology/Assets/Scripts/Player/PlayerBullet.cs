@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerBullet : Bullet
 {
+    public int damage = 25;
     public GameObject bulletHitEffect;
     public AudioSource hitSound;
     private SpriteRenderer sprite;
@@ -28,7 +29,7 @@ public class PlayerBullet : Bullet
             Debug.Log("HIT ENEMY");
             sprite.enabled = false;
             hitSound.Play();
-            enemy.Hit(40);
+            enemy.Hit(damage);
         }
         else
         {

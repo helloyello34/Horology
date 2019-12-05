@@ -213,6 +213,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   deathSound: {fileID: -192670318364978717}
+  levelNumber: 0
   health: 100
 --- !u!114 &3156921966725094060
 MonoBehaviour:

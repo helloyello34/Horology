@@ -56,9 +56,12 @@ public class EnemyTargetController : EnemyController
     {
         // Distance to the player
         float distanceToPlayer = Vector3.Distance(target.position, transform.position);
+        float dt = Time.fixedDeltaTime;
+        timeSinceLastDecision += dt;
+        float movement = dt * speed;
+        int levelNumber = GetComponent<Enemy>().levelNumber;
 
-
-        if (distanceToPlayer <= aggroRadius)
+        if (distanceToPlayer <= aggroRadius && GameManager.instance.currentLevel == levelNumber)
         {
             //Permanently make enemy aggressive to player
             aggro = true;
@@ -67,11 +70,7 @@ public class EnemyTargetController : EnemyController
         //If enemy is not aggro, do nothing
         if (aggro)
         {
-            //Add delta time to counters
-            float dt = Time.fixedDeltaTime;
-            timeSinceLastDecision += dt;
             timeSinceShot += dt;
-            float movement = dt * speed;
 
             if (timeSinceShot >= shootInterval)
             {
@@ -129,7 +128,20 @@ public class EnemyTargetController : EnemyController
         }
         else
         {
-            //Do nothing for now, //Idle animation maybe ?
+            //Code Duplication, Add to parent class ????
+            if (timeSinceLastDecision >= decisionInterval)
+            {
+                // Make movement decision
+                //Pick a random direction or stay still
+                randomDirection = Random.Range(0, 10) == 0 ? new Vector3(0, 0, 0) : (Vector3)Random.insideUnitCircle.normalized;
+                //Reset variable to start counting down to next decision
+                timeSinceLastDecision = 0;
+            }
+            else
+            {
+                // Move in decided direction
+                transform.Translate(randomDirection * movement);
+            }
         }
     }
 

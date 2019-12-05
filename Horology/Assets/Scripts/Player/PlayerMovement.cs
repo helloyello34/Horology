@@ -60,7 +60,7 @@ public class PlayerMovement : MonoBehaviour
                 movementSpeed = baseSpeed;
             }
         }
-        rb.velocity = direction.normalized * movementSpeed;
+        rb.velocity = direction * movementSpeed;
     }
 
     public void CallbackFunc(float duration, float speed)

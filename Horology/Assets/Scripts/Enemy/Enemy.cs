@@ -8,10 +8,12 @@ public class Enemy : MonoBehaviour
     public UnityEvent onDeath;
     public AudioSource deathSound;
     private SpriteRenderer sprite;
+    public int levelNumber;
 
     public virtual void Hit(int damage)
     {
     }
+
     private void Awake()
     {
         if (onDeath == null)
@@ -36,8 +38,7 @@ public class Enemy : MonoBehaviour
         sprite.enabled = false;
         GetComponent<Rigidbody2D>().transform.position = new Vector2(10000, 10000);
 
-        onDeath.Invoke();
-
+        EnemyManager.instance.killEnemy(levelNumber);
 
         RandomLoot lootScript = PlayerManager.instance.GetComponent<RandomLoot>();
         GameObject loot = lootScript.getRandomLoot();
