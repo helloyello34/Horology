@@ -3586,6 +3586,11 @@ PrefabInstance:
       propertyPath: isDashing
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7365665115519458042, guid: c363c24a9a493d34b9006e43d0cb250c,
+        type: 3}
+      propertyPath: isGod
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6932153091303451457, guid: c363c24a9a493d34b9006e43d0cb250c,
         type: 3}
       propertyPath: m_IsActive
