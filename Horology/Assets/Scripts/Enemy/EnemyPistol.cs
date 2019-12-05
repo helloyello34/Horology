@@ -29,7 +29,6 @@ public class EnemyPistol : EnemyWeapon
     {
         if (TimeManager.instance.timeFactor != 0)
         {
-            Debug.Log("INSTANTIATING");
             Instantiate(bulletPrefab, firePoint.transform.position, transform.rotation);
         }
     }

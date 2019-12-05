@@ -4,16 +4,17 @@ using UnityEngine;
 
 public class TimeJuiceDrop : MonoBehaviour
 {
+    public float amount;
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -23,7 +24,7 @@ public class TimeJuiceDrop : MonoBehaviour
         if (player)
         {
             //Modify Time Juice
-            //Call time juice function
+            PlayerManager.instance.player.GetComponent<PlayerTimePower>().IncreaseMana(amount);
             Destroy(gameObject);
         }
     }

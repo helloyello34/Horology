@@ -11,6 +11,8 @@ public class EnemySpreadController : EnemyController
     [Space]
     public float shootInterval;
     public float decisionInterval;
+    private float startingInterval;
+    private bool firstPass = true;
 
 
     private float timeSinceShot = 0;
@@ -22,6 +24,21 @@ public class EnemySpreadController : EnemyController
     {
         //Calling base classes start method to initalize variables
         base.Start();
+        startingInterval = shootInterval;
+    }
+
+    private void Update()
+    {
+        if (isSlowed && firstPass)
+        {
+            firstPass = false;
+            shootInterval *= (1 + TimeManager.instance.timeFactor);
+        }
+        else if (!isSlowed && !firstPass)
+        {
+            firstPass = true;
+            shootInterval = startingInterval;
+        }
     }
 
 
@@ -80,7 +97,7 @@ public class EnemySpreadController : EnemyController
                 // Move in decided direction
                 transform.Translate(randomDirection * movement);
             }
-           
+
 
         }
         else

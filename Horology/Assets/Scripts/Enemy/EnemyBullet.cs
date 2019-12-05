@@ -13,7 +13,6 @@ public class EnemyBullet : MonoBehaviour
     public GameObject bulletHitEffect;
     private void Start()
     {
-        Debug.Log("BULLET TIME");
         startingVelocity = transform.right * speed;
         rb.velocity = TimeManager.instance.isSlowed ? startingVelocity * TimeManager.instance.timeFactor : startingVelocity;
         timeCallback += SlowDown;
@@ -39,7 +38,6 @@ public class EnemyBullet : MonoBehaviour
 
     public void SlowDown(bool isSlowed)
     {
-        Debug.Log("RB:(" + rb.velocity.x + ", " + rb.velocity.y + ");");
         if (isSlowed)
         {
             rb.velocity = rb.velocity * TimeManager.instance.timeFactor;

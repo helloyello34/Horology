@@ -20,6 +20,8 @@ public class EnemyTargetController : EnemyController
     private bool aggro = false;
     private bool roaming = true;
     private Vector3 randomDirection = new Vector3(0, 0, 0);
+    private bool firstPass = true;
+    private float startingInterval;
 
     public override void Start()
     {
@@ -28,7 +30,21 @@ public class EnemyTargetController : EnemyController
 
         //Random initial time between mode changes so every enemy doesn't switch at the same time
         timeSinceModeChange = Random.Range(0, 5);
+        startingInterval = shootInterval;
+    }
 
+    private void Update()
+    {
+        if (isSlowed && firstPass)
+        {
+            firstPass = false;
+            shootInterval *= (1 + TimeManager.instance.timeFactor);
+        }
+        else if (!isSlowed && !firstPass)
+        {
+            firstPass = true;
+            shootInterval = startingInterval;
+        }
     }
 
     void FixedUpdate()

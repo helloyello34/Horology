@@ -18,6 +18,7 @@ public class EnemyController : MonoBehaviour
     public EnemyWeapon weapon;
     [HideInInspector]
     public float baseSpeed;
+    public bool isSlowed;
     public virtual void Start()
     {
         target = PlayerManager.instance.player.transform;
@@ -33,10 +34,11 @@ public class EnemyController : MonoBehaviour
     {
     }
 
-    public void TimeSlow(bool isSlowed)
+    public void TimeSlow(bool slowed)
     {
+        isSlowed = slowed;
         // Debug.Log("enemy slow called");
-        if (isSlowed)
+        if (slowed)
         {
             speed *= TimeManager.instance.timeFactor;
         }

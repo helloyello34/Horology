@@ -27,7 +27,6 @@ public class InGameMenu : MonoBehaviour
         if (Input.GetButtonDown("Pause"))
         {
             ShowMenu(!isVisible);
-            Debug.Log(menuCanvas.name);
         }
 
         if (isVisible && Input.GetButtonDown("Cancel"))
@@ -50,7 +49,6 @@ public class InGameMenu : MonoBehaviour
         if (otherButton == null)
         {
             otherButton = GameObject.Find("Quit button");
-            Debug.Log("other btn: " + otherButton.name);
             // Makes sure the resume button will still be correctly higlighted if issue occurs
             if (!isVisible)
             {
@@ -58,7 +56,6 @@ public class InGameMenu : MonoBehaviour
             }
         }
         // Pause and unpause toggle
-        Debug.Log("Menu toggled");
         // Toggle menu visibility flag 
         isVisible = !isVisible;
         // Stop or start time
