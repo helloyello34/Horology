@@ -184,20 +184,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onDeath:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8998810741554706228, guid: 21ed81fc4c3dd61418aecc4d2db50f08,
-          type: 3}
-        m_MethodName: killEnemy
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  health: 100
+      m_Calls: []
+  levelNumber: 0
+  health: 150
 --- !u!114 &3234012841628213662
 MonoBehaviour:
   m_ObjectHideFlags: 0
