@@ -36,7 +36,6 @@ public class Enemy : MonoBehaviour
     {
         deathSound.Play();
         sprite.enabled = false;
-        GetComponent<Rigidbody2D>().transform.position = new Vector2(10000, 10000);
 
         EnemyManager.instance.killEnemy(levelNumber);
 
@@ -47,5 +46,6 @@ public class Enemy : MonoBehaviour
         {
             Instantiate(loot, transform.position, Quaternion.identity);
         }
+        GetComponent<Rigidbody2D>().transform.position = new Vector2(10000, 10000);
     }
 }
