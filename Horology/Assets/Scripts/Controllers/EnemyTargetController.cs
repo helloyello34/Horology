@@ -59,7 +59,7 @@ public class EnemyTargetController : EnemyController
         float dt = Time.fixedDeltaTime;
         timeSinceLastDecision += dt;
         float movement = dt * speed;
-
+        int levelNumber = GetComponent<Enemy>().levelNumber;
 
         if (distanceToPlayer <= aggroRadius && GameManager.instance.currentLevel == levelNumber)
         {

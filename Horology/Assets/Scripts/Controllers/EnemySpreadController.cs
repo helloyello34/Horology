@@ -56,6 +56,8 @@ public class EnemySpreadController : EnemyController
         timeSinceLastDecision += dt;
         float movement = dt * speed;
 
+        int levelNumber = GetComponent<Enemy>().levelNumber;
+
         if (distanceToPlayer <= aggroRadius && GameManager.instance.currentLevel == levelNumber)
         {
             //Permanently make enemy aggressive to player
