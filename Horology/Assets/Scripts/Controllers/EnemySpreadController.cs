@@ -17,7 +17,6 @@ public class EnemySpreadController : EnemyController
 
     private float timeSinceShot = 0;
     private float timeSinceLastDecision = 0;
-    private bool aggro = false;
     private Vector3 randomDirection = new Vector3(0, 0, 0);
 
     public override void Start()

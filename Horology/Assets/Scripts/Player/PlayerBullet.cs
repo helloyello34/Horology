@@ -24,11 +24,16 @@ public class PlayerBullet : Bullet
         Instantiate(bulletHitEffect, transform.position, Quaternion.identity);
         // Get the enemy that the bullet hit
         Enemy enemy = collision.GetComponent<Enemy>();
+        EnemyController enemyController = collision.GetComponent<EnemyController>();
         if (enemy)
         {
             Debug.Log("HIT ENEMY");
             sprite.enabled = false;
             hitSound.Play();
+
+            //Enemy is aggro if hit
+            enemyController.aggro = true; 
+
             enemy.Hit(damage);
         }
         else

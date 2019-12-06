@@ -19,6 +19,7 @@ public class EnemyController : MonoBehaviour
     [HideInInspector]
     public float baseSpeed;
     public bool isSlowed;
+    public bool aggro = false;
     public virtual void Start()
     {
         target = PlayerManager.instance.player.transform;
