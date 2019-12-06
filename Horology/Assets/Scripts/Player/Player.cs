@@ -14,6 +14,9 @@ public class Player : MonoBehaviour
     public UnityEvent<float, float> dashEvent;
     private UnityAction<float, float> dashAction;
     public bool isGod = false;
+    public float hitIFrames;
+    public bool isHit = false;
+    private float iFramesElapsed = 0;
     private float eventDuration = 0;
     private float eventElapsed = 0;
     public AudioSource hurtSound;
@@ -46,10 +49,13 @@ public class Player : MonoBehaviour
 
     public void Hit(int damage)
     {
-        if (!isGod)
+        if (!isGod && !isHit)
         {
             // Take damage
             currentHealth -= damage;
+
+            iFramesElapsed = 0;
+            isHit = true;
 
             if (!hurtSound.isPlaying && currentHealth > 0)
             {
@@ -70,10 +76,16 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
+        Debug.Log(iFramesElapsed < hitIFrames);
         if (isGod)
         {
             eventElapsed += Time.fixedDeltaTime;
             isGod = eventElapsed < eventDuration;
+        }
+        else if (isHit)
+        {
+            iFramesElapsed += Time.fixedDeltaTime;
+            isHit = iFramesElapsed < hitIFrames;
         }
     }
 
