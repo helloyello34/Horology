@@ -22,12 +22,12 @@ public class EnemyBullet : MonoBehaviour
     private void OnTriggerStay2D(Collider2D collision)
     {
         Player player = collision.GetComponent<Player>();
-        if (collision.CompareTag("Trigger") || collision.CompareTag("Drop") || ( player != null && player.isGod))
+        if (collision.CompareTag("Trigger") || collision.CompareTag("Drop") || (player != null && player.isGod))
         {
             return;
         }
         // Instansiating on hit effect animation
-        
+
 
         if (player)
         {
@@ -37,8 +37,8 @@ public class EnemyBullet : MonoBehaviour
         Instantiate(bulletHitEffect, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
-    
-   
+
+
 
     public void SlowDown(bool isSlowed)
     {
