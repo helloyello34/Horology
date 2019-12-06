@@ -20,7 +20,7 @@ public class MainMenuController : MonoBehaviour
         Debug.Log("QuitGame called");
         Application.Quit();
         // This makes quit button also work in editor
-        UnityEditor.EditorApplication.isPlaying = false;
+        // UnityEditor.EditorApplication.isPlaying = false;
     }
 
     private void Update()

@@ -22,6 +22,10 @@ public class PlayerShootingMechanism : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Time.timeScale == 0)
+        {
+            return;
+        }
 
         // Time since last frame was called
         timeSinceShot += Time.deltaTime;

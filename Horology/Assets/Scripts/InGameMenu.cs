@@ -15,6 +15,7 @@ public class InGameMenu : MonoBehaviour
     void Start()
     {
         isVisible = false;
+        Time.timeScale = 1f;
         EventSystem.current.SetSelectedGameObject(otherButton);
         // Button that will be highlighted on menu open
         firstSelected = EventSystem.current.firstSelectedGameObject;
