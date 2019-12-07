@@ -1642,6 +1642,11 @@ PrefabInstance:
       propertyPath: health
       value: 300
       objectReference: {fileID: 0}
+    - target: {fileID: 3234012841628213662, guid: 111a2414283b2a44e814d86788511a9e,
+        type: 3}
+      propertyPath: aggroRadius
+      value: 24
+      objectReference: {fileID: 0}
     - target: {fileID: 6259977629900887247, guid: 111a2414283b2a44e814d86788511a9e,
         type: 3}
       propertyPath: m_Color.g
@@ -1656,11 +1661,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.r
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3234012841628213662, guid: 111a2414283b2a44e814d86788511a9e,
-        type: 3}
-      propertyPath: aggroRadius
-      value: 24
       objectReference: {fileID: 0}
     - target: {fileID: 2436285533740320276, guid: 111a2414283b2a44e814d86788511a9e,
         type: 3}
@@ -2927,16 +2927,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3192068346968801408}
     m_Modifications:
-    - target: {fileID: 7176393672558870335, guid: 7632a81ffc84b2448aa5d9577ea6157e,
-        type: 3}
-      propertyPath: ParentObject
-      value: 
-      objectReference: {fileID: 567250353}
     - target: {fileID: 7176393672558870331, guid: 7632a81ffc84b2448aa5d9577ea6157e,
         type: 3}
       propertyPath: m_Name
       value: Main Camera
       objectReference: {fileID: 0}
+    - target: {fileID: 7176393672558870335, guid: 7632a81ffc84b2448aa5d9577ea6157e,
+        type: 3}
+      propertyPath: ParentObject
+      value: 
+      objectReference: {fileID: 567250353}
     - target: {fileID: 7176393672558870334, guid: 7632a81ffc84b2448aa5d9577ea6157e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3141,15 +3141,15 @@ PrefabInstance:
       propertyPath: isGod
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7365665115519458042, guid: c363c24a9a493d34b9006e43d0cb250c,
+        type: 3}
+      propertyPath: hitIFrames
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6932153091303451457, guid: c363c24a9a493d34b9006e43d0cb250c,
         type: 3}
       propertyPath: m_IsActive
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6882277158535713383, guid: c363c24a9a493d34b9006e43d0cb250c,
-        type: 3}
-      propertyPath: movementSpeed
-      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6879834822428824357, guid: c363c24a9a493d34b9006e43d0cb250c,
         type: 3}
