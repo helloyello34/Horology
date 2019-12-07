@@ -9,6 +9,7 @@ public class PlayerBullet : Bullet
     public AudioSource hitSound;
     private SpriteRenderer sprite;
 
+
     private void Awake()
     {
         sprite = GetComponent<SpriteRenderer>();
@@ -24,10 +25,15 @@ public class PlayerBullet : Bullet
         Instantiate(bulletHitEffect, transform.position, Quaternion.identity);
         // Get the enemy that the bullet hit
         Enemy enemy = collision.GetComponent<Enemy>();
+        EnemyController enemyController = collision.GetComponent<EnemyController>();
         if (enemy)
         {
             sprite.enabled = false;
             hitSound.Play();
+
+            //Enemy is aggro if hit
+            enemyController.aggro = true; 
+
             enemy.Hit(damage);
         }
         else

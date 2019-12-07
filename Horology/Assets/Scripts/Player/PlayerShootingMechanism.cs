@@ -11,7 +11,13 @@ public class PlayerShootingMechanism : MonoBehaviour
     public Transform firePoint;
     public GameObject bulletPrefab;
     public AudioSource shotSound;
+    public Sprite muzzleFlash;
+    public Sprite bulletSprite;
 
+    public int framesToFlash = 3;
+    public float destroyTime = 3;
+
+    private SpriteRenderer spriteRenderer;
 
     private void Start()
     {
@@ -57,10 +63,35 @@ public class PlayerShootingMechanism : MonoBehaviour
     void Shoot()
     {
         // Create an instance of a bullet
-        Instantiate(bulletPrefab, firePoint.position, transform.rotation);
+
+        var bullet = Instantiate(bulletPrefab, firePoint.position, transform.rotation);
+        spriteRenderer = bullet.GetComponent<SpriteRenderer>();
+
+        StartCoroutine(FlashMuzzleFlash());
+        //StartCoroutine(TimedDestruction());
+
+
         shotSound.Play();
 
         // Reset timer
         timeSinceShot = 0f;
+    }
+
+    IEnumerator FlashMuzzleFlash()
+    {
+        spriteRenderer.sprite = muzzleFlash;
+        
+        for(int i = 0; i < framesToFlash; i++)
+        {
+            yield return 0;
+        }
+
+        spriteRenderer.sprite = bulletSprite;
+    }
+
+    IEnumerator TimedDestruction()
+    {
+        yield return new WaitForSeconds(destroyTime);
+        Destroy(gameObject);
     }
 }

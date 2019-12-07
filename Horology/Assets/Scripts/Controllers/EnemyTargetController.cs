@@ -17,7 +17,6 @@ public class EnemyTargetController : EnemyController
     private float timeSinceShot = 0;
     private float timeSinceLastDecision = 0;
     private float timeSinceModeChange = 0;
-    private bool aggro = false;
     private bool roaming = true;
     private Vector3 randomDirection = new Vector3(0, 0, 0);
     private bool firstPass = true;
