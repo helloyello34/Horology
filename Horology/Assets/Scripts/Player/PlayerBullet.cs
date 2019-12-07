@@ -9,6 +9,7 @@ public class PlayerBullet : Bullet
     public AudioSource hitSound;
     private SpriteRenderer sprite;
 
+
     private void Awake()
     {
         sprite = GetComponent<SpriteRenderer>();
