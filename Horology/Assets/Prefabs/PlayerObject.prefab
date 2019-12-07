@@ -2539,7 +2539,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e67aef06e09a3442a16a36b4e40c2bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 3.6
+  maxSpeed: 8
+  acceleration: 2
+  currentSpeed: 0
   direction: {x: 0, y: 0, z: 0}
   stepSound1: {fileID: 5399448845764728138}
   stepSound2: {fileID: 5878580320022940864}
@@ -2557,7 +2559,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 5
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -2626,6 +2628,8 @@ MonoBehaviour:
           m_BoolArgument: 1
         m_CallState: 2
   isGod: 0
+  hitIFrames: 0
+  isHit: 0
   hurtSound: {fileID: 4268190061683364511}
   deathSound: {fileID: 6431390899711127253}
 --- !u!114 &7273749660231567765
@@ -2652,8 +2656,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 843d0de599183cd4d901579343c824ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dashSpeed: 15.83
-  dashDuration: 0.08
+  dashSpeed: 10
+  dashDuration: 0.1
   dashCooldown: 1
 --- !u!114 &6879834822428824357
 MonoBehaviour:
