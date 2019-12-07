@@ -80,13 +80,17 @@ public class PlayerShootingMechanism : MonoBehaviour
     IEnumerator FlashMuzzleFlash()
     {
         spriteRenderer.sprite = muzzleFlash;
-        
-        for(int i = 0; i < framesToFlash; i++)
+
+        for (int i = 0; i < framesToFlash; i++)
         {
             yield return 0;
         }
 
-        spriteRenderer.sprite = bulletSprite;
+        if (spriteRenderer != null)
+        {
+            spriteRenderer.sprite = bulletSprite;
+        }
+
     }
 
     IEnumerator TimedDestruction()
