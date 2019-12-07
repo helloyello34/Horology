@@ -2468,7 +2468,7 @@ Transform:
   m_GameObject: {fileID: 6882277158535713380}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -3.18, y: -1.11, z: 0}
-  m_LocalScale: {x: 1.95, y: 2.12, z: 1}
+  m_LocalScale: {x: 1.95, y: 1.5899999, z: 1}
   m_Children:
   - {fileID: 1901080728456478729}
   - {fileID: 2264271623548790920}
@@ -2578,8 +2578,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.010239161, y: 0.055654828}
-  m_Size: {x: 0.5851418, y: 1.0708022}
+  m_Offset: {x: -0.005005445, y: -0.28136927}
+  m_Size: {x: 0.32350734, y: 0.39675432}
   m_Direction: 0
 --- !u!114 &7365665115519458042
 MonoBehaviour:
@@ -2626,6 +2626,8 @@ MonoBehaviour:
           m_BoolArgument: 1
         m_CallState: 2
   isGod: 0
+  hitIFrames: 0
+  isHit: 0
   hurtSound: {fileID: 4268190061683364511}
   deathSound: {fileID: 6431390899711127253}
 --- !u!114 &7273749660231567765
