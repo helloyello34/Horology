@@ -27,7 +27,6 @@ public class Enemy : MonoBehaviour
     {
         if (!sprite.enabled && !deathSound.isPlaying)
         {
-            Debug.Log("KILL SELF");
             Destroy(gameObject);
         }
     }

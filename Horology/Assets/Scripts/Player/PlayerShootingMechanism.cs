@@ -46,10 +46,10 @@ public class PlayerShootingMechanism : MonoBehaviour
         if (!(looking.x <= 0.2 && looking.x >= -0.2 && looking.y <= 0.2 && looking.y >= -0.2))
         {
             PlayerManager.instance.gunTransform = transform;
+            looking = looking.normalized;
             // Get the angle of the joystick and rotating the object on that angle
             float angle = Mathf.Atan2(looking.y, looking.x) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.Euler(0f, 0f, -angle);
-            // Debug.Log(angle);
         }
     }
 

@@ -26,7 +26,6 @@ public class PlayerBullet : Bullet
         Enemy enemy = collision.GetComponent<Enemy>();
         if (enemy)
         {
-            Debug.Log("HIT ENEMY");
             sprite.enabled = false;
             hitSound.Play();
             enemy.Hit(damage);

@@ -41,7 +41,6 @@ public class RandomLoot : MonoBehaviour
                 // If random number is less or equal to table number, choose that item
                 if (random <= table[i])
                 {
-                    Debug.Log("Returning gameobject");
                     return loots[i];
                 }
                 else // If not substract random and loop again
