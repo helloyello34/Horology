@@ -37,7 +37,8 @@ public class GunBase : MonoBehaviour
         timeSinceShot += Time.deltaTime;
 
         // If R1 is pushed
-        if (Input.GetButton("Fire") || (PlayerPrefs.GetString("ShootingMode", "Manual") == "Auto" && looking.magnitude > 0.2))
+        if (Input.GetButton("Fire")
+        || (PlayerPrefs.GetString("ShootingMode", "Manual") == "Auto" && new Vector2(Input.GetAxis("ShootHorizontal"), Input.GetAxis("ShootVertical")).magnitude > 0.2))
         {
             if (timeSinceShot >= shootInterval)
             {
@@ -67,15 +68,15 @@ public class GunBase : MonoBehaviour
     public virtual IEnumerator FlashMuzzleFlash(SpriteRenderer s)
     {
         s.sprite = muzzleFlash;
-        
-        for(int i = 0; i < framesToFlash; i++)
+
+        for (int i = 0; i < framesToFlash; i++)
         {
             yield return 0;
         }
 
-        if(s != null)
+        if (s != null)
         {
-        s.sprite = bulletSprite;
+            s.sprite = bulletSprite;
         }
 
     }

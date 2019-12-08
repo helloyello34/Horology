@@ -40,7 +40,6 @@ public class TimeManager : MonoBehaviour
         {
             if (Input.GetAxisRaw("Time") == 1 && once)
             {
-                Debug.Log("here");
                 isActive = !isActive;
                 once = false;
             }
@@ -78,12 +77,12 @@ public class TimeManager : MonoBehaviour
             timeEvent.Invoke(false);
         }
 
-        if(isSlowed)
-        {
-            timeEffect.fillAmount = 1;
-        } else
-        {
-            timeEffect.fillAmount = 0;
-        }
+        // if(isSlowed)
+        // {
+        //     timeEffect.fillAmount = 1;
+        // } else
+        // {
+        //     timeEffect.fillAmount = 0;
+        // }
     }
 }
