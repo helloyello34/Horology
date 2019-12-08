@@ -77,6 +77,7 @@ public class GunBase : MonoBehaviour
         {
         s.sprite = bulletSprite;
         }
+
     }
 
     IEnumerator TimedDestruction()

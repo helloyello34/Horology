@@ -5,7 +5,10 @@ using UnityEngine.Events;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float movementSpeed;
+    public float maxSpeed;
+    public float acceleration;
+    public float currentSpeed;
+    private float currentMaxSpeed;
     public Vector3 direction;
     private UnityAction<float, float> dashCallback;
     private bool isDashing = false;
@@ -23,7 +26,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         direction = new Vector3();
-        baseSpeed = movementSpeed;
+        // baseSpeed = movementSpeed;
         dashCallback += CallbackFunc;
         PlayerManager.instance.player.GetComponent<Player>().dashEvent.AddListener(dashCallback);
         rb = GetComponent<Rigidbody2D>();
@@ -36,31 +39,45 @@ public class PlayerMovement : MonoBehaviour
         {
             direction.x = Input.GetAxis("Horizontal");
             direction.y = Input.GetAxis("Vertical");
+            if (direction.magnitude > 1f)
+            {
+                direction = direction.normalized;
+            }
         }
     }
 
     private void FixedUpdate()
     {
-        stepTimer += Time.fixedDeltaTime;
-        if (direction.magnitude > 0 && stepTimer > stepInterval)
+        stepTimer = direction.magnitude > 0 ? stepTimer + Time.fixedDeltaTime : 0;
+        dashElapsed = isDashing ? dashElapsed + Time.fixedDeltaTime : 0;
+
+        if (stepTimer > stepInterval)
         {
             PlaySound();
         }
-        else if (direction.magnitude == 0)
-        {
-            // soundToPlay = false;
-            stepTimer = 0;
-        }
+
         if (isDashing)
         {
-            dashElapsed += Time.fixedDeltaTime;
             isDashing = dashElapsed < dashDuration;
+            rb.velocity = direction.normalized * currentSpeed;
             if (!isDashing)
             {
-                movementSpeed = baseSpeed;
+                currentSpeed = maxSpeed;
             }
         }
-        rb.velocity = direction * movementSpeed;
+        else
+        {
+            currentMaxSpeed = Mathf.Lerp(0, maxSpeed, direction.magnitude);
+            currentSpeed += acceleration * direction.magnitude;
+            if (currentSpeed > currentMaxSpeed)
+            {
+                currentSpeed = currentMaxSpeed;
+            }
+            if (direction.magnitude > 0.2)
+            {
+                rb.velocity = direction.normalized * currentSpeed;
+            }
+        }
     }
 
     public void CallbackFunc(float duration, float speed)
@@ -68,7 +85,8 @@ public class PlayerMovement : MonoBehaviour
         isDashing = true;
         dashElapsed = 0;
         dashDuration = duration;
-        movementSpeed *= speed;
+        currentMaxSpeed = maxSpeed * speed;
+        currentSpeed = currentMaxSpeed;
     }
 
     private void PlaySound()
