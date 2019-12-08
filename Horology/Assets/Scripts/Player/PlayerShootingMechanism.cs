@@ -41,7 +41,7 @@ public class PlayerShootingMechanism : MonoBehaviour
         looking.y = Input.GetAxis("ShootVertical");
 
         // If R1 is pushed
-        if (Input.GetButton("Fire"))
+        if (Input.GetButton("Fire") || (PlayerPrefs.GetString("ShootingMode", "Manual") == "Auto" && looking.magnitude > 0.2))
         {
             if (timeSinceShot >= shootInterval)
             {
