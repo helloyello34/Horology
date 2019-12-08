@@ -15,7 +15,6 @@ public class TimeBar : MonoBehaviour
     public void SetBar(float amount, float range)
     {
         bar.fillAmount = Mathf.Lerp(0, 1, (amount / range));
-        Debug.Log(gameObject.name + " Lert: " + Mathf.Lerp(0, 1, (amount / range)));
         CheckBounds();
     }
 
