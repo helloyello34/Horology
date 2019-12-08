@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8998810741554706228}
   - component: {fileID: 9174333293477449830}
   - component: {fileID: 883045337771403438}
-  - component: {fileID: 3199550368679944744}
+  - component: {fileID: 4980668834242334606}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -74,7 +74,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 582d57f9db350794993741f650679abd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentLevel: 4
+  currentLevel: 0
 --- !u!114 &883045337771403438
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -93,7 +93,7 @@ MonoBehaviour:
   - {fileID: 5784849395685656919, guid: 689aa90a4202b5d4cac0782c583b5594, type: 3}
   - {fileID: 0}
   chanceToEnterTable: 5
---- !u!114 &3199550368679944744
+--- !u!114 &4980668834242334606
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -105,6 +105,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57cb20467c85ade40b8c8d6149e12b12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  alphaValue: 0
+  timeEffect: {fileID: 0}
   timeFactor: 1
   timeModifier: 0.3
   isSlowed: 0
