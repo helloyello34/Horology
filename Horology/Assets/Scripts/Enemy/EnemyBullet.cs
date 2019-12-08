@@ -26,7 +26,7 @@ public class EnemyBullet : MonoBehaviour
         {
             return;
         }
-        // Instansiating on hit effect animation
+        // Instantiating on hit effect animation
 
 
         if (player)

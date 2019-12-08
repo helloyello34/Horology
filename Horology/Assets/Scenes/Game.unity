@@ -1282,6 +1282,16 @@ PrefabInstance:
       propertyPath: aggroRadius
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 2880686128929334729, guid: 1150245725357c8469880d68215b76ac,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 845458153491595873, guid: 1150245725357c8469880d68215b76ac,
+        type: 3}
+      propertyPath: m_Name
+      value: HealthCanvas
+      objectReference: {fileID: 0}
     - target: {fileID: 8002535545520673592, guid: 1150245725357c8469880d68215b76ac,
         type: 3}
       propertyPath: m_LocalPosition.z
@@ -1352,20 +1362,10 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2880686128929334729, guid: 1150245725357c8469880d68215b76ac,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.25
-      objectReference: {fileID: 0}
     - target: {fileID: 6380997855685977555, guid: 1150245725357c8469880d68215b76ac,
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 845458153491595873, guid: 1150245725357c8469880d68215b76ac,
-        type: 3}
-      propertyPath: m_Name
-      value: HealthCanvas
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1150245725357c8469880d68215b76ac, type: 3}
@@ -3516,16 +3516,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3192068346968801408}
     m_Modifications:
-    - target: {fileID: 7176393672558870335, guid: 7632a81ffc84b2448aa5d9577ea6157e,
-        type: 3}
-      propertyPath: ParentObject
-      value: 
-      objectReference: {fileID: 567250353}
     - target: {fileID: 7176393672558870331, guid: 7632a81ffc84b2448aa5d9577ea6157e,
         type: 3}
       propertyPath: m_Name
       value: Main Camera
       objectReference: {fileID: 0}
+    - target: {fileID: 7176393672558870335, guid: 7632a81ffc84b2448aa5d9577ea6157e,
+        type: 3}
+      propertyPath: ParentObject
+      value: 
+      objectReference: {fileID: 567250353}
     - target: {fileID: 7176393672558870334, guid: 7632a81ffc84b2448aa5d9577ea6157e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3765,6 +3765,16 @@ PrefabInstance:
       propertyPath: manaBar
       value: 
       objectReference: {fileID: 1269551023}
+    - target: {fileID: 5749817651884318748, guid: c363c24a9a493d34b9006e43d0cb250c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7167713688047652768, guid: c363c24a9a493d34b9006e43d0cb250c,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 6882277158535713382, guid: c363c24a9a493d34b9006e43d0cb250c,
         type: 3}
       propertyPath: m_Enabled

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4101118722867614439}
   - component: {fileID: 724339277082841801}
   m_Layer: 12
-  m_Name: PlayerBulletTesting
+  m_Name: PlayerBulletYellow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -115,12 +115,12 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.009007865, y: -0.0002980916}
   serializedVersion: 2
-  m_Radius: 0.045
+  m_Radius: 0.038740292
 --- !u!114 &4101118722867614439
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -133,7 +133,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 113e4ca0125f2894fbbc856b0b14896a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 27.17
   rb: {fileID: 8350668323949797714}
   damage: 25
   bulletHitEffect: {fileID: 2771534323765088140, guid: bb4a805831f3f3340a62019b502d53f5,

@@ -18,6 +18,9 @@ public class MouseIntercept : MonoBehaviour
     {
         if (EventSystem.current.currentSelectedGameObject == null)
         {
+            if (currentObject == null)
+            {
+            }
             EventSystem.current.SetSelectedGameObject(currentObject);
         }
         currentObject = EventSystem.current.currentSelectedGameObject;

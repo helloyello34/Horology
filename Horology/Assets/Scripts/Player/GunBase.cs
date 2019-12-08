@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GunBase : MonoBehaviour
+public class PlayerShootingMechanism : MonoBehaviour
 {
     [HideInInspector]
     public float timeSinceShot = 0;
@@ -77,7 +77,6 @@ public class GunBase : MonoBehaviour
         {
         s.sprite = bulletSprite;
         }
-
     }
 
     IEnumerator TimedDestruction()
