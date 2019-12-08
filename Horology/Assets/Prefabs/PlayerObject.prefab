@@ -2012,9 +2012,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shootInterval: 0.45
   firePoint: {fileID: 5402457802743496314}
-  bulletPrefab: {fileID: 8350668323949797717, guid: 05fc52a4ec1e1e6448d5e6d3bc1902a4,
+  bulletPrefab: {fileID: 8350668323949797717, guid: 1ae6410b37b1c054a8933e36cfa5caca,
     type: 3}
   shotSound: {fileID: 2183178104940267710}
+  muzzleFlash: {fileID: 21300000, guid: 27f7bca1749f04c4b8ff5ace078a3900, type: 3}
+  bulletSprite: {fileID: 21300000, guid: 016f5a6e3873ee24d9a0641275725bf4, type: 3}
+  framesToFlash: 3
+  destroyTime: 3
 --- !u!82 &2183178104940267710
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2539,7 +2543,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e67aef06e09a3442a16a36b4e40c2bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 3.6
+  maxSpeed: 8
+  acceleration: 2
+  currentSpeed: 0
   direction: {x: 0, y: 0, z: 0}
   stepSound1: {fileID: 5399448845764728138}
   stepSound2: {fileID: 5878580320022940864}
@@ -2557,7 +2563,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 5
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -2654,8 +2660,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 843d0de599183cd4d901579343c824ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dashSpeed: 15.83
-  dashDuration: 0.08
+  dashSpeed: 10
+  dashDuration: 0.1
   dashCooldown: 1
 --- !u!114 &6879834822428824357
 MonoBehaviour:

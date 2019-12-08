@@ -9,6 +9,7 @@ public class PlayerBullet : Bullet
     public AudioSource hitSound;
     private SpriteRenderer sprite;
 
+
     private void Awake()
     {
         sprite = GetComponent<SpriteRenderer>();
@@ -27,7 +28,6 @@ public class PlayerBullet : Bullet
         EnemyController enemyController = collision.GetComponent<EnemyController>();
         if (enemy)
         {
-            Debug.Log("HIT ENEMY");
             sprite.enabled = false;
             hitSound.Play();
 

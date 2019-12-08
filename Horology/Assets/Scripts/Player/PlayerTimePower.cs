@@ -48,7 +48,6 @@ public class PlayerTimePower : MonoBehaviour
 
     public void IncreaseMana(float amount)
     {
-        Debug.Log(amount);
         currentMana += amount;
         if (currentMana > maxMana)
         {

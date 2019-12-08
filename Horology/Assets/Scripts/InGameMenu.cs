@@ -71,13 +71,11 @@ public class InGameMenu : MonoBehaviour
 
     public void Resume()
     {
-        Debug.Log("Resumed");
         ShowMenu(false);
     }
 
     public void Restart()
     {
-        Debug.Log("Restart");
         ShowMenu(false);
         // Reload the level
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
@@ -85,7 +83,6 @@ public class InGameMenu : MonoBehaviour
 
     public void Quit()
     {
-        Debug.Log("Quit to menu");
         ShowMenu(false);
         // Load main menu
         SceneManager.LoadScene(0);

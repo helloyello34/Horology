@@ -33,14 +33,12 @@ public class TimeManager : MonoBehaviour
     {
         if (Input.GetAxisRaw("Time") == 1 && !isSlowed && !isTimebarEmpty)
         {
-            // Debug.Log("time slowed: " + (timeFactor - timeModifier));
             timeFactor *= timeModifier;
             isSlowed = true;
             timeEvent.Invoke(true);
         }
         else if ((Input.GetAxisRaw("Time") == 0 && isSlowed) || isTimebarEmpty)
         {
-            // Debug.Log("time back to normal: " + (timeFactor + timeModifier));
             timeFactor = originalTimeFactor;
             isSlowed = false;
             timeEvent.Invoke(false);
