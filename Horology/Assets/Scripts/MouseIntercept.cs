@@ -20,7 +20,6 @@ public class MouseIntercept : MonoBehaviour
         {
             if (currentObject == null)
             {
-                // Debug.Log("non");
             }
             EventSystem.current.SetSelectedGameObject(currentObject);
         }

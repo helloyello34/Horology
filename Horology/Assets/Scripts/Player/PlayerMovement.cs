@@ -65,7 +65,6 @@ public class PlayerMovement : MonoBehaviour
 
     public void CallbackFunc(float duration, float speed)
     {
-        Debug.Log("CALLBACK");
         isDashing = true;
         dashElapsed = 0;
         dashDuration = duration;

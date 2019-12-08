@@ -76,7 +76,6 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Debug.Log(iFramesElapsed < hitIFrames);
         if (isGod)
         {
             eventElapsed += Time.fixedDeltaTime;

@@ -32,7 +32,6 @@ public class PlayerDash : MonoBehaviour
     {
         if ((Input.GetAxisRaw("Dash") == 1 || Input.GetButtonDown("Cancel")) && !isDashing && canDash)
         {
-            Debug.Log("DASH");
             isDashing = true;
             canDash = false;
             dashTimeElapsed = 0;
@@ -59,7 +58,6 @@ public class PlayerDash : MonoBehaviour
             if (dashTimeElapsed > dashDuration)
             {
                 isDashing = false;
-                Debug.Log("DASH OFF");
             }
         }
     }

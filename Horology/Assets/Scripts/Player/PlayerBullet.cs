@@ -14,7 +14,32 @@ public class PlayerBullet : Bullet
     {
         sprite = GetComponent<SpriteRenderer>();
     }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.collider.CompareTag("Trigger") || collision.collider.CompareTag("Drop"))
+        {
+            return;
+        }
 
+        Instantiate(bulletHitEffect, transform.position, Quaternion.identity);
+        // Get the enemy that the bullet hit
+        Enemy enemy = collision.collider.GetComponent<Enemy>();
+        EnemyController enemyController = collision.collider.GetComponent<EnemyController>();
+        if (enemy)
+        {
+            sprite.enabled = false;
+            hitSound.Play();
+
+            //Enemy is aggro if hit
+            enemyController.aggro = true;
+
+            enemy.Hit(damage);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Trigger") || collision.CompareTag("Drop"))
@@ -28,7 +53,6 @@ public class PlayerBullet : Bullet
         EnemyController enemyController = collision.GetComponent<EnemyController>();
         if (enemy)
         {
-            Debug.Log("HIT ENEMY");
             sprite.enabled = false;
             hitSound.Play();
 
