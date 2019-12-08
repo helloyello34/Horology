@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class boolEvent : UnityEvent<bool>
 {
@@ -9,6 +10,9 @@ public class boolEvent : UnityEvent<bool>
 
 public class TimeManager : MonoBehaviour
 {
+
+    public float alphaValue;
+    public Image timeEffect;
     public static TimeManager instance;
     private bool toggle;
     private bool isActive;
@@ -72,6 +76,14 @@ public class TimeManager : MonoBehaviour
             timeFactor = originalTimeFactor;
             isSlowed = false;
             timeEvent.Invoke(false);
+        }
+
+        if(isSlowed)
+        {
+            timeEffect.fillAmount = 1;
+        } else
+        {
+            timeEffect.fillAmount = 0;
         }
     }
 }

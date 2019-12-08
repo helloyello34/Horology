@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GunBase : MonoBehaviour
+public class PlayerShootingMechanism : MonoBehaviour
 {
     [HideInInspector]
     public float timeSinceShot = 0;
@@ -37,7 +37,7 @@ public class GunBase : MonoBehaviour
         timeSinceShot += Time.deltaTime;
 
         // If R1 is pushed
-        if (Input.GetButton("Fire") || (PlayerPrefs.GetString("ShootingMode", "Manual") == "Auto" && looking.magnitude > 0.2))
+        if (Input.GetButton("Fire"))
         {
             if (timeSinceShot >= shootInterval)
             {
@@ -77,7 +77,6 @@ public class GunBase : MonoBehaviour
         {
         s.sprite = bulletSprite;
         }
-
     }
 
     IEnumerator TimedDestruction()
