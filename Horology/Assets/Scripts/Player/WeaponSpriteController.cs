@@ -32,16 +32,5 @@ public class WeaponSpriteController : MonoBehaviour
             // Flip the Axis so the player is looking to the right
             mySpriteRenderer.flipY = false;
         }
-
-        if (zAxis < 0)
-        {
-            // If the player is looking towards the screen
-            mySpriteRenderer.sortingOrder = 2;
-        }
-        else
-        {
-            // If the player is looking forward from the screen
-            mySpriteRenderer.sortingOrder = 0;
-        }
     }
 }
