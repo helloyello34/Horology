@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02370abb89cf4ee4b800b6edde5ab7e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 9096480708942051567, guid: 1539529f45814fa4ea8e4ed3b2302ac6, type: 3}
+  player: {fileID: 676729819748064492, guid: 3045540df00fe1d4b8d284d1b9a84dcc, type: 3}
   gunTransform: {fileID: 0}
 --- !u!114 &8998810741554706228
 MonoBehaviour:
@@ -74,7 +74,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 582d57f9db350794993741f650679abd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentLevel: 0
+  currentLevel: 1
 --- !u!114 &883045337771403438
 MonoBehaviour:
   m_ObjectHideFlags: 0

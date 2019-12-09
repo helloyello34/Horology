@@ -22,6 +22,12 @@ public class Player : MonoBehaviour
     public AudioSource hurtSound;
     public AudioSource deathSound;
 
+    [Header("Hit Effect")]
+    public float hitEffectDelay = 1f;
+    PlayerSpriteController hitEffect;
+    float timeSinceShot = 0f;
+
+
     private void Awake()
     {
         // Instansiate unity event if it is null
@@ -45,6 +51,10 @@ public class Player : MonoBehaviour
         rb.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
 
         rb.interpolation = RigidbodyInterpolation2D.Extrapolate;
+
+        // For hit effect
+        hitEffect = GetComponentInChildren<PlayerSpriteController>();
+        timeSinceShot = hitEffectDelay;
     }
 
     public void Hit(int damage)
@@ -64,6 +74,8 @@ public class Player : MonoBehaviour
 
             // Emit event to update heart health bar
             modifyHearts.Invoke();
+            hitEffect.HitEffect();
+            timeSinceShot = 0f;
         }
 
         // Call death function if health equals or goes under 0
@@ -72,6 +84,15 @@ public class Player : MonoBehaviour
             Die();
         }
 
+    }
+
+    private void Update()
+    {
+        timeSinceShot += Time.deltaTime;
+        if (timeSinceShot >= hitEffectDelay)
+        {
+            hitEffect.RegularSpriteColor();
+        }
     }
 
     private void FixedUpdate()

@@ -9,7 +9,7 @@ public class HUD : MonoBehaviour
     private Player player;
     public Image[] Hearts;
     private Image HeartImage;
-    public GameObject ParentObject;
+    public GameObject HeartParentObject;
 
     private ArrayList HeartList = new ArrayList();
 
@@ -30,7 +30,7 @@ public class HUD : MonoBehaviour
             // Instantiate new heart image
             Image newHeart = Instantiate(Hearts[2]);
             // Set new heart as parent of empty gameobject
-            newHeart.transform.SetParent(ParentObject.transform, false);
+            newHeart.transform.SetParent(HeartParentObject.transform, false);
              
             // Change position of each heart by i * spacing between each heart
             newHeart.rectTransform.localPosition = new Vector3(i * spacingX, 0, 0);

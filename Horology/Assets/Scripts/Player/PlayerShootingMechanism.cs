@@ -44,6 +44,7 @@ public class GunBase : MonoBehaviour
                 Shoot();
             }
         }
+        ReAdjust();
     }
 
     // Shoot projectile
@@ -85,4 +86,6 @@ public class GunBase : MonoBehaviour
         yield return new WaitForSeconds(destroyTime);
         Destroy(gameObject);
     }
+
+    public virtual void ReAdjust() { }
 }
