@@ -1128,11 +1128,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88d5a7f079b6fdf488460fbf8dcae740, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startingGun: 0
   guns:
   - {fileID: 1107905599}
   - {fileID: 1848942872}
   - {fileID: 361770690}
-  currentGun: {fileID: 0}
 --- !u!212 &681914629 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 676729821410987400, guid: 3045540df00fe1d4b8d284d1b9a84dcc,

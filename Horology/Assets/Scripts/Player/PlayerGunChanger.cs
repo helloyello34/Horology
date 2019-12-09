@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class PlayerGunChanger : MonoBehaviour
 {
+    public int startingGun;
     public List<GameObject> guns;
-    public GameObject currentGun;
+    private GameObject currentGun;
     // Start is called before the first frame update
     void Start()
     {
-        currentGun = guns[0];
+        currentGun = guns[startingGun];
     }
 
     // Update is called once per frame
