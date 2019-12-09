@@ -25,7 +25,7 @@ public class Shotgun : GunBase
         //Instantiate bullets
 
         //Instantiate bullets and add their SpriteRenderer to a list
-        for(int i = 0; i < amountOfBullet; i++)
+        for (int i = 0; i < amountOfBullet; i++)
         {
             Vector3 temp = transform.rotation.eulerAngles;
             var rand = Random.Range(-spreadAngle, spreadAngle);
@@ -59,7 +59,6 @@ public class Shotgun : GunBase
 
     public override void ReAdjust()
     {
-        Debug.Log(transform.position - startPosition);
         transform.localPosition += (startPosition - transform.localPosition) * 0.25f;
     }
 
