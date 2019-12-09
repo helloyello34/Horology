@@ -19,13 +19,11 @@ public class Laser : MonoBehaviour
 
         hit = Physics2D.Raycast(transform.position, transform.right);
 
-        Debug.DrawRay(transform.position, transform.right, Color.gray);
-
 
         if (hit.collider)
         {
-            Debug.Log(hit.distance);
-            lr.SetPosition(1, new Vector3(hit.distance, 0, 0));
+            Debug.Log(transform.localScale.x);
+            lr.SetPosition(1, new Vector3(hit.distance * 4, 0, 0));
         }
 
         //if (Physics.Raycast(transform.position, transform.right, out hit)) 
