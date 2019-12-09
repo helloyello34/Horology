@@ -13,12 +13,6 @@ public class PlayerGunChanger : MonoBehaviour
         currentGun = guns[startingGun];
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     public void SetActiveGun(int gunIndex)
     {
         if (guns.Count > gunIndex)
