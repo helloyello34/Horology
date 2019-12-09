@@ -1,14 +1,43 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameOverMenu : MonoBehaviour
 {
     private bool isVisible;
     public GameObject canvas;
     public GameObject firstSelected;
+    private GameObject currentSelected, lastSelected;
+    public Color32 selectedColor, deselectedColor;
+
+    private void Update()
+    {
+        if (currentSelected != EventSystem.current.currentSelectedGameObject)
+        {
+            lastSelected = currentSelected;
+            currentSelected = EventSystem.current.currentSelectedGameObject;
+
+            SetButtonColor(lastSelected, deselectedColor);
+            ShowButtonIcon(lastSelected, false);
+
+            SetButtonColor(currentSelected, selectedColor);
+            ShowButtonIcon(currentSelected, true);
+        }
+    }
+
+    private void SetButtonColor(GameObject button, Color32 color)
+    {
+        button.GetComponentInChildren<TextMeshProUGUI>(true).color = color;
+    }
+
+    private void ShowButtonIcon(GameObject button, bool show)
+    {
+        button.GetComponentsInChildren<Image>(true)[1].gameObject.SetActive(show);
+    }
 
     public void ShowMenu(bool show)
     {
@@ -16,6 +45,10 @@ public class GameOverMenu : MonoBehaviour
         Time.timeScale = show ? 0f : 1f;
         canvas.SetActive(show);
         EventSystem.current.SetSelectedGameObject(firstSelected);
+        currentSelected = firstSelected;
+
+        SetButtonColor(currentSelected, selectedColor);
+        ShowButtonIcon(currentSelected, true);
     }
 
     public void Restart()
