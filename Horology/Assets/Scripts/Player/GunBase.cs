@@ -36,8 +36,9 @@ public class GunBase : MonoBehaviour
         // Time since last frame was called
         timeSinceShot += Time.deltaTime;
 
+        Vector2 direction = new Vector2(Input.GetAxis("ShootHorizontal"), Input.GetAxis("ShootVertical"));
         // If R1 is pushed
-        if (Input.GetButton("Fire"))
+        if (Input.GetButton("Fire") || (PlayerPrefs.GetString("ShootingMode", "Manual") == "Auto" && direction.magnitude > 0.2))
         {
             if (timeSinceShot >= shootInterval)
             {
@@ -66,15 +67,15 @@ public class GunBase : MonoBehaviour
     public virtual IEnumerator FlashMuzzleFlash(SpriteRenderer s)
     {
         s.sprite = muzzleFlash;
-        
-        for(int i = 0; i < framesToFlash; i++)
+
+        for (int i = 0; i < framesToFlash; i++)
         {
             yield return 0;
         }
 
-        if(s != null)
+        if (s != null)
         {
-        s.sprite = bulletSprite;
+            s.sprite = bulletSprite;
         }
 
     }

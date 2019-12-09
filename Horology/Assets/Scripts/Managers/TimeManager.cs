@@ -31,12 +31,11 @@ public class TimeManager : MonoBehaviour
         instance = this;
         originalTimeFactor = timeFactor;
         timeEvent = new boolEvent();
-        toggle = PlayerPrefs.GetString("TimeJuiceMode", "Hold") == "Toggle";
     }
 
     private void InputHandler()
     {
-        if (toggle)
+        if (PlayerPrefs.GetString("TimeJuiceMode", "Hold") == "Toggle")
         {
             if (Input.GetAxisRaw("Time") == 1 && once)
             {

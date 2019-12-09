@@ -14,6 +14,7 @@ public class InGameMenu : MonoBehaviour
     public Color32 selectedColor;
     public Color32 deselectedColor;
     private GameObject currentlySelected, lastSelected;
+    public TextMeshProUGUI timeText, shootText;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +26,9 @@ public class InGameMenu : MonoBehaviour
         currentlySelected = firstSelected;
         SetButtonColor(firstSelected, selectedColor);
         ShowButtonIcon(firstSelected, true);
+
+        timeText.text = PlayerPrefs.GetString("TimeJuiceMode", "Hold");
+        shootText.text = PlayerPrefs.GetString("ShootingMode", "Manual");
     }
 
     // Update is called once per frame
@@ -32,7 +36,7 @@ public class InGameMenu : MonoBehaviour
     {
         if (Input.GetButtonDown("Pause"))
         {
-            if (isVisible)
+            if (isVisible && EventSystem.current.currentSelectedGameObject.transform.parent.name != "MainMenu")
             {
                 GameObject.Find("Back button").GetComponent<Button>().onClick.Invoke();
             }
