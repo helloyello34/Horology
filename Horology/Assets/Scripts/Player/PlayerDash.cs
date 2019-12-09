@@ -20,6 +20,7 @@ public class PlayerDash : MonoBehaviour
     private float dashTimeElapsed = 0;
     private PlayerMovement playerMovement;
     private UnityEvent<float, float> dashEvent;
+    public TimeBar dashBar;
 
 
     void Start()
@@ -30,18 +31,22 @@ public class PlayerDash : MonoBehaviour
 
     void Update()
     {
-        if ((Input.GetAxisRaw("Dash") == 1 || Input.GetButtonDown("Cancel")) && !isDashing && canDash)
+        HandleInput();
+    }
+
+    private void HandleInput()
+    {
+        Vector2 direction = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        if ((Input.GetAxisRaw("Dash") == 1 || Input.GetButtonDown("Cancel")) && !isDashing && canDash && direction.magnitude > 0.2)
         {
             isDashing = true;
             canDash = false;
             dashTimeElapsed = 0;
             dashEvent.Invoke(dashDuration, dashSpeed);
         }
-
-        if (Input.GetAxisRaw("Dash") == 0 && !canDash && cooldownElapsed > dashCooldown)
+        else if ((Input.GetAxisRaw("Dash") == 0 || Input.GetButtonUp("Cancel")) && cooldownElapsed > dashCooldown)
         {
             canDash = true;
-            cooldownElapsed = 0;
         }
     }
 
@@ -50,6 +55,7 @@ public class PlayerDash : MonoBehaviour
         if (!isDashing)
         {
             cooldownElapsed += Time.fixedDeltaTime;
+            dashBar.SetBar(cooldownElapsed, dashCooldown);
         }
         else
         {
@@ -58,6 +64,7 @@ public class PlayerDash : MonoBehaviour
             if (dashTimeElapsed > dashDuration)
             {
                 isDashing = false;
+                cooldownElapsed = 0;
             }
         }
     }

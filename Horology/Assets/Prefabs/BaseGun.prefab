@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 3668224309512367930}
   - component: {fileID: 4839284268365264940}
   - component: {fileID: 8106155317501802034}
-  - component: {fileID: 2458698700130173999}
   - component: {fileID: 5991377743304927858}
+  - component: {fileID: 1836564139805886013}
   m_Layer: 8
   m_Name: BaseGun
   m_TagString: Untagged
@@ -96,28 +96,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c4d44c1d9cd5164bbe8b7b13ad247bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &2458698700130173999
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1462530079208390838}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 219119adad3604647b96e73ab373d77a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timeSinceShot: 0
-  shootInterval: 0.45
-  firePoint: {fileID: 890538102104452703}
-  bulletPrefab: {fileID: 8350668323949797717, guid: 1ae6410b37b1c054a8933e36cfa5caca,
-    type: 3}
-  shotSound: {fileID: 5991377743304927858}
-  muzzleFlash: {fileID: 21300000, guid: 27f7bca1749f04c4b8ff5ace078a3900, type: 3}
-  bulletSprite: {fileID: 21300000, guid: 016f5a6e3873ee24d9a0641275725bf4, type: 3}
-  framesToFlash: 3
-  destroyTime: 3
 --- !u!82 &5991377743304927858
 AudioSource:
   m_ObjectHideFlags: 0
@@ -214,6 +192,28 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1836564139805886013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1462530079208390838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 219119adad3604647b96e73ab373d77a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeSinceShot: 0
+  shootInterval: 0.8
+  firePoint: {fileID: 890538102104452703}
+  bulletPrefab: {fileID: 8350668323949797717, guid: 1ae6410b37b1c054a8933e36cfa5caca,
+    type: 3}
+  shotSound: {fileID: 5991377743304927858}
+  muzzleFlash: {fileID: 21300000, guid: 27f7bca1749f04c4b8ff5ace078a3900, type: 3}
+  bulletSprite: {fileID: 21300000, guid: 016f5a6e3873ee24d9a0641275725bf4, type: 3}
+  framesToFlash: 3
+  destroyTime: 3
 --- !u!1 &7212011543975211959
 GameObject:
   m_ObjectHideFlags: 0

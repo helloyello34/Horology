@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerShootingMechanism : MonoBehaviour
+public class GunBase : MonoBehaviour
 {
     [HideInInspector]
     public float timeSinceShot = 0;
@@ -19,7 +19,7 @@ public class PlayerShootingMechanism : MonoBehaviour
 
     private SpriteRenderer spriteRenderer;
 
-    private void Start()
+    void Start()
     {
         PlayerManager.instance.gunTransform = transform;
     }
@@ -36,14 +36,17 @@ public class PlayerShootingMechanism : MonoBehaviour
         // Time since last frame was called
         timeSinceShot += Time.deltaTime;
 
+        Vector2 direction = new Vector2(Input.GetAxis("ShootHorizontal"), Input.GetAxis("ShootVertical"));
         // If R1 is pushed
-        if (Input.GetButton("Fire"))
+        if (Input.GetButton("Fire") || (PlayerPrefs.GetString("ShootingMode", "Manual") == "Auto" && direction.magnitude > 0.2))
         {
             if (timeSinceShot >= shootInterval)
             {
                 Shoot();
             }
         }
+
+        ReAdjust();
     }
 
     // Shoot projectile
@@ -55,7 +58,6 @@ public class PlayerShootingMechanism : MonoBehaviour
         spriteRenderer = bullet.GetComponent<SpriteRenderer>();
 
         StartCoroutine(FlashMuzzleFlash(spriteRenderer));
-        //StartCoroutine(TimedDestruction());
 
 
         shotSound.Play();
@@ -67,21 +69,20 @@ public class PlayerShootingMechanism : MonoBehaviour
     public virtual IEnumerator FlashMuzzleFlash(SpriteRenderer s)
     {
         s.sprite = muzzleFlash;
-        
-        for(int i = 0; i < framesToFlash; i++)
+
+        for (int i = 0; i < framesToFlash; i++)
         {
             yield return 0;
         }
 
-        if(s != null)
+        if (s != null)
         {
-        s.sprite = bulletSprite;
+            s.sprite = bulletSprite;
         }
+
     }
 
-    IEnumerator TimedDestruction()
-    {
-        yield return new WaitForSeconds(destroyTime);
-        Destroy(gameObject);
-    }
+
+
+    public virtual void ReAdjust() { }
 }

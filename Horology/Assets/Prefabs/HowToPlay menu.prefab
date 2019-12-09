@@ -1355,14 +1355,15 @@ MonoBehaviour:
     serializedVersion: 2
     rgba: 4294967295
   m_fontColor: {r: 1, g: 1, b: 1, a: 1}
-  m_enableVertexGradient: 0
+  m_enableVertexGradient: 1
   m_colorMode: 3
   m_fontColorGradient:
     topLeft: {r: 1, g: 1, b: 1, a: 1}
     topRight: {r: 1, g: 1, b: 1, a: 1}
     bottomLeft: {r: 1, g: 1, b: 1, a: 1}
     bottomRight: {r: 1, g: 1, b: 1, a: 1}
-  m_fontColorGradientPreset: {fileID: 0}
+  m_fontColorGradientPreset: {fileID: 11400000, guid: 72f1d28376820f94196f5a47a79a326d,
+    type: 2}
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
   m_overrideHtmlColors: 0
@@ -1372,7 +1373,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 30.26
+  m_fontSize: 36.38
   m_fontSizeBase: 30.26
   m_fontWeight: 400
   m_enableAutoSizing: 0
@@ -2772,6 +2773,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4811208342399437024}
     m_Modifications:
+    - target: {fileID: 7305468485177172186, guid: 122c12e5530cd854bb6bd729df703b5a,
+        type: 3}
+      propertyPath: m_Name
+      value: Back button
+      objectReference: {fileID: 0}
     - target: {fileID: 7305468485177172185, guid: 122c12e5530cd854bb6bd729df703b5a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2876,11 +2882,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7305468485177172186, guid: 122c12e5530cd854bb6bd729df703b5a,
-        type: 3}
-      propertyPath: m_Name
-      value: Back button
       objectReference: {fileID: 0}
     - target: {fileID: 7305468485177172184, guid: 122c12e5530cd854bb6bd729df703b5a,
         type: 3}

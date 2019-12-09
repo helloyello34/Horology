@@ -59,11 +59,11 @@ public class PlayerMovement : MonoBehaviour
         if (isDashing)
         {
             isDashing = dashElapsed < dashDuration;
-            rb.velocity = direction.normalized * currentSpeed;
             if (!isDashing)
             {
                 currentSpeed = maxSpeed;
             }
+            rb.velocity = direction.normalized * currentSpeed;
         }
         else
         {
