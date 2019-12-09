@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TargetEnemy : Enemy
+public class ShotgunEnemy : Enemy
 {
 
-    public int health = 100;
+    public int health = 125;
     int startHealth;
     TimeBar healthBar;
 

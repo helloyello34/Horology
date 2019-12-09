@@ -59,7 +59,6 @@ public class Shotgun : GunBase
 
     public override void ReAdjust()
     {
-        Debug.Log(transform.position - startPosition);
         transform.localPosition += (startPosition - transform.localPosition) * 0.25f;
     }
 
