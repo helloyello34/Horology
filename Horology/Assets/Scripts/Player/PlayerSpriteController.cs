@@ -9,9 +9,12 @@ public class PlayerSpriteController
 
     public GameObject pivot;
 
+
+
     [Header("Damage Color Effect")]
     public Color regularColor;
     public Color hitColor;
+    public float effectTime;
 
     // Update is called once per frame
     void Update()

@@ -21,9 +21,7 @@ public class Player : MonoBehaviour
     private float eventElapsed = 0;
     public AudioSource hurtSound;
     public AudioSource deathSound;
-
-    [Header("Hit Effect")]
-    public float hitEffectDelay = 1f;
+    
     PlayerSpriteController hitEffect;
     float timeSinceShot = 0f;
 
@@ -54,7 +52,7 @@ public class Player : MonoBehaviour
 
         // For hit effect
         hitEffect = GetComponentInChildren<PlayerSpriteController>();
-        timeSinceShot = hitEffectDelay;
+        timeSinceShot = hitEffect.effectTime;
     }
 
     public void Hit(int damage)
@@ -89,7 +87,7 @@ public class Player : MonoBehaviour
     private void Update()
     {
         timeSinceShot += Time.deltaTime;
-        if (timeSinceShot >= hitEffectDelay)
+        if (timeSinceShot >= hitEffect.effectTime)
         {
             hitEffect.RegularSpriteColor();
         }
