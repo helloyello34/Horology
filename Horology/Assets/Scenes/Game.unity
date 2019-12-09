@@ -1448,16 +1448,6 @@ PrefabInstance:
       propertyPath: aggroRadius
       value: 20
       objectReference: {fileID: 0}
-    - target: {fileID: 2880686128929334729, guid: 1150245725357c8469880d68215b76ac,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 845458153491595873, guid: 1150245725357c8469880d68215b76ac,
-        type: 3}
-      propertyPath: m_Name
-      value: HealthCanvas
-      objectReference: {fileID: 0}
     - target: {fileID: 8002535545520673592, guid: 1150245725357c8469880d68215b76ac,
         type: 3}
       propertyPath: m_LocalPosition.z
@@ -1527,6 +1517,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2880686128929334729, guid: 1150245725357c8469880d68215b76ac,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 845458153491595873, guid: 1150245725357c8469880d68215b76ac,
+        type: 3}
+      propertyPath: m_Name
+      value: HealthCanvas
       objectReference: {fileID: 0}
     - target: {fileID: 6380997855685977555, guid: 1150245725357c8469880d68215b76ac,
         type: 3}
@@ -3346,12 +3346,6 @@ MonoBehaviour:
   menuCanvas: {fileID: 484773110}
   firstMenu: {fileID: 1117327445}
   otherButton: {fileID: 1740452021}
-  selectedColor:
-    serializedVersion: 2
-    rgba: 4292114688
-  deselectedColor:
-    serializedVersion: 2
-    rgba: 4294967295
 --- !u!114 &1863416114083991470 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8998810741554706228, guid: 21ed81fc4c3dd61418aecc4d2db50f08,
@@ -3593,6 +3587,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Main Camera
       objectReference: {fileID: 0}
+    - target: {fileID: 8382851904072320201, guid: 7632a81ffc84b2448aa5d9577ea6157e,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 0.15294118
+      objectReference: {fileID: 0}
     - target: {fileID: 7176393672558870335, guid: 7632a81ffc84b2448aa5d9577ea6157e,
         type: 3}
       propertyPath: ParentObject
@@ -3702,11 +3701,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8382851904072320201, guid: 7632a81ffc84b2448aa5d9577ea6157e,
-        type: 3}
-      propertyPath: m_Color.a
-      value: 0.15294118
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7632a81ffc84b2448aa5d9577ea6157e, type: 3}
@@ -3842,6 +3836,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7167713688047652768, guid: c363c24a9a493d34b9006e43d0cb250c,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 6882277158535713382, guid: c363c24a9a493d34b9006e43d0cb250c,
         type: 3}
       propertyPath: m_Enabled
@@ -3922,10 +3921,10 @@ PrefabInstance:
       propertyPath: m_Color.b
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 7167713688047652768, guid: c363c24a9a493d34b9006e43d0cb250c,
+    - target: {fileID: 3826802636284553100, guid: c363c24a9a493d34b9006e43d0cb250c,
         type: 3}
-      propertyPath: m_RootOrder
-      value: 6
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c363c24a9a493d34b9006e43d0cb250c, type: 3}

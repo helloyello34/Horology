@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerShootingMechanism : MonoBehaviour
+public class GunBase : MonoBehaviour
 {
     [HideInInspector]
     public float timeSinceShot = 0;
@@ -19,7 +19,7 @@ public class PlayerShootingMechanism : MonoBehaviour
 
     private SpriteRenderer spriteRenderer;
 
-    private void Start()
+    void Start()
     {
         PlayerManager.instance.gunTransform = transform;
     }
@@ -55,7 +55,6 @@ public class PlayerShootingMechanism : MonoBehaviour
         spriteRenderer = bullet.GetComponent<SpriteRenderer>();
 
         StartCoroutine(FlashMuzzleFlash(spriteRenderer));
-        //StartCoroutine(TimedDestruction());
 
 
         shotSound.Play();
@@ -77,11 +76,6 @@ public class PlayerShootingMechanism : MonoBehaviour
         {
         s.sprite = bulletSprite;
         }
-    }
 
-    IEnumerator TimedDestruction()
-    {
-        yield return new WaitForSeconds(destroyTime);
-        Destroy(gameObject);
     }
 }
