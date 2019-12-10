@@ -24,7 +24,7 @@ public class Shotgun : GunBase
         //Instantiate bullets
 
         //Instantiate bullets and add their SpriteRenderer to a list
-        for(int i = 0; i < amountOfBullet; i++)
+        for (int i = 0; i < amountOfBullet; i++)
         {
             Vector3 temp = transform.rotation.eulerAngles;
             var rand = Random.Range(-spreadAngle, spreadAngle);

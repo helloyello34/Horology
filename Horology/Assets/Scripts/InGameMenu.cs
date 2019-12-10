@@ -101,7 +101,6 @@ public class InGameMenu : MonoBehaviour
 
     private void ShowButtonIcon(GameObject button, bool show)
     {
-        // Debug.Log(button.GetComponentsInChildren<Image>(true)[1].gameObject.transform.parent.name);
         button.GetComponentsInChildren<Image>(true)[1].gameObject.SetActive(show);
     }
 
