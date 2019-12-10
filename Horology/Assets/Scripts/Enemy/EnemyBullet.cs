@@ -22,7 +22,6 @@ public class EnemyBullet : MonoBehaviour
     private void OnTriggerStay2D(Collider2D collision)
     {
         Player player = collision.GetComponent<Player>();
-        Debug.Log("Hit: " + collision.name);
         if (collision.CompareTag("Trigger") || collision.CompareTag("Drop") || (player != null && player.isGod))
         {
             return;

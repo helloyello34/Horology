@@ -10,7 +10,10 @@ public class SubmachineGun : GunBase
     public GameObject muzzleFlashPrefab;
     public float muzzleFlashFrames;
 
-
+    private void Start()
+    {
+        startingPosition = transform.localPosition;
+    }
 
     public override void Shoot()
     {

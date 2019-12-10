@@ -22,7 +22,6 @@ public class Laser : MonoBehaviour
 
         if (hit.collider)
         {
-            Debug.Log(transform.localScale.x);
             lr.SetPosition(1, new Vector3(hit.distance * 4, 0, 0));
         }
 
