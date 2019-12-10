@@ -9,15 +9,8 @@ public class Shotgun : GunBase
     private List<SpriteRenderer> spriteRenderers = new List<SpriteRenderer>();
 
 
-    // Knockback variables
-    public float knockbackAmount;
-
-    Vector3 startPosition;
-
-
     private void Start()
     {
-        startPosition = transform.localPosition;
     }
 
     public override void Shoot()
@@ -25,7 +18,7 @@ public class Shotgun : GunBase
         //Instantiate bullets
 
         //Instantiate bullets and add their SpriteRenderer to a list
-        for(int i = 0; i < amountOfBullet; i++)
+        for (int i = 0; i < amountOfBullet; i++)
         {
             Vector3 temp = transform.rotation.eulerAngles;
             var rand = Random.Range(-spreadAngle, spreadAngle);
@@ -47,20 +40,6 @@ public class Shotgun : GunBase
         timeSinceShot = 0;
         //Clear array
         spriteRenderers.Clear();
-        KnockBack();
 
     }
-
-    public void KnockBack()
-    {
-        transform.localPosition -= new Vector3(knockbackAmount, 0, 0);
-    }
-
-
-    public override void ReAdjust()
-    {
-        transform.localPosition += (startPosition - transform.localPosition) * 0.25f;
-    }
-
-
 }

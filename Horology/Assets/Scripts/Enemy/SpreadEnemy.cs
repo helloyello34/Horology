@@ -24,6 +24,8 @@ public class SpreadEnemy : Enemy
         {
             Die();
         }
+        DamageEffect();
+        timeSinceShot = 0f;
     }
 
     /*

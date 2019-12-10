@@ -216,6 +216,11 @@ MonoBehaviour:
         m_CallState: 2
   deathSound: {fileID: -192670318364978717}
   levelNumber: 0
+  timeSinceShot: 0
+  spriteRenderer: {fileID: 8579503199084633528}
+  timeOfDamageEffect: 0.2
+  RegularColor: {r: 1, g: 1, b: 1, a: 1}
+  DamageColor: {r: 1, g: 0, b: 0.12156863, a: 1}
   health: 125
 --- !u!114 &3156921966725094060
 MonoBehaviour:
