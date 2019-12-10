@@ -26,6 +26,8 @@ public class TargetEnemy : Enemy
         {
             Die();
         }
+        timeSinceShot = 0f;
+        DamageEffect();
     }
 
     /*

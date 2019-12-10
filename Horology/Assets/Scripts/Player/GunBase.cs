@@ -95,7 +95,6 @@ public class GunBase : MonoBehaviour
     public virtual void ReAdjust()
     {
         knockInterval += Time.deltaTime;
-        Debug.Log(Mathf.Lerp(transform.localPosition.x, startingPosition.x, Time.deltaTime / shootInterval));
         float step = Mathf.Lerp(transform.localPosition.x, startingPosition.x, knockInterval / shootInterval);
         transform.localPosition = new Vector3(step, 0, 0);
     }

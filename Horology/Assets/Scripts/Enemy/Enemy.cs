@@ -10,6 +10,16 @@ public class Enemy : MonoBehaviour
     private SpriteRenderer sprite;
     public int levelNumber;
 
+    [Header("Damage Effect variables")]
+    [HideInInspector]
+    public float timeSinceShot;
+
+    public SpriteRenderer spriteRenderer;
+    public float timeOfDamageEffect;
+    public Color RegularColor;
+    public Color DamageColor;
+
+
     public virtual void Hit(int damage)
     {
     }
@@ -23,11 +33,22 @@ public class Enemy : MonoBehaviour
         sprite = GetComponent<SpriteRenderer>();
     }
 
+    private void Start()
+    {
+        timeSinceShot = timeOfDamageEffect;
+    }
+
     public void Update()
     {
+        timeSinceShot += Time.deltaTime;
         if (!sprite.enabled && !deathSound.isPlaying)
         {
             Destroy(gameObject);
+        }
+        if (timeSinceShot >= timeOfDamageEffect)
+        {
+            RegularEffect();
+            Debug.Log("JHIT");
         }
     }
 
@@ -46,5 +67,15 @@ public class Enemy : MonoBehaviour
             Instantiate(loot, transform.position, Quaternion.identity);
         }
         GetComponent<Rigidbody2D>().transform.position = new Vector2(10000, 10000);
+    }
+
+    public void DamageEffect()
+    {
+        spriteRenderer.color = DamageColor;
+    }
+
+    public void RegularEffect()
+    {
+        spriteRenderer.color = RegularColor;
     }
 }
