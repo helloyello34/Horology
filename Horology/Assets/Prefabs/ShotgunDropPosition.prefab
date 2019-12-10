@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1149749970263856181}
   - component: {fileID: 1149749970263856183}
   - component: {fileID: 1149749970263856180}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: ShotgunDrop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -150,7 +150,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1149749970519146806}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: ShotgunDropPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}

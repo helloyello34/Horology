@@ -48,7 +48,6 @@ public class Enemy : MonoBehaviour
         if (timeSinceShot >= timeOfDamageEffect)
         {
             RegularEffect();
-            Debug.Log("JHIT");
         }
     }
 

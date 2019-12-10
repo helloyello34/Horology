@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5671147558480737701}
   - component: {fileID: 5671147558480737703}
   - component: {fileID: 5671147558480737700}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: BaseGunDrop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -150,7 +150,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5671147559340073126}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: BaseGunDropPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}

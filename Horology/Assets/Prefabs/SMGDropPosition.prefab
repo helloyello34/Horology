@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5957970836645744371}
   - component: {fileID: 5957970836645744369}
   - component: {fileID: 5957970836645744370}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: SMGDrop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -150,7 +150,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5957970837497748464}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: SMGDropPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
