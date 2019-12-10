@@ -22,6 +22,7 @@ public class EnemyTargetController : EnemyController
     private bool firstPass = true;
     private float startingInterval;
     private Animator animator;
+    private SpriteRenderer spriteRenderer;
     private bool isNotIdle = true;
     public override void Start()
     {
@@ -34,6 +35,7 @@ public class EnemyTargetController : EnemyController
 
         //Get animator component
         animator = gameObject.GetComponent<Animator>();
+        spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
     }
 
     private void Update()
@@ -84,6 +86,9 @@ public class EnemyTargetController : EnemyController
         //If enemy is not aggro, do nothing
         if (aggro)
         {
+            //Flip sprite according to player position
+            spriteRenderer.flipX = target.position.x < transform.position.x;
+
             timeSinceShot += dt;
 
             if (timeSinceShot >= shootInterval)
@@ -170,6 +175,9 @@ public class EnemyTargetController : EnemyController
                     animator.Play("TargetEnemyIdle");
                 }
             }
+
+            //Flip sprite according to direction
+            spriteRenderer.flipX = randomDirection.y < 0;
         }
     }
 

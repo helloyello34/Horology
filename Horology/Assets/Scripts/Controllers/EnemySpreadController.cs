@@ -14,7 +14,7 @@ public class EnemySpreadController : EnemyController
     private float startingInterval;
     private bool firstPass = true;
     private Animator animator;
-
+    private SpriteRenderer spriteRenderer;
 
     private float timeSinceShot = 0;
     private float timeSinceLastDecision = 0;
@@ -28,6 +28,7 @@ public class EnemySpreadController : EnemyController
 
         //Get animator component
         animator = gameObject.GetComponent<Animator>();
+        spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
     }
 
     private void Update()
@@ -74,6 +75,10 @@ public class EnemySpreadController : EnemyController
         //If enemy is not aggro, do nothing
         if (aggro)
         {
+
+            //Flip sprite according to player position
+            spriteRenderer.flipX = target.position.x < transform.position.x;
+
             timeSinceShot += dt;
 
             if (timeSinceShot >= shootInterval)
@@ -124,6 +129,9 @@ public class EnemySpreadController : EnemyController
                 // Move in decided direction
                 transform.Translate(randomDirection * movement);
             }
+
+            //Flip sprite according to direction
+            spriteRenderer.flipX = randomDirection.y < 0;
         }
     }
 
