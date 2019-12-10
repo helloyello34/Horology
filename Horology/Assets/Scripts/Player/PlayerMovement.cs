@@ -21,6 +21,10 @@ public class PlayerMovement : MonoBehaviour
     private bool soundToPlay = true;
     private float stepTimer = 0;
     public float stepInterval;
+    public GameObject body;
+    public GameObject head;
+    private Animator bodyAnimator;
+    private Animator headAnimator;
 
     // Start is called before the first frame update
     void Start()
@@ -30,6 +34,12 @@ public class PlayerMovement : MonoBehaviour
         dashCallback += CallbackFunc;
         PlayerManager.instance.player.GetComponent<Player>().dashEvent.AddListener(dashCallback);
         rb = GetComponent<Rigidbody2D>();
+
+        //Fetch Animator component for head and body sprite
+        bodyAnimator = body.GetComponent<Animator>();
+        headAnimator = head.GetComponent<Animator>();
+
+
     }
 
     // Update is called once per frame
@@ -43,6 +53,19 @@ public class PlayerMovement : MonoBehaviour
             {
                 direction = direction.normalized;
             }
+        }
+
+        if (currentSpeed <= 0)
+        {
+            //If player is standing still, cue idle animation
+            bodyAnimator.Play("PlayerIdle");
+            headAnimator.Play("IdleHair");
+        }
+        else
+        {
+            //If player is moving, cue walking animation
+            bodyAnimator.Play("Walking");
+            headAnimator.Play("WalkingHair");
         }
     }
 

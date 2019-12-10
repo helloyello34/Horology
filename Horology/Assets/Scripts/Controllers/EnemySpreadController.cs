@@ -13,6 +13,7 @@ public class EnemySpreadController : EnemyController
     public float decisionInterval;
     private float startingInterval;
     private bool firstPass = true;
+    private Animator animator;
 
 
     private float timeSinceShot = 0;
@@ -24,6 +25,9 @@ public class EnemySpreadController : EnemyController
         //Calling base classes start method to initalize variables
         base.Start();
         startingInterval = shootInterval;
+
+        //Get animator component
+        animator = gameObject.GetComponent<Animator>();
     }
 
     private void Update()
@@ -32,11 +36,15 @@ public class EnemySpreadController : EnemyController
         {
             firstPass = false;
             shootInterval *= (1 + TimeManager.instance.timeFactor);
+            //Slow down animation speed by timeFactor
+            animator.speed = TimeManager.instance.timeFactor;
         }
         else if (!isSlowed && !firstPass)
         {
             firstPass = true;
             shootInterval = startingInterval;
+            //Set animation speed to normal pace
+            animator.speed = 1;
         }
     }
 

@@ -95,6 +95,7 @@ GameObject:
   - component: {fileID: 6946577842855121122}
   - component: {fileID: 905473786849520177}
   - component: {fileID: 905473786849520184}
+  - component: {fileID: 6811683534122936496}
   m_Layer: 9
   m_Name: ShotgunEnemy
   m_TagString: Untagged
@@ -370,6 +371,25 @@ MonoBehaviour:
   deathSound: {fileID: 6946577842855121122}
   levelNumber: 1
   health: 125
+--- !u!95 &6811683534122936496
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6507433044303605629}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7de95cba8c2a4c34d99a44a7b737cc1e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &5447041773729964173
 PrefabInstance:
   m_ObjectHideFlags: 0

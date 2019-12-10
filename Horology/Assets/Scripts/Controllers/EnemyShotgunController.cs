@@ -21,6 +21,7 @@ public class EnemyShotgunController : EnemyController
     private Vector3 randomDirection = new Vector3(0, 0, 0);
     private bool firstPass = true;
     private float startingInterval;
+    private Animator animator;
 
     public override void Start()
     {
@@ -30,6 +31,7 @@ public class EnemyShotgunController : EnemyController
         //Random initial time between mode changes so every enemy doesn't switch at the same time
         timeSinceModeChange = Random.Range(0, 5);
         startingInterval = shootInterval;
+        animator = gameObject.GetComponent<Animator>();
     }
 
     private void Update()
@@ -38,11 +40,15 @@ public class EnemyShotgunController : EnemyController
         {
             firstPass = false;
             shootInterval /= TimeManager.instance.timeModifier;
+            //Slow down animation speed by timeFactor
+            animator.speed = TimeManager.instance.timeFactor;
         }
         else if (!isSlowed && !firstPass)
         {
             firstPass = true;
             shootInterval = startingInterval;
+            //Set animation speed to normal pace
+            animator.speed = 1;
         }
     }
 

@@ -21,7 +21,8 @@ public class EnemyTargetController : EnemyController
     private Vector3 randomDirection = new Vector3(0, 0, 0);
     private bool firstPass = true;
     private float startingInterval;
-
+    private Animator animator;
+    private bool isNotIdle = true;
     public override void Start()
     {
         //Calling base classes start method to initalize variables
@@ -30,6 +31,9 @@ public class EnemyTargetController : EnemyController
         //Random initial time between mode changes so every enemy doesn't switch at the same time
         timeSinceModeChange = Random.Range(0, 5);
         startingInterval = shootInterval;
+
+        //Get animator component
+        animator = gameObject.GetComponent<Animator>();
     }
 
     private void Update()
@@ -38,16 +42,26 @@ public class EnemyTargetController : EnemyController
         {
             firstPass = false;
             shootInterval /= TimeManager.instance.timeModifier;
+            //Slow down animation speed by timeFactor
+            animator.speed = TimeManager.instance.timeFactor;
         }
         else if (!isSlowed && !firstPass)
         {
             firstPass = true;
             shootInterval = startingInterval;
+            //Set animation speed to normal pace
+            animator.speed = 1;
         }
     }
 
     void FixedUpdate()
     {
+        //Set enemy animation to walking if he is not idle
+        if (isNotIdle)
+        {
+            animator.Play("TargetEnemyWalking");
+        }
+
         EnemyMovement();
     }
 
@@ -59,6 +73,7 @@ public class EnemyTargetController : EnemyController
         timeSinceLastDecision += dt;
         float movement = dt * speed;
         int levelNumber = GetComponent<Enemy>().levelNumber;
+        isNotIdle = true;
 
         if (distanceToPlayer <= aggroRadius && GameManager.instance.currentLevel == levelNumber)
         {
@@ -108,6 +123,13 @@ public class EnemyTargetController : EnemyController
                 {
                     // Move in decided direction
                     transform.Translate(randomDirection * movement);
+                    //If no movement is chosen, set bool flag so walking animation will not be triggered
+                    //and play idle animation
+                    if(randomDirection.magnitude == 0)
+                    {
+                        isNotIdle = false;
+                        animator.Play("TargetEnemyIdle");
+                    }
                 }
             }
             else
@@ -140,6 +162,13 @@ public class EnemyTargetController : EnemyController
             {
                 // Move in decided direction
                 transform.Translate(randomDirection * movement);
+                //If no movement is chosen, set bool flag so walking animation will not be triggered
+                //and play idle animation
+                if (randomDirection.magnitude == 0)
+                {
+                    isNotIdle = false;
+                    animator.Play("TargetEnemyIdle");
+                }
             }
         }
     }
