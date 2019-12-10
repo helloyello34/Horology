@@ -39,7 +39,6 @@ public class PlayerMovement : MonoBehaviour
         bodyAnimator = body.GetComponent<Animator>();
         headAnimator = head.GetComponent<Animator>();
 
-
     }
 
     // Update is called once per frame

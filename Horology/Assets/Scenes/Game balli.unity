@@ -494,7 +494,7 @@ Animator:
   m_GameObject: {fileID: 72983635}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 819ef1f0a29eb9d42972adddc36b3bb1, type: 2}
+  m_Controller: {fileID: 9100000, guid: 215eac8f869ecc54eb15c055e90b9117, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1797,7 +1797,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1335528946
 MonoBehaviour:
@@ -2374,7 +2374,7 @@ Animator:
   m_GameObject: {fileID: 1612666428}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 177517b0d0d0d9e439416779c394c38b, type: 2}
+  m_Controller: {fileID: 9100000, guid: 832d53d08a27f6743b806844eec1b179, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -3542,7 +3542,7 @@ PrefabInstance:
     - target: {fileID: 1863416113605388489, guid: 21ed81fc4c3dd61418aecc4d2db50f08,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1863416113605388489, guid: 21ed81fc4c3dd61418aecc4d2db50f08,
         type: 3}
