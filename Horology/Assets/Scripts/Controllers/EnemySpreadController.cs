@@ -20,6 +20,7 @@ public class EnemySpreadController : EnemyController
     private float timeSinceLastDecision = 0;
     private Vector3 randomDirection = new Vector3(0, 0, 0);
 
+    private Rigidbody2D rb;
     public override void Start()
     {
         //Calling base classes start method to initalize variables
@@ -29,6 +30,7 @@ public class EnemySpreadController : EnemyController
         //Get animator component
         animator = gameObject.GetComponent<Animator>();
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     private void Update()
@@ -90,12 +92,14 @@ public class EnemySpreadController : EnemyController
             if (distanceToPlayer > outerRadius) //If player is outside outerRadius -> move closer
             {
                 //Move towards the player
-                transform.position = Vector3.MoveTowards(transform.position, target.position, movement);
+                //transform.position = Vector3.MoveTowards(transform.position, target.position, movement);
+                rb.velocity = (target.position - transform.position) * movement;
             }
             else if (distanceToPlayer < innerRadius) //If player is within innerRaddius -> move away
             {
                 //Move away from the player
-                transform.position = Vector3.MoveTowards(transform.position, transform.position - target.position, movement);
+                //transform.position = Vector3.MoveTowards(transform.position, transform.position - target.position, movement);
+                rb.velocity = ((transform.position - target.position) - transform.position) * movement;
             }
             else if (timeSinceLastDecision >= decisionInterval)
             {
@@ -108,7 +112,8 @@ public class EnemySpreadController : EnemyController
             else
             {
                 // Move in decided direction
-                transform.Translate(randomDirection * movement);
+                //transform.Translate(randomDirection * movement);
+                rb.velocity = randomDirection * movement;
             }
 
 
@@ -127,7 +132,8 @@ public class EnemySpreadController : EnemyController
             else
             {
                 // Move in decided direction
-                transform.Translate(randomDirection * movement);
+                //transform.Translate(randomDirection * movement);
+                rb.velocity = randomDirection * movement;
             }
 
             //Flip sprite according to direction
