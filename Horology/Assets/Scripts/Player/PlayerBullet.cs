@@ -9,6 +9,8 @@ public class PlayerBullet : Bullet
     public AudioSource hitSound;
     private SpriteRenderer sprite;
 
+    private bool hasHit = false;
+
 
     private void Awake()
     {
@@ -16,10 +18,12 @@ public class PlayerBullet : Bullet
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.collider.CompareTag("Trigger") || collision.collider.CompareTag("Drop"))
+        if (collision.collider.CompareTag("Trigger") || collision.collider.CompareTag("Drop") || hasHit)
         {
             return;
         }
+        hasHit = true;
+       
 
         Instantiate(bulletHitEffect, transform.position, Quaternion.identity);
         // Get the enemy that the bullet hit

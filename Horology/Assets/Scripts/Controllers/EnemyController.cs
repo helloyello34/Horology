@@ -20,6 +20,10 @@ public class EnemyController : MonoBehaviour
     public float baseSpeed;
     public bool isSlowed;
     public bool aggro = false;
+
+    [HideInInspector]
+    public Rigidbody2D rb;
+
     public virtual void Start()
     {
         target = PlayerManager.instance.player.transform;
@@ -28,6 +32,8 @@ public class EnemyController : MonoBehaviour
         timeCallback += TimeSlow;
         TimeManager.instance.timeEvent.AddListener(timeCallback);
         baseSpeed = speed;
+
+        rb = GetComponent<Rigidbody2D>();
     }
 
 
@@ -47,4 +53,8 @@ public class EnemyController : MonoBehaviour
             speed = baseSpeed;
         }
     }
+
+    public virtual void ReverseMovement() { }
+
+    
 }
