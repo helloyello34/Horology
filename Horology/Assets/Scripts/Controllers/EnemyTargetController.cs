@@ -24,6 +24,7 @@ public class EnemyTargetController : EnemyController
     private Animator animator;
     private SpriteRenderer spriteRenderer;
     private bool isNotIdle = true;
+
     public override void Start()
     {
         //Calling base classes start method to initalize variables
@@ -36,6 +37,8 @@ public class EnemyTargetController : EnemyController
         //Get animator component
         animator = gameObject.GetComponent<Animator>();
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+
+        rb = GetComponent<Rigidbody2D>();
     }
 
     private void Update()
@@ -110,11 +113,13 @@ public class EnemyTargetController : EnemyController
                 {
                     //Move towards the player
                     transform.position = Vector3.MoveTowards(transform.position, target.position, movement);
+                    //rb.velocity = (target.position - transform.position) * movement;
                 }
                 else if (distanceToPlayer < innerRadius) //If player is within innerRaddius -> move away
                 {
                     //Move away from the player
                     transform.position = Vector3.MoveTowards(transform.position, transform.position - target.position, movement);
+                    //rb.velocity = ((transform.position - target.position ) - transform.position) * movement;
                 }
                 else if (timeSinceLastDecision >= decisionInterval)
                 {
@@ -128,6 +133,7 @@ public class EnemyTargetController : EnemyController
                 {
                     // Move in decided direction
                     transform.Translate(randomDirection * movement);
+                    //rb.velocity = randomDirection * movement;
                     //If no movement is chosen, set bool flag so walking animation will not be triggered
                     //and play idle animation
                     if(randomDirection.magnitude == 0)
@@ -144,11 +150,13 @@ public class EnemyTargetController : EnemyController
                 {
                     //Move away from the player
                     transform.position = Vector3.MoveTowards(transform.position, transform.position - target.position, movement);
+                    //rb.velocity = ((transform.position - target.position) - transform.position) * movement;
                 }
                 else
                 {
                     //Move towards the player
                     transform.position = Vector3.MoveTowards(transform.position, target.position, movement);
+                    //rb.velocity = (target.position - transform.position) * movement;
                 }
             }
         }
@@ -167,6 +175,7 @@ public class EnemyTargetController : EnemyController
             {
                 // Move in decided direction
                 transform.Translate(randomDirection * movement);
+                //rb.velocity = randomDirection * movement;
                 //If no movement is chosen, set bool flag so walking animation will not be triggered
                 //and play idle animation
                 if (randomDirection.magnitude == 0)
@@ -180,7 +189,11 @@ public class EnemyTargetController : EnemyController
             spriteRenderer.flipX = randomDirection.y < 0;
         }
     }
-
+    public override void ReverseMovement()
+    {
+        randomDirection = -randomDirection;
+        timeSinceLastDecision = 0;
+    }
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
