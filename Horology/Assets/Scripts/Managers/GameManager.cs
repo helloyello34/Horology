@@ -11,11 +11,13 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
+        doorsOpen = true;
     }
 
     #endregion
 
     public int currentLevel;
+    public bool doorsOpen;
 
     public void EnterLeve(int level)
     {

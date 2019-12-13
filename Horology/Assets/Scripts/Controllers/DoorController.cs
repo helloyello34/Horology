@@ -13,6 +13,7 @@ public class DoorController : MonoBehaviour
     {
         if (EnemyManager.instance.FloorIsEmpty())
         {
+            GameManager.instance.doorsOpen = true;
             for (int i = 0; i < doorObject.transform.childCount; i++)
             {
                 if (doorObject.transform.GetChild(i).CompareTag("ClosedDoor"))
@@ -23,6 +24,7 @@ public class DoorController : MonoBehaviour
         }
         else
         {
+            GameManager.instance.doorsOpen = false;
             for (int i = 0; i < doorObject.transform.childCount; i++)
             {
                 if (doorObject.transform.GetChild(i).CompareTag("ClosedDoor"))
