@@ -41,27 +41,9 @@ public class MusicController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetButtonDown("Pause"))
+        foreach (var item in clipPlayer.GetPlaying())
         {
-            if (clipPlayer.GetPlaying().Count > 0)
-            {
-                foreach (var item in clipPlayer.GetPlaying())
-                {
-                    paused[item] = true;
-                    songs[item].Pause();
-                }
-            }
-            else
-            {
-                for (var i = 0; i < songs.Count; i++)
-                {
-                    if (paused[i])
-                    {
-                        paused[i] = false;
-                        songs[i].UnPause();
-                    }
-                }
-            }
+            songs[item].pitch = GameManager.instance.isPaused ? 0f : currentPitch;
         }
     }
 

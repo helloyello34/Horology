@@ -15,6 +15,7 @@ public class InGameMenu : MonoBehaviour
     public Color32 deselectedColor;
     private GameObject currentlySelected, lastSelected;
     public TextMeshProUGUI timeText, shootText;
+    public AudioSource navigationSound;
     // Start is called before the first frame update
     void Start()
     {
@@ -34,6 +35,7 @@ public class InGameMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        GameManager.instance.isPaused = isVisible;
         if (Input.GetButtonDown("Pause"))
         {
             if (isVisible && EventSystem.current.currentSelectedGameObject.transform.parent.name != "MainMenu")
@@ -55,6 +57,8 @@ public class InGameMenu : MonoBehaviour
 
                 SetButtonColor(currentlySelected, selectedColor);
                 ShowButtonIcon(currentlySelected, true);
+
+                navigationSound.Play();
             }
 
             if (EventSystem.current.currentSelectedGameObject.transform.parent.name == "Settings menu" && EventSystem.current.currentSelectedGameObject.name != "Back button")

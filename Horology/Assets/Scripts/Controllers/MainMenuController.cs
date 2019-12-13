@@ -14,6 +14,7 @@ public class MainMenuController : MonoBehaviour
     public Color32 deselectedColor;
     private string shootingMode;
     private string timeJuiceMode;
+    public AudioSource navigationSound;
 
     private void Start()
     {
@@ -73,6 +74,8 @@ public class MainMenuController : MonoBehaviour
             SetButtonIcon(currentButton, true);
             SetTextColour(lastButton, deselectedColor);
             SetButtonIcon(lastButton, false);
+
+            navigationSound.Play();
         }
 
         if (EventSystem.current.currentSelectedGameObject.transform.parent.name == "Settings menu" && EventSystem.current.currentSelectedGameObject.name != "Back button")

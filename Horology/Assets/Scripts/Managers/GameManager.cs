@@ -12,12 +12,14 @@ public class GameManager : MonoBehaviour
     {
         instance = this;
         doorsOpen = true;
+        isPaused = false;
     }
 
     #endregion
 
     public int currentLevel;
     public bool doorsOpen;
+    public bool isPaused;
 
     public void EnterLeve(int level)
     {
