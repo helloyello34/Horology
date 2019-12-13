@@ -147,6 +147,7 @@ MonoBehaviour:
   bulletSprite: {fileID: 21300000, guid: 13add1166a1d1754cba2033826aa1458, type: 3}
   framesToFlash: 3
   destroyTime: 3
+  startingPosition: {x: 0, y: 0, z: 0}
+  knockbackAmount: 0
   amountOfBullet: 4
   spreadAngle: 20
-  knockbackAmount: 0
