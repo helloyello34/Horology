@@ -19,6 +19,9 @@ public class Enemy : MonoBehaviour
     public Color RegularColor;
     public Color DamageColor;
 
+    [Space]
+    public GameObject[] bloodSplatters;
+
     private bool isDead = false;
 
 
@@ -69,6 +72,8 @@ public class Enemy : MonoBehaviour
         RandomLoot lootScript = PlayerManager.instance.GetComponent<RandomLoot>();
         GameObject loot = lootScript.getRandomLoot();
 
+        Instantiate(bloodSplatters[Random.Range(0, bloodSplatters.Length)], transform.position, Quaternion.identity);
+        //Instantiate(bloodSplatters[2], transform.position, Quaternion.identity);
         if (loot != null)
         {
             Instantiate(loot, transform.position, Quaternion.identity);
