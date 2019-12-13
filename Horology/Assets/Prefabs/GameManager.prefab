@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8998810741554706228}
   - component: {fileID: 9174333293477449830}
   - component: {fileID: 883045337771403438}
-  - component: {fileID: 4980668834242334606}
+  - component: {fileID: 6212755135106700365}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -97,7 +97,7 @@ MonoBehaviour:
   - {fileID: 5957970837497748471, guid: 2f38fa6ee0002af40a5915cff457ae04, type: 3}
   - {fileID: 1149749970519146801, guid: 5d47387e537e0ca4aae6c126fbb93248, type: 3}
   chanceToEnterTable: 3
---- !u!114 &4980668834242334606
+--- !u!114 &6212755135106700365
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -113,7 +113,7 @@ MonoBehaviour:
   timeEffect: {fileID: 0}
   timeFactor: 1
   timeModifier: 0.3
-  timeIncrementer: 0
+  timeIncrementer: 1
   originalTimeFactor: 0
   currentToBaseRatio: 0
   isSlowed: 0
