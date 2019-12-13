@@ -33,25 +33,27 @@ public class EnemySpreadController : EnemyController
 
     private void Update()
     {
-        if (isSlowed && firstPass)
-        {
-            firstPass = false;
-            shootInterval *= (1 + TimeManager.instance.timeFactor);
-            //Slow down animation speed by timeFactor
-            animator.speed = TimeManager.instance.timeFactor;
-        }
-        else if (!isSlowed && !firstPass)
-        {
-            firstPass = true;
-            shootInterval = startingInterval;
-            //Set animation speed to normal pace
-            animator.speed = 1;
-        }
+        shootInterval = Mathf.Lerp((startingInterval / TimeManager.instance.timeModifier), startingInterval, TimeManager.instance.currentToBaseRatio);
+        animator.speed = TimeManager.instance.timeFactor;
+        // if (isSlowed && firstPass)
+        // {
+        //     // firstPass = false;
+        //     // shootInterval *= (1 + TimeManager.instance.timeFactor);
+        //     //Slow down animation speed by timeFactor
+        // }
+        // else if (!isSlowed && !firstPass)
+        // {
+        //     firstPass = true;
+        //     shootInterval = startingInterval;
+        //     //Set animation speed to normal pace
+        //     animator.speed = 1;
+        // }
     }
 
 
     void FixedUpdate()
     {
+        base.FUpdate();
         EnemyMovement();
     }
 

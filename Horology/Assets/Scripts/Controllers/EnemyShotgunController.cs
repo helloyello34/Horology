@@ -38,24 +38,27 @@ public class EnemyShotgunController : EnemyController
 
     private void Update()
     {
-        if (isSlowed && firstPass)
-        {
-            firstPass = false;
-            shootInterval /= TimeManager.instance.timeModifier;
-            //Slow down animation speed by timeFactor
-            animator.speed = TimeManager.instance.timeFactor;
-        }
-        else if (!isSlowed && !firstPass)
-        {
-            firstPass = true;
-            shootInterval = startingInterval;
-            //Set animation speed to normal pace
-            animator.speed = 1;
-        }
+        shootInterval = Mathf.Lerp((startingInterval / TimeManager.instance.timeModifier), startingInterval, TimeManager.instance.currentToBaseRatio);
+        animator.speed = TimeManager.instance.timeFactor;
+        // if (isSlowed && firstPass)
+        // {
+        //     firstPass = false;
+        //     shootInterval /= TimeManager.instance.timeModifier;
+        //     //Slow down animation speed by timeFactor
+        //     animator.speed = TimeManager.instance.timeFactor;
+        // }
+        // else if (!isSlowed && !firstPass)
+        // {
+        //     firstPass = true;
+        //     shootInterval = startingInterval;
+        //     //Set animation speed to normal pace
+        //     animator.speed = 1;
+        // }
     }
 
     void FixedUpdate()
     {
+        base.FUpdate();
         EnemyMovement();
     }
 

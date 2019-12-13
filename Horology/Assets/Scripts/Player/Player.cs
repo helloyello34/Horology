@@ -19,15 +19,15 @@ public class Player : MonoBehaviour
     private float iFramesElapsed = 0;
     private float eventDuration = 0;
     private float eventElapsed = 0;
-    public AudioSource hurtSound;
-    public AudioSource deathSound;
-    
+    private PlayerAudioController audioController;
+
     PlayerSpriteController hitEffect;
     float timeSinceShot = 0f;
 
 
     private void Awake()
     {
+        audioController = gameObject.GetComponentInChildren<PlayerAudioController>(true);
         // Instansiate unity event if it is null
         if (modifyHearts == null)
         {
@@ -65,9 +65,9 @@ public class Player : MonoBehaviour
             iFramesElapsed = 0;
             isHit = true;
 
-            if (!hurtSound.isPlaying && currentHealth > 0)
+            if (!audioController.clipPlayer.isPlaying() && currentHealth > 0)
             {
-                hurtSound.Play();
+                audioController.PlayHurt();
             }
 
             // Emit event to update heart health bar
@@ -135,7 +135,7 @@ public class Player : MonoBehaviour
     // Called when player dies
     private void Die()
     {
-        deathSound.Play();
+        audioController.PlayHurt();
         // Destroys the player object
         death.Invoke();
     }

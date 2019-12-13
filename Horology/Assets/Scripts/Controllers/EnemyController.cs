@@ -18,8 +18,10 @@ public class EnemyController : MonoBehaviour
     public EnemyWeapon weapon;
     [HideInInspector]
     public float baseSpeed;
+    private float currentSpeed, minSpeed;
     public bool isSlowed;
     public bool aggro = false;
+
     public virtual void Start()
     {
         target = PlayerManager.instance.player.transform;
@@ -28,23 +30,31 @@ public class EnemyController : MonoBehaviour
         timeCallback += TimeSlow;
         TimeManager.instance.timeEvent.AddListener(timeCallback);
         baseSpeed = speed;
+        currentSpeed = speed;
+        minSpeed = baseSpeed * TimeManager.instance.timeModifier;
+    }
+
+    void ChangeSpeed(float amount)
+    {
+        currentSpeed += amount;
+        if (currentSpeed < minSpeed)
+        {
+            currentSpeed = minSpeed;
+        }
+        else if (currentSpeed > baseSpeed)
+        {
+            currentSpeed = baseSpeed;
+        }
     }
 
 
-    void FixedUpdate()
+    public void FUpdate()
     {
+        speed = Mathf.Lerp(minSpeed, baseSpeed, TimeManager.instance.currentToBaseRatio);
     }
 
     public void TimeSlow(bool slowed)
     {
         isSlowed = slowed;
-        if (slowed)
-        {
-            speed *= TimeManager.instance.timeFactor;
-        }
-        else
-        {
-            speed = baseSpeed;
-        }
     }
 }
