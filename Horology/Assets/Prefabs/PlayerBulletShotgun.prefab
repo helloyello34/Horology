@@ -136,7 +136,7 @@ MonoBehaviour:
   speed: 30
   rb: {fileID: 8350668323949797714}
   damage: 15
-  bulletHitEffect: {fileID: 2771534323765088140, guid: bb4a805831f3f3340a62019b502d53f5,
+  bulletHitEffect: {fileID: 7817024451471399190, guid: c718c55ec41f1f544a888f52233fb968,
     type: 3}
   hitSound: {fileID: 724339277082841801}
 --- !u!82 &724339277082841801
