@@ -134,5 +134,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5.42
   rb: {fileID: 7418696761620946523}
-  bulletHitEffect: {fileID: 8793760909697229305, guid: 0f8d11f4d95e0524c915dc2b08c9c79f,
+  bulletHitEffect: {fileID: 7679741624241939176, guid: 4d0567348a2819d4ab26bc285309c0ed,
     type: 3}

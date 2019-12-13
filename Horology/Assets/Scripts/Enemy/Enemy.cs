@@ -19,6 +19,11 @@ public class Enemy : MonoBehaviour
     public Color RegularColor;
     public Color DamageColor;
 
+    [Space]
+    public GameObject[] bloodSplatters;
+
+    private bool isDead = false;
+
 
     public virtual void Hit(int damage)
     {
@@ -53,6 +58,12 @@ public class Enemy : MonoBehaviour
 
     public virtual void Die()
     {
+        if( isDead )
+        {
+            return;
+        }
+        isDead = true;
+
         deathSound.Play();
         sprite.enabled = false;
 
@@ -61,11 +72,13 @@ public class Enemy : MonoBehaviour
         RandomLoot lootScript = PlayerManager.instance.GetComponent<RandomLoot>();
         GameObject loot = lootScript.getRandomLoot();
 
+        Instantiate(bloodSplatters[Random.Range(0, bloodSplatters.Length)], transform.position, Quaternion.identity);
+        //Instantiate(bloodSplatters[2], transform.position, Quaternion.identity);
         if (loot != null)
         {
             Instantiate(loot, transform.position, Quaternion.identity);
         }
-        GetComponent<Rigidbody2D>().transform.position = new Vector2(10000, 10000);
+        transform.position = new Vector2(10000, 10000);
     }
 
     public void DamageEffect()

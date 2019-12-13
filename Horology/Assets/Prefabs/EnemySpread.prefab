@@ -155,7 +155,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!70 &6259977629900887234
 CapsuleCollider2D:
@@ -195,6 +195,10 @@ MonoBehaviour:
   timeOfDamageEffect: 0.2
   RegularColor: {r: 1, g: 1, b: 1, a: 1}
   DamageColor: {r: 1, g: 0, b: 0.12156863, a: 1}
+  bloodSplatters:
+  - {fileID: 4483385903636010568, guid: c9414ef4421556d448aa20c1c73b390c, type: 3}
+  - {fileID: 1636487239223191487, guid: 09c6281cd30e400428e5a20408ae429d, type: 3}
+  - {fileID: 6025280140766640257, guid: bc8fe803c75c3164fb7d451d68957078, type: 3}
   health: 150
 --- !u!114 &3234012841628213662
 MonoBehaviour:
@@ -215,6 +219,7 @@ MonoBehaviour:
   baseSpeed: 0
   isSlowed: 0
   aggro: 0
+  rb: {fileID: 0}
   aggroRadius: 14
   outerRadius: 11
   innerRadius: 5.5
