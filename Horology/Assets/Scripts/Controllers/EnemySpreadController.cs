@@ -12,7 +12,6 @@ public class EnemySpreadController : EnemyController
     public float shootInterval;
     public float decisionInterval;
     private float startingInterval;
-    private bool firstPass = true;
     private Animator animator;
     private SpriteRenderer spriteRenderer;
 

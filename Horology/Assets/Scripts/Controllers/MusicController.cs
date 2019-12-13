@@ -49,7 +49,6 @@ public class MusicController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        // Debug.Log();
         ChangePitch(isSlowed ? -fadeTime * Time.fixedDeltaTime : fadeTime * Time.fixedDeltaTime);
         if (currentPitch > minPitch && currentPitch < 1f)
         {

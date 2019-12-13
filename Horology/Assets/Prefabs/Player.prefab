@@ -131,7 +131,7 @@ MonoBehaviour:
           m_BoolArgument: 1
         m_CallState: 2
   isGod: 0
-  hitIFrames: 0
+  hitIFrames: 0.5
   isHit: 0
 --- !u!114 &3082586256772726725
 MonoBehaviour:

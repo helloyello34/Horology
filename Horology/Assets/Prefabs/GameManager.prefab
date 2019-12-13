@@ -61,7 +61,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2e0b1c77dfc5824dae2e936d1219699, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyCount: 0000000001000000040000000200000006000000
+  enemyCount: 0000000002000000040000000200000006000000
 --- !u!114 &9174333293477449830
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -75,6 +75,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentLevel: 0
+  doorsOpen: 0
+  isPaused: 0
 --- !u!114 &883045337771403438
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -111,5 +113,8 @@ MonoBehaviour:
   timeEffect: {fileID: 0}
   timeFactor: 1
   timeModifier: 0.3
+  timeIncrementer: 0
+  originalTimeFactor: 0
+  currentToBaseRatio: 0
   isSlowed: 0
   isTimebarEmpty: 0

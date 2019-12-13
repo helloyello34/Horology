@@ -19,7 +19,6 @@ public class EnemyTargetController : EnemyController
     private float timeSinceModeChange = 0;
     private bool roaming = true;
     private Vector3 randomDirection = new Vector3(0, 0, 0);
-    private bool firstPass = true;
     private float startingInterval;
     private Animator animator;
     private SpriteRenderer spriteRenderer;

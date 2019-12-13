@@ -22,12 +22,11 @@ public class Trigger : MonoBehaviour
         Player player = collision.GetComponent<Player>();
         EnemyController enemy = collision.GetComponent<EnemyController>();
 
-        Debug.Log("Hit " + collision.name);
-
         if (player)
         {
             onEnter.Invoke();
-        } else if (enemy)
+        }
+        else if (enemy)
         {
             enemy.ReverseMovement();
         }

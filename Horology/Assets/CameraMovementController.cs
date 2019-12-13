@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CameraMovementController : MonoBehaviour
 {
-    
+
     // The object the camera follows
     public GameObject followObject;
 
@@ -12,6 +12,6 @@ public class CameraMovementController : MonoBehaviour
     void Update()
     {
         // Follow 20% of the way to the player
-        transform.position += (followObject.transform.position - new Vector3(transform.position.x, transform.position.y, followObject.transform.position.z)) * 0.1f;
+        transform.position += (followObject.transform.position - new Vector3(transform.position.x, transform.position.y, followObject.transform.position.z)) * 0.07f;
     }
 }

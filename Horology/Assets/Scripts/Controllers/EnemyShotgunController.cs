@@ -19,7 +19,6 @@ public class EnemyShotgunController : EnemyController
     private float timeSinceModeChange = 0;
     private bool roaming = true;
     private Vector3 randomDirection = new Vector3(0, 0, 0);
-    private bool firstPass = true;
     private float startingInterval;
     private Animator animator;
     private SpriteRenderer spriteRenderer;
@@ -106,7 +105,7 @@ public class EnemyShotgunController : EnemyController
                     //Move towards the player
                     transform.position = Vector3.MoveTowards(transform.position, target.position, movement);
                     //rb.velocity = (target.position - transform.position) * movement;
-                    
+
                 }
                 else if (distanceToPlayer < innerRadius) //If player is within innerRaddius -> move away
                 {
