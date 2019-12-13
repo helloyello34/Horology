@@ -20,7 +20,7 @@ public class MusicController : MonoBehaviour
         paused = new List<bool>();
         foreach (var item in songs)
         {
-            paused.Add(true);
+            paused.Add(false);
         }
         timeAction += TimeCallback;
         TimeManager.instance.timeEvent.AddListener(timeAction);
@@ -43,18 +43,23 @@ public class MusicController : MonoBehaviour
     {
         if (Input.GetButtonDown("Pause"))
         {
-            Debug.Log(clipPlayer.GetPlaying().Count);
-            foreach (var item in clipPlayer.GetPlaying())
+            if (clipPlayer.GetPlaying().Count > 0)
             {
-                paused[item] = !paused[item];
-
-                if (paused[item])
+                foreach (var item in clipPlayer.GetPlaying())
                 {
-                    songs[item].UnPause();
-                }
-                else
-                {
+                    paused[item] = true;
                     songs[item].Pause();
+                }
+            }
+            else
+            {
+                for (var i = 0; i < songs.Count; i++)
+                {
+                    if (paused[i])
+                    {
+                        paused[i] = false;
+                        songs[i].UnPause();
+                    }
                 }
             }
         }
@@ -62,6 +67,7 @@ public class MusicController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        // Debug.Log();
         ChangePitch(isSlowed ? -fadeTime * Time.fixedDeltaTime : fadeTime * Time.fixedDeltaTime);
         if (currentPitch > minPitch && currentPitch < 1f)
         {
