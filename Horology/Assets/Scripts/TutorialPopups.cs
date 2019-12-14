@@ -31,7 +31,7 @@ public class TutorialPopups : MonoBehaviour
             if(popup.activeInHierarchy)
             {
                 Time.timeScale = 0f;
-                if(Input.GetButtonDown("Submit"))
+                if(Input.GetButtonDown("Submit") && !GameManager.instance.isPaused)
                 {
                     SetOpen(false);
                     Trigger(popUps.IndexOf(popup));
