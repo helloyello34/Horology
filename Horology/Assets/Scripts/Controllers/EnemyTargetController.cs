@@ -66,7 +66,14 @@ public class EnemyTargetController : EnemyController
         //Set enemy animation to walking if he is not idle
         if (isNotIdle)
         {
-            animator.Play("TargetEnemyWalking");
+            if(animator.GetCurrentAnimatorStateInfo(0).IsName("TargetEnemyWalking") || animator.GetCurrentAnimatorStateInfo(0).IsName("TargetEnemyIdle"))
+            {
+                animator.Play("TargetEnemyWalking");
+            }
+            else
+            {
+                animator.Play("TargetBossWalk");
+            }
         }
 
         EnemyMovement();
@@ -141,7 +148,15 @@ public class EnemyTargetController : EnemyController
                     if (randomDirection.magnitude == 0)
                     {
                         isNotIdle = false;
+                    if (animator.GetCurrentAnimatorStateInfo(0).IsName("TargetEnemyWalking") || animator.GetCurrentAnimatorStateInfo(0).IsName("TargetEnemyIdle"))
+                    {
                         animator.Play("TargetEnemyIdle");
+                    }
+                    else
+                    {
+                        animator.Play("TargetBossIdle");
+                    }
+                        //animator.Play("TargetBossIdle");
                     }
                 }
             }
@@ -183,7 +198,14 @@ public class EnemyTargetController : EnemyController
                 if (randomDirection.magnitude == 0)
                 {
                     isNotIdle = false;
-                    animator.Play("TargetEnemyIdle");
+                    if (animator.GetCurrentAnimatorStateInfo(0).IsName("TargetEnemyWalking") || animator.GetCurrentAnimatorStateInfo(0).IsName("TargetEnemyIdle"))
+                    {
+                        animator.Play("TargetEnemyIdle");
+                    }
+                    else
+                    {
+                        animator.Play("TargetBossIdle");
+                    }
                 }
             }
 
