@@ -78,7 +78,7 @@ MonoBehaviour:
     type: 3}
   firePoint: {fileID: 905473787056594603}
   bulletAmount: 6
-  angle: 10
+  angle: 45
 --- !u!1 &6507433044303605629
 GameObject:
   m_ObjectHideFlags: 0
@@ -347,9 +347,10 @@ MonoBehaviour:
   baseSpeed: 0
   isSlowed: 0
   aggro: 0
-  aggroRadius: 6
-  outerRadius: 5
-  innerRadius: 3
+  rb: {fileID: 0}
+  aggroRadius: 18
+  outerRadius: 10
+  innerRadius: 4
   shootInterval: 2
   decisionInterval: 1.5
   modeInterval: 5
@@ -370,6 +371,15 @@ MonoBehaviour:
       m_Calls: []
   deathSound: {fileID: 6946577842855121122}
   levelNumber: 1
+  timeSinceShot: 0
+  spriteRenderer: {fileID: 6507433044303605618}
+  timeOfDamageEffect: 0.3
+  RegularColor: {r: 1, g: 1, b: 1, a: 1}
+  DamageColor: {r: 0.745283, g: 0, b: 0, a: 1}
+  bloodSplatters:
+  - {fileID: 4483385903636010568, guid: c9414ef4421556d448aa20c1c73b390c, type: 3}
+  - {fileID: 1636487239223191487, guid: 09c6281cd30e400428e5a20408ae429d, type: 3}
+  - {fileID: 6025280140766640257, guid: bc8fe803c75c3164fb7d451d68957078, type: 3}
   health: 125
 --- !u!95 &6811683534122936496
 Animator:

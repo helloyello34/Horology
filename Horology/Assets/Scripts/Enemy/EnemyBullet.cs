@@ -11,12 +11,14 @@ public class EnemyBullet : MonoBehaviour
     private Vector2 startingVelocity;
     public UnityAction<bool> timeCallback;
     public GameObject bulletHitEffect;
+    private float currentSpeed, startingSpeed, minSpeed;
     private void Start()
     {
+        startingSpeed = speed;
         startingVelocity = transform.right * speed;
         rb.velocity = TimeManager.instance.isSlowed ? startingVelocity * TimeManager.instance.timeFactor : startingVelocity;
-        timeCallback += SlowDown;
-        TimeManager.instance.timeEvent.AddListener(timeCallback);
+        currentSpeed = speed;
+        minSpeed = startingSpeed * TimeManager.instance.timeModifier;
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -38,17 +40,17 @@ public class EnemyBullet : MonoBehaviour
         Destroy(gameObject);
     }
 
-
-
-    public void SlowDown(bool isSlowed)
+    private void FixedUpdate()
     {
-        if (isSlowed)
+        SetSpeed();
+        if (currentSpeed > minSpeed && currentSpeed < startingSpeed)
         {
-            rb.velocity = rb.velocity * TimeManager.instance.timeFactor;
+            rb.velocity = rb.velocity.normalized * (currentSpeed);
         }
-        else
-        {
-            rb.velocity = startingVelocity;
-        }
+    }
+
+    private void SetSpeed()
+    {
+        currentSpeed = Mathf.Lerp(0, startingSpeed, TimeManager.instance.currentToBaseRatio);
     }
 }

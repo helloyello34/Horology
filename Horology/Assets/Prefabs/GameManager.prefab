@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8998810741554706228}
   - component: {fileID: 9174333293477449830}
   - component: {fileID: 883045337771403438}
-  - component: {fileID: 4980668834242334606}
+  - component: {fileID: 6212755135106700365}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -61,7 +61,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2e0b1c77dfc5824dae2e936d1219699, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyCount: 0000000001000000040000000200000006000000
+  enemyCount: 0000000002000000040000000200000006000000
 --- !u!114 &9174333293477449830
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -75,6 +75,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentLevel: 0
+  doorsOpen: 0
+  isPaused: 0
 --- !u!114 &883045337771403438
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -95,7 +97,7 @@ MonoBehaviour:
   - {fileID: 5957970837497748471, guid: 2f38fa6ee0002af40a5915cff457ae04, type: 3}
   - {fileID: 1149749970519146801, guid: 5d47387e537e0ca4aae6c126fbb93248, type: 3}
   chanceToEnterTable: 3
---- !u!114 &4980668834242334606
+--- !u!114 &6212755135106700365
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -111,5 +113,8 @@ MonoBehaviour:
   timeEffect: {fileID: 0}
   timeFactor: 1
   timeModifier: 0.3
+  timeIncrementer: 1
+  originalTimeFactor: 0
+  currentToBaseRatio: 0
   isSlowed: 0
   isTimebarEmpty: 0

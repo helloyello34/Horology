@@ -26,5 +26,7 @@ public class ShotgunEnemy : Enemy
         {
             Die();
         }
+        DamageEffect();
+        timeSinceShot = 0f;
     }
 }

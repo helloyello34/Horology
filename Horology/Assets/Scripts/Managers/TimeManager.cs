@@ -22,7 +22,9 @@ public class TimeManager : MonoBehaviour
 
     public float timeFactor = 1;
     public float timeModifier;
-    private float originalTimeFactor;
+    public float timeIncrementer;
+    public float originalTimeFactor;
+    public float currentToBaseRatio;
     public bool isSlowed = false;
     public bool isTimebarEmpty;
 
@@ -31,6 +33,7 @@ public class TimeManager : MonoBehaviour
         instance = this;
         originalTimeFactor = timeFactor;
         timeEvent = new boolEvent();
+        currentToBaseRatio = timeFactor / originalTimeFactor;
     }
 
     private void InputHandler()
@@ -60,18 +63,37 @@ public class TimeManager : MonoBehaviour
         }
     }
 
+    private void TimeChanger(float amount)
+    {
+        timeFactor += amount * Time.fixedDeltaTime;
+        if (timeFactor < originalTimeFactor * timeModifier)
+        {
+            timeFactor = originalTimeFactor * timeModifier;
+        }
+        else if (timeFactor > originalTimeFactor)
+        {
+            timeFactor = originalTimeFactor;
+        }
+        currentToBaseRatio = timeFactor / originalTimeFactor;
+    }
+
+    private void FixedUpdate()
+    {
+        TimeChanger(isSlowed ? -timeIncrementer : timeIncrementer);
+    }
+
     private void Update()
     {
         InputHandler();
         if (isActive && !isSlowed && !isTimebarEmpty)
         {
-            timeFactor *= timeModifier;
+            // timeFactor *= timeModifier;
             isSlowed = true;
             timeEvent.Invoke(true);
         }
         else if ((!isActive && isSlowed) || isTimebarEmpty)
         {
-            timeFactor = originalTimeFactor;
+            // timeFactor = originalTimeFactor;
             isSlowed = false;
             timeEvent.Invoke(false);
         }

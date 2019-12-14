@@ -23,10 +23,6 @@ public class PlayerGunChanger : MonoBehaviour
         {
             currentGun = guns[startingGun];
         }
-        else
-        {
-            Debug.Log("GUN NOT FOUND");
-        }
     }
 
     public void SetActiveGun(int gunIndex)

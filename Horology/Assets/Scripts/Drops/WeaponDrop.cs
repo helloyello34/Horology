@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class WeaponDrop : MonoBehaviour
 {
+    public AudioSource pickupSound;
     public int weaponIndex;
     // Start is called before the first frame update
     void Start()
@@ -23,8 +24,10 @@ public class WeaponDrop : MonoBehaviour
 
         if (player)
         {
+            pickupSound.Play();
+            transform.parent.transform.position = new Vector2(1000, 1000);
             PlayerManager.instance.player.GetComponentInChildren<PlayerGunChanger>().SetActiveGun(weaponIndex);
-            Destroy(gameObject.transform.parent.gameObject);
+            Destroy(gameObject.transform.parent.gameObject, pickupSound.clip.length);
         }
     }
 }

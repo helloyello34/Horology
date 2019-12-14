@@ -19,7 +19,6 @@ public class EnemyTargetController : EnemyController
     private float timeSinceModeChange = 0;
     private bool roaming = true;
     private Vector3 randomDirection = new Vector3(0, 0, 0);
-    private bool firstPass = true;
     private float startingInterval;
     private Animator animator;
     private SpriteRenderer spriteRenderer;
@@ -43,24 +42,27 @@ public class EnemyTargetController : EnemyController
 
     private void Update()
     {
-        if (isSlowed && firstPass)
-        {
-            firstPass = false;
-            shootInterval /= TimeManager.instance.timeModifier;
-            //Slow down animation speed by timeFactor
-            animator.speed = TimeManager.instance.timeFactor;
-        }
-        else if (!isSlowed && !firstPass)
-        {
-            firstPass = true;
-            shootInterval = startingInterval;
-            //Set animation speed to normal pace
-            animator.speed = 1;
-        }
+        shootInterval = Mathf.Lerp((startingInterval / TimeManager.instance.timeModifier), startingInterval, TimeManager.instance.currentToBaseRatio);
+        animator.speed = TimeManager.instance.timeFactor;
+        // if (isSlowed && firstPass)
+        // {
+        //     firstPass = false;
+        //     shootInterval /= TimeManager.instance.timeModifier;
+        //     //Slow down animation speed by timeFactor
+        //     animator.speed = TimeManager.instance.timeFactor;
+        // }
+        // else if (!isSlowed && !firstPass)
+        // {
+        //     firstPass = true;
+        //     shootInterval = startingInterval;
+        //     //Set animation speed to normal pace
+        //     animator.speed = 1;
+        // }
     }
 
     void FixedUpdate()
     {
+        base.FUpdate();
         //Set enemy animation to walking if he is not idle
         if (isNotIdle)
         {
@@ -136,7 +138,7 @@ public class EnemyTargetController : EnemyController
                     //rb.velocity = randomDirection * movement;
                     //If no movement is chosen, set bool flag so walking animation will not be triggered
                     //and play idle animation
-                    if(randomDirection.magnitude == 0)
+                    if (randomDirection.magnitude == 0)
                     {
                         isNotIdle = false;
                         animator.Play("TargetEnemyIdle");

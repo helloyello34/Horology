@@ -13,6 +13,7 @@ public class GameOverMenu : MonoBehaviour
     public GameObject firstSelected;
     private GameObject currentSelected, lastSelected;
     public Color32 selectedColor, deselectedColor;
+    public AudioSource navigationSound;
 
     private void Update()
     {
@@ -26,6 +27,9 @@ public class GameOverMenu : MonoBehaviour
 
             SetButtonColor(currentSelected, selectedColor);
             ShowButtonIcon(currentSelected, true);
+
+            navigationSound.Play();
+
         }
     }
 

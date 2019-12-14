@@ -24,14 +24,5 @@ public class Laser : MonoBehaviour
         {
             lr.SetPosition(1, new Vector3(hit.distance * 4, 0, 0));
         }
-
-        //if (Physics.Raycast(transform.position, transform.right, out hit)) 
-        //{
-        //    Debug.Log(hit.distance);
-        //    //if (hit.collider)
-        //    //{
-        //    //    lr.SetPosition(1, new Vector3(0, 0, hit.distance));
-        //    //}
-        //}
     }
 }
