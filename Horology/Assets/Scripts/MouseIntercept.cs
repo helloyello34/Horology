@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class MouseIntercept : MonoBehaviour
 {
     private GameObject currentObject;
+    public GameObject fallback;
     // Start is called before the first frame update
     void Start()
     {

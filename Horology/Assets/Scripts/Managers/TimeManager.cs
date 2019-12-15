@@ -38,6 +38,11 @@ public class TimeManager : MonoBehaviour
 
     private void InputHandler()
     {
+        if (GameManager.instance.isDead || GameManager.instance.isWin)
+        {
+            isActive = false;
+            return;
+        }
         if (PlayerPrefs.GetString("TimeJuiceMode", "Hold") == "Toggle")
         {
             if (Input.GetAxisRaw("Time") == 1 && once)
@@ -84,6 +89,7 @@ public class TimeManager : MonoBehaviour
 
     private void Update()
     {
+       
         InputHandler();
         if (isActive && !isSlowed && !isTimebarEmpty)
         {

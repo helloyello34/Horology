@@ -24,11 +24,13 @@ public class LevelTransition : MonoBehaviour
         if(nextLevelBuildIndex != 0)
         {
             SceneManager.LoadScene(nextLevelBuildIndex);
+
         }
         else
         {
+
             winScreen.SetActive(true);
-            GameManager.instance.isPaused = true;
+            GameManager.instance.isWin = true;
             Time.timeScale = 0f;
             //show win screen
         }

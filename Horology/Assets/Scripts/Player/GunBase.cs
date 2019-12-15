@@ -48,7 +48,7 @@ public class GunBase : MonoBehaviour
         // If R1 is pushed
         if (Input.GetKey("space") ||Input.GetButton("Fire") || (PlayerPrefs.GetString("ShootingMode", "Manual") == "Auto" && direction.magnitude > 0.2))
         {
-            if (timeSinceShot >= shootInterval)
+            if (timeSinceShot >= shootInterval && !(GameManager.instance.isDead || GameManager.instance.isWin))
             {
                 Shoot();
                 KnockBack();

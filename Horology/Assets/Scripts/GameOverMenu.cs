@@ -61,6 +61,7 @@ public class GameOverMenu : MonoBehaviour
 
     public void ShowMenu(bool show)
     {
+        GameManager.instance.isDead = show;
         isVisible = show;
         Time.timeScale = show ? 0f : 1f;
         canvas.SetActive(show);
@@ -74,7 +75,7 @@ public class GameOverMenu : MonoBehaviour
     public void Restart()
     {
         ShowMenu(false);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadScene(2);
     }
 
     public void Quit()

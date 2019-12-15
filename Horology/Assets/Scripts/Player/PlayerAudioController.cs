@@ -17,6 +17,9 @@ public class PlayerAudioController : MonoBehaviour
 
     public void PlayHurt()
     {
-        clipPlayer.PlayRandomSound();
+        if(!GameManager.instance.isDead || GameManager.instance.isWin)
+        {
+            clipPlayer.PlayRandomSound();
+        }
     }
 }

@@ -44,6 +44,13 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(GameManager.instance.isDead || GameManager.instance.isWin)
+        {
+            direction = new Vector2(0, 0);
+            bodyAnimator.speed = 0f;
+            headAnimator.speed = 0f;
+            return;
+        }
         if (!isDashing)
         {
             direction.x = Input.GetAxis("Horizontal");

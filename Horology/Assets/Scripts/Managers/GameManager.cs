@@ -13,6 +13,8 @@ public class GameManager : MonoBehaviour
         instance = this;
         doorsOpen = true;
         isPaused = false;
+        isDead = false;
+        isWin = false;
     }
 
     #endregion
@@ -20,6 +22,8 @@ public class GameManager : MonoBehaviour
     public int currentLevel;
     public bool doorsOpen;
     public bool isPaused;
+    public bool isDead;
+    public bool isWin;
 
     public void EnterLeve(int level)
     {

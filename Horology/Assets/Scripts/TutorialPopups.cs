@@ -30,17 +30,20 @@ public class TutorialPopups : MonoBehaviour
         {
             if(popup.activeInHierarchy)
             {
-                Time.timeScale = 0f;
+                PlayerManager.instance.player.GetComponent<Player>().isGod = true;
                 if(Input.GetButtonDown("Submit") && !GameManager.instance.isPaused)
                 {
-                    SetOpen(false);
+                    //SetOpen(false);
+                    PlayerManager.instance.player.GetComponent<Player>().isGod = false;
                     Trigger(popUps.IndexOf(popup));
 
                     if(popUps.IndexOf(popup) == popUps.Count - 1)
                     {
+                        Time.timeScale = 1f;
                         SceneManager.LoadScene(0);
                     }
                 }
+
             }
         }
     }
@@ -48,6 +51,7 @@ public class TutorialPopups : MonoBehaviour
     public void SetOpen(bool open)
     {
         this.open = open;
+        //Time.timeScale = open ? 0f : 1f;
     }
 
 
@@ -58,12 +62,22 @@ public class TutorialPopups : MonoBehaviour
             return;
         }
 
-        if (!isTriggered[index] || !open)
+        if (!isTriggered[index] && open)
         {
-            Time.timeScale = open ? 0f : 1f;
-            popUps[index].transform.parent.gameObject.SetActive(open);
-            popUps[index].gameObject.SetActive(open);
+            Time.timeScale = 0f;
+            open = false;
+            popUps[index].transform.parent.gameObject.SetActive(true);
+            popUps[index].gameObject.SetActive(true);
             isTriggered[index] = true;
+            GameManager.instance.isDead = true;
+
+        }
+        else if(!open)
+        {
+            Time.timeScale = 1f;
+            popUps[index].transform.parent.gameObject.SetActive(false);
+            popUps[index].gameObject.SetActive(false);
+            GameManager.instance.isDead = false;
         }
     }
 }

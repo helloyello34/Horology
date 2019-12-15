@@ -95,6 +95,10 @@ public class InGameMenu : MonoBehaviour
                 }
             }
         }
+        if(!isVisible)
+        {
+            Time.timeScale = 1f;
+        }
 
     }
 
@@ -110,6 +114,10 @@ public class InGameMenu : MonoBehaviour
 
     private void ShowMenu(bool show)
     {
+        if(GameManager.instance.isDead || GameManager.instance.isWin)
+        {
+            return;
+        }
         // Fixes issue where buttons are not loaded in Start() and other is still null
         if (otherButton == null)
         {
@@ -124,6 +132,7 @@ public class InGameMenu : MonoBehaviour
         // Toggle menu visibility flag 
         isVisible = !isVisible;
         // Stop or start time
+        Debug.Log(isVisible);
         Time.timeScale = isVisible ? 0f : 1f;
         // Activate or deactivate the menu canvas
         menuCanvas.SetActive(isVisible);
@@ -142,7 +151,8 @@ public class InGameMenu : MonoBehaviour
     {
         ShowMenu(false);
         // Reload the level
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex == 1 ? 1 : 2);
     }
 
     public void Quit()

@@ -1750,6 +1750,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d81503382674786448948d445f5bc613, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fallback: {fileID: 1442787653}
 --- !u!1001 &2101601897
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2146,6 +2147,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 2857222384171559907, guid: a8b06af694d295148a3c8eeb3ad2e906,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4811208342761201494, guid: a8b06af694d295148a3c8eeb3ad2e906,
         type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -2270,11 +2276,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0.00000091979
-      objectReference: {fileID: 0}
-    - target: {fileID: 2857222384171559907, guid: a8b06af694d295148a3c8eeb3ad2e906,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2857222384298631171, guid: a8b06af694d295148a3c8eeb3ad2e906,
         type: 3}

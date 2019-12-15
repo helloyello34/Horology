@@ -17,7 +17,7 @@ public class Player : MonoBehaviour
     public float hitIFrames;
     public bool isHit = false;
     private float iFramesElapsed = 0;
-    private float eventDuration = 0;
+    private float eventDuration = 0; 
     private float eventElapsed = 0;
     private PlayerAudioController audioController;
 
@@ -27,7 +27,6 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
-        DontDestroyOnLoad(gameObject);
         audioController = gameObject.GetComponentInChildren<PlayerAudioController>(true);
         // Instansiate unity event if it is null
         if (modifyHearts == null)

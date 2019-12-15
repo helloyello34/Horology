@@ -10,7 +10,7 @@ public class AimMechanic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Time.timeScale == 0)
+        if (Time.timeScale == 0 || GameManager.instance.isDead || GameManager.instance.isWin)
         {
             return;
         }

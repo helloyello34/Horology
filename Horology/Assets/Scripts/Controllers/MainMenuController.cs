@@ -52,16 +52,33 @@ public class MainMenuController : MonoBehaviour
 
     private void SetTextColour(GameObject button, Color32 color)
     {
-        button.GetComponentInChildren<TextMeshProUGUI>().color = color;
+        if(button != null)
+        {
+            button.GetComponentInChildren<TextMeshProUGUI>().color = color;
+        }
     }
 
     private void SetButtonIcon(GameObject button, bool isSet)
     {
-        button.GetComponentsInChildren<Image>(true)[1].gameObject.SetActive(isSet);
+        if (button != null)
+        {
+            button.GetComponentsInChildren<Image>(true)[1].gameObject.SetActive(isSet);
+        }
     }
 
     private void Update()
     {
+        if(EventSystem.current.currentSelectedGameObject == null)
+        {
+            if(lastButton.activeInHierarchy)
+            {
+                EventSystem.current.SetSelectedGameObject(lastButton);
+            }
+            else
+            {
+                EventSystem.current.SetSelectedGameObject(currentButton);
+            }
+        }
         // When back is pressed on any other menu than the main menu
         if (Input.GetButtonDown("Cancel") && EventSystem.current.currentSelectedGameObject.transform.parent.name != "MainMenu")
         {
