@@ -17,10 +17,15 @@ public class GameOverMenu : MonoBehaviour
 
     private void Update()
     {
+        if(EventSystem.current.currentSelectedGameObject == null)
+        {
+            EventSystem.current.SetSelectedGameObject(firstSelected);
+        }
         if (currentSelected != EventSystem.current.currentSelectedGameObject)
         {
             lastSelected = currentSelected;
             currentSelected = EventSystem.current.currentSelectedGameObject;
+
 
             SetButtonColor(lastSelected, deselectedColor);
             ShowButtonIcon(lastSelected, false);
@@ -33,14 +38,25 @@ public class GameOverMenu : MonoBehaviour
         }
     }
 
+    private void Awake()
+    {
+        EventSystem.current.SetSelectedGameObject(firstSelected);
+    }
+
     private void SetButtonColor(GameObject button, Color32 color)
     {
-        button.GetComponentInChildren<TextMeshProUGUI>(true).color = color;
+        if(button != null)
+        {
+            button.GetComponentInChildren<TextMeshProUGUI>(true).color = color;
+        }
     }
 
     private void ShowButtonIcon(GameObject button, bool show)
     {
-        button.GetComponentsInChildren<Image>(true)[1].gameObject.SetActive(show);
+        if(button != null)
+        {
+            button.GetComponentsInChildren<Image>(true)[1].gameObject.SetActive(show);
+        }
     }
 
     public void ShowMenu(bool show)
