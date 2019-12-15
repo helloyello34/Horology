@@ -27,6 +27,7 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
+        DontDestroyOnLoad(gameObject);
         audioController = gameObject.GetComponentInChildren<PlayerAudioController>(true);
         // Instansiate unity event if it is null
         if (modifyHearts == null)

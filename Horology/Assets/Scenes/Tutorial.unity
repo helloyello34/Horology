@@ -1842,7 +1842,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 7c29b759494e36e46b0a46a0217c47f9, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 77de1d0c09d79ea4cb79edcb1bc2112c, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -3541,12 +3541,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7632a81ffc84b2448aa5d9577ea6157e, type: 3}
---- !u!4 &1049799953 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7500156898988978204, guid: 3045540df00fe1d4b8d284d1b9a84dcc,
-    type: 3}
-  m_PrefabInstance: {fileID: 1206417744}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1109042850
 GameObject:
   m_ObjectHideFlags: 0
@@ -3788,12 +3782,12 @@ PrefabInstance:
     - target: {fileID: 8072077820152930037, guid: 3045540df00fe1d4b8d284d1b9a84dcc,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8454786778443638838, guid: 3045540df00fe1d4b8d284d1b9a84dcc,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2237489963195178834, guid: 3045540df00fe1d4b8d284d1b9a84dcc,
         type: 3}
@@ -5164,36 +5158,6 @@ MonoBehaviour:
 --- !u!1 &1503157282 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8072077820152930037, guid: 3045540df00fe1d4b8d284d1b9a84dcc,
-    type: 3}
-  m_PrefabInstance: {fileID: 1206417744}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1503157284
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1503157282}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 219119adad3604647b96e73ab373d77a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timeSinceShot: 0
-  shootInterval: 0
-  firePoint: {fileID: 1049799953}
-  bulletPrefab: {fileID: 8350668323949797717, guid: 1ae6410b37b1c054a8933e36cfa5caca,
-    type: 3}
-  shotSound: {fileID: 1503157285}
-  muzzleFlash: {fileID: 21300000, guid: 27f7bca1749f04c4b8ff5ace078a3900, type: 3}
-  bulletSprite: {fileID: 21300000, guid: 016f5a6e3873ee24d9a0641275725bf4, type: 3}
-  framesToFlash: 3
-  destroyTime: 3
-  startingPosition: {x: 0, y: 0, z: 0}
-  knockbackAmount: 0.06
---- !u!82 &1503157285 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 3993458159020880945, guid: 3045540df00fe1d4b8d284d1b9a84dcc,
     type: 3}
   m_PrefabInstance: {fileID: 1206417744}
   m_PrefabAsset: {fileID: 0}
